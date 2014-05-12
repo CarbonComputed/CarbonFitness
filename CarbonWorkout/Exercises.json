@@ -1,0 +1,158 @@
+ [
+  {
+  "id" : 4,
+  "name": "Bench Press",
+  "description": "Muscles Targeted: Chest,Shoulders,Triceps",
+  "image" : "http://www.nhomag.com/nho_assets/extras/benchmuscles.gif",
+  "body": 1
+  
+  },
+  {
+  "id" : 5,
+  "name": "Squat",
+  "description": "Muscles Targeted: Thighs,Hips,Buttocks,Quads",
+  "image" : "http://www.freefitnessguru.com/Anatomy/images/Power%20Squat%20front%20combined.jpg",
+  "body": 2
+  },
+  {
+  "id": 3,
+  "name": "Overhead Press",
+  "description": "Muscles Worked: Shoulders, Upper Body",
+  "image": "http://content.artofmanliness.com/uploads//2013/02/Overhead-Press-1.jpg",
+  "body": 1
+  },
+  
+  {
+  "id": 6,
+  "name": "Barbell Row",
+  "description": "Muscles Worked: Middle Back, Biceps, Lats, Shoulders",
+  "image": "http://bfitness.ca/blog/wp-content/uploads/2014/02/bentrows1.jpeg",
+  "body": 1
+  },
+  {
+  "id": 7,
+  "name": "Deadlift",
+  "description": "Muscles Worked: Lower back, Calves, Forearms, Glutes, Hamstrings, Lats, Middle Back, Quadriceps, Traps",
+  "image": "http://muscle.iuhu.org/wp-content/uploads/2012/10/deadlifts-big-muscles.jpg",
+  "body": 2
+  },
+  {
+  "id": 8,
+  "name": "dolor",
+  "description": "cursus vestibulum. Mauris",
+  "image": "a,",
+  "body": 1
+  },
+  {
+  "id": 9,
+  "name": "lorem",
+  "description": "non, lobortis quis,",
+  "image": "elit",
+  "body": 2
+  },
+  {
+  "id": 10,
+  "name": "dolor,",
+  "description": "ullamcorper viverra. Maecenas",
+  "image": "sit",
+  "body": 4
+  },
+  {
+  "id": 11,
+  "name": "quis",
+  "description": "convallis est, vitae",
+  "image": "ipsum",
+  "body": 4
+  },
+  {
+  "id": 12,
+  "name": "laoreet,",
+  "description": "Phasellus nulla. Integer",
+  "image": "lectus",
+  "body": 4
+  },
+  {
+  "id": 13,
+  "name": "egestas",
+  "description": "vitae velit egestas",
+  "image": "odio.",
+  "body": 1
+  },
+  {
+  "id": 14,
+  "name": "arcu.",
+  "description": "amet ornare lectus",
+  "image": "aliquet",
+  "body": 4
+  },
+  {
+  "id": 15,
+  "name": "Duis",
+  "description": "quis lectus. Nullam",
+  "image": "Nullam",
+  "body": 1
+  },
+  {
+  "id": 16,
+  "name": "auctor",
+  "description": "amet ultricies sem",
+  "image": "placerat,",
+  "body": 3
+  },
+  {
+  "id": 17,
+  "name": "molestie",
+  "description": "lobortis quis, pede.",
+  "image": "dictum",
+  "body": 1
+  },
+  {
+  "id": 18,
+  "name": "porttitor",
+  "description": "justo nec ante.",
+  "image": "laoreet",
+  "body": 3
+  },
+  {
+  "id": 19,
+  "name": "est",
+  "description": "justo sit amet",
+  "image": "diam",
+  "body": 3
+  },
+  {
+  "id": 20,
+  "name": "Sed",
+  "description": "porttitor interdum. Sed",
+  "image": "eget,",
+  "body": 3
+  },
+  {
+  "id": 21,
+  "name": "tellus",
+  "description": "mauris ipsum porta",
+  "image": "ipsum",
+  "body": 2
+  },
+  {
+  "id": 22,
+  "name": "massa",
+  "description": "erat. Etiam vestibulum",
+  "image": "est",
+  "body": 2
+  },
+  {
+  "id": 23,
+  "name": "et",
+  "description": "gravida. Praesent eu",
+  "image": "Cras",
+  "body": 2
+  },
+  {
+  "id": 24,
+  "name": "nibh",
+  "description": "dictum. Phasellus in",
+  "image": "dui",
+  "body": 4
+  }
+  ]

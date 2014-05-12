@@ -1,0 +1,29 @@
+ [
+  {
+  "wid": 0,
+  "name": "Main Workout",
+  "description": "A well balanced workout for strength and mass.",
+  "workoutRoutines": [
+                {
+                "eid": 4,
+                "days": [
+                         "M",
+                         "W",
+                         "F"
+                         ],
+                "sets": 3,
+                "max": 0,
+                "incrementType": 2,
+                "startingReps": 5,
+                "endingReps": 20,
+                "startingWeight": 5,
+                "endingWeight": 15
+                }
+                ]
+  },
+  {
+  "wid": 2,
+  "name": "5x5",
+  "exercises": []
+  }
+  ]

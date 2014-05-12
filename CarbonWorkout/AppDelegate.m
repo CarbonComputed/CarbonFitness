@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
+#import "RoutinesViewController.h"
 
 @implementation AppDelegate
 
@@ -16,10 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    UINavigationController* nav = (UINavigationController*) self.window.rootViewController;
+    RootViewController* rvc = (RootViewController*) [nav.childViewControllers objectAtIndex:0];
+    [rvc initUser];
+    [rvc initExercises];
+    [rvc initWorkouts];
+    [rvc initHistory];
+    //self.window.backgroundColor = [UIColor whiteColor];
+    //[self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -31,6 +39,26 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    UINavigationController* nav = (UINavigationController*) self.window.rootViewController;
+    RootViewController* rvc = (RootViewController*) [nav.childViewControllers objectAtIndex:0];
+    if(rvc.currentWorkout){
+        [rvc performSelectorInBackground:@selector(saveHistory)
+                               withObject:nil];
+        [rvc performSelectorInBackground:@selector(saveWorkouts)
+                              withObject:nil];
+        rvc.backgroundTask = UIBackgroundTaskInvalid;
+        rvc.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+            NSLog(@"Background handler called. Not running background tasks anymore.");
+            [[UIApplication sharedApplication] endBackgroundTask:rvc.backgroundTask];
+            rvc.backgroundTask = UIBackgroundTaskInvalid;
+        }];
+
+    }
+    //check to see if workout is active
+    //if yes
+       //try to request background time
+       //otherwise save workout state
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
@@ -38,6 +66,15 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    UINavigationController* nav = (UINavigationController*) self.window.rootViewController;
+    RootViewController* rvc = (RootViewController*) [nav.childViewControllers objectAtIndex:0];
+    if(rvc.currentWorkout){
+        if (rvc.backgroundTask != UIBackgroundTaskInvalid)
+        {
+            [[UIApplication sharedApplication] endBackgroundTask:rvc.backgroundTask];
+            rvc.backgroundTask = UIBackgroundTaskInvalid;
+        }
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

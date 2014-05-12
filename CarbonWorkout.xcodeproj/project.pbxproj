@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40B35DE2BDEC42DA90ED1C5E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6328526C94844898B275E0D2 /* libPods.a */; };
+		701F2D7E1904DEB400157876 /* Set.m in Sources */ = {isa = PBXBuildFile; fileRef = 701F2D7D1904DEB300157876 /* Set.m */; };
+		701F2D811904DED300157876 /* SetTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 701F2D801904DED300157876 /* SetTrack.m */; };
+		701F659118FE273E00E1F98D /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701F659018FE273E00E1F98D /* HistoryViewController.m */; };
+		701F65B818FEEC8700E1F98D /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 701F65B718FEEC8700E1F98D /* CalendarView.m */; };
+		7023636219034D50001EC631 /* AdvancedSetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7023636119034D50001EC631 /* AdvancedSetView.xib */; };
+		7023636519035243001EC631 /* AdvancedSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7023636419035243001EC631 /* AdvancedSetView.m */; };
+		702DBE531910015D0061AAE9 /* menu-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 702DBE521910015D0061AAE9 /* menu-512.png */; };
+		702FCF6F1907376D00FCCDF2 /* WorkoutPlanRoutine.m in Sources */ = {isa = PBXBuildFile; fileRef = 702FCF6E1907376D00FCCDF2 /* WorkoutPlanRoutine.m */; };
+		702FCF721907381300FCCDF2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 702FCF711907381300FCCDF2 /* User.m */; };
+		702FCF751908091400FCCDF2 /* ExerciseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702FCF741908091400FCCDF2 /* ExerciseListViewController.m */; };
+		702FCF77190A10ED00FCCDF2 /* dumbbell-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 702FCF76190A10ED00FCCDF2 /* dumbbell-512.png */; };
+		702FCF79190A12E400FCCDF2 /* calendar-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 702FCF78190A12E400FCCDF2 /* calendar-512.png */; };
+		702FCF7B190A13EA00FCCDF2 /* weightlift-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 702FCF7A190A13EA00FCCDF2 /* weightlift-512.png */; };
 		7059A66118EE5FD20045807C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7059A66018EE5FD20045807C /* Foundation.framework */; };
 		7059A66318EE5FD20045807C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7059A66218EE5FD20045807C /* CoreGraphics.framework */; };
 		7059A66518EE5FD20045807C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7059A66418EE5FD20045807C /* UIKit.framework */; };
@@ -22,6 +36,34 @@
 		7059A68218EE5FD20045807C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7059A66618EE5FD20045807C /* CoreData.framework */; };
 		7059A68A18EE5FD20045807C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7059A68818EE5FD20045807C /* InfoPlist.strings */; };
 		7059A68C18EE5FD20045807C /* CarbonWorkoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7059A68B18EE5FD20045807C /* CarbonWorkoutTests.m */; };
+		7059A69618EE60010045807C /* IPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7059A69518EE60010045807C /* IPhoneStoryboard.storyboard */; };
+		7059A69C18F4C0A80045807C /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 7059A69B18F4C0A80045807C /* Exercise.m */; };
+		7059A69F18F4C0EA0045807C /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7059A69E18F4C0EA0045807C /* Workout.m */; };
+		7059A6A218F4C0FD0045807C /* WorkoutPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 7059A6A118F4C0FD0045807C /* WorkoutPlan.m */; };
+		7059A6A518F4CD8D0045807C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7059A6A418F4CD8D0045807C /* RootViewController.m */; };
+		7059A6A718F4D11F0045807C /* Exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = 7059A6A618F4D11F0045807C /* Exercises.json */; };
+		7059A6A918F4D15F0045807C /* Workouts.json in Resources */ = {isa = PBXBuildFile; fileRef = 7059A6A818F4D15F0045807C /* Workouts.json */; };
+		7059A6AC18F5C0940045807C /* Routine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7059A6AB18F5C0940045807C /* Routine.m */; };
+		7072D23F191F3B5A00D5622F /* SetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7072D23E191F3B5A00D5622F /* SetView.m */; };
+		7072D241191FF68000D5622F /* main_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D240191FF68000D5622F /* main_icon.png */; };
+		7072D246191FFE6E00D5622F /* logo29pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D243191FFE6E00D5622F /* logo29pt.png */; };
+		7072D247191FFE6E00D5622F /* logo40pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D244191FFE6E00D5622F /* logo40pt.png */; };
+		7072D248191FFE6E00D5622F /* logo60pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D245191FFE6E00D5622F /* logo60pt.png */; };
+		7072D24B1920729F00D5622F /* Goku3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D249192027CB00D5622F /* Goku3.png */; };
+		70AD1A0E19004F9A0024E2EE /* WorkoutPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A0D19004F9A0024E2EE /* WorkoutPlansViewController.m */; };
+		70AD1A1119005C170024E2EE /* EditWorkoutPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A1019005C170024E2EE /* EditWorkoutPlansViewController.m */; };
+		70AD1A1419005C7F0024E2EE /* EditRoutinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A1319005C7F0024E2EE /* EditRoutinesViewController.m */; };
+		70AD1A1B190070250024E2EE /* WLHorizontalSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A16190070250024E2EE /* WLHorizontalSegmentedControl.m */; };
+		70AD1A1C190070250024E2EE /* WLSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A18190070250024E2EE /* WLSegment.m */; };
+		70AD1A1D190070250024E2EE /* WLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A1A190070250024E2EE /* WLSegmentedControl.m */; };
+		70AD1A241900A3BB0024E2EE /* glyphicons_190_circle_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AD1A221900A3BB0024E2EE /* glyphicons_190_circle_plus.png */; };
+		70AD1A251900A3BB0024E2EE /* glyphicons_191_circle_minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AD1A231900A3BB0024E2EE /* glyphicons_191_circle_minus.png */; };
+		70BF26BF18FB4298002FCE50 /* RoutinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BF26BE18FB4298002FCE50 /* RoutinesViewController.m */; };
+		70BF26C218FB4377002FCE50 /* RoutineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BF26C118FB4377002FCE50 /* RoutineViewController.m */; };
+		70DF71A018FB24310017C2AA /* Goku1.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DF719C18FB24310017C2AA /* Goku1.png */; };
+		70DF71A118FB24310017C2AA /* Goku2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DF719D18FB24310017C2AA /* Goku2.png */; };
+		70DF71A318FB24310017C2AA /* Goku4.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DF719F18FB24310017C2AA /* Goku4.png */; };
+		70DF71A518FB2B5C0017C2AA /* History.json in Resources */ = {isa = PBXBuildFile; fileRef = 70DF71A418FB2B5C0017C2AA /* History.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +77,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7059A65D18EE5FD20045807C /* CarbonWorkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarbonWorkout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6328526C94844898B275E0D2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FA89C436E7F49E0B1EB238F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		701F2D7C1904DEB300157876 /* Set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Set.h; path = Models/Set.h; sourceTree = "<group>"; };
+		701F2D7D1904DEB300157876 /* Set.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Set.m; path = Models/Set.m; sourceTree = "<group>"; };
+		701F2D7F1904DED300157876 /* SetTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetTrack.h; path = Models/SetTrack.h; sourceTree = "<group>"; };
+		701F2D801904DED300157876 /* SetTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetTrack.m; path = Models/SetTrack.m; sourceTree = "<group>"; };
+		701F658F18FE273E00E1F98D /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoryViewController.h; path = Controllers/HistoryViewController.h; sourceTree = "<group>"; };
+		701F659018FE273E00E1F98D /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoryViewController.m; path = Controllers/HistoryViewController.m; sourceTree = "<group>"; };
+		701F65B618FEEC8700E1F98D /* CalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarView.h; path = Views/CalendarView.h; sourceTree = "<group>"; };
+		701F65B718FEEC8700E1F98D /* CalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarView.m; path = Views/CalendarView.m; sourceTree = "<group>"; };
+		7023636119034D50001EC631 /* AdvancedSetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvancedSetView.xib; path = Views/AdvancedSetView.xib; sourceTree = "<group>"; };
+		7023636319035243001EC631 /* AdvancedSetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvancedSetView.h; path = Views/AdvancedSetView.h; sourceTree = "<group>"; };
+		7023636419035243001EC631 /* AdvancedSetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvancedSetView.m; path = Views/AdvancedSetView.m; sourceTree = "<group>"; };
+		702DBE521910015D0061AAE9 /* menu-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-512.png"; sourceTree = "<group>"; };
+		702FCF6D1907376D00FCCDF2 /* WorkoutPlanRoutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutPlanRoutine.h; path = Models/WorkoutPlanRoutine.h; sourceTree = "<group>"; };
+		702FCF6E1907376D00FCCDF2 /* WorkoutPlanRoutine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutPlanRoutine.m; path = Models/WorkoutPlanRoutine.m; sourceTree = "<group>"; };
+		702FCF701907381300FCCDF2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
+		702FCF711907381300FCCDF2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
+		702FCF731908091400FCCDF2 /* ExerciseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseListViewController.h; path = Controllers/ExerciseListViewController.h; sourceTree = "<group>"; };
+		702FCF741908091400FCCDF2 /* ExerciseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseListViewController.m; path = Controllers/ExerciseListViewController.m; sourceTree = "<group>"; };
+		702FCF76190A10ED00FCCDF2 /* dumbbell-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dumbbell-512.png"; sourceTree = "<group>"; };
+		702FCF78190A12E400FCCDF2 /* calendar-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-512.png"; sourceTree = "<group>"; };
+		702FCF7A190A13EA00FCCDF2 /* weightlift-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weightlift-512.png"; sourceTree = "<group>"; };
+		7059A65D18EE5FD20045807C /* CarbonFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarbonFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7059A66018EE5FD20045807C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7059A66218EE5FD20045807C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7059A66418EE5FD20045807C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -53,6 +118,49 @@
 		7059A68718EE5FD20045807C /* CarbonWorkoutTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CarbonWorkoutTests-Info.plist"; sourceTree = "<group>"; };
 		7059A68918EE5FD20045807C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7059A68B18EE5FD20045807C /* CarbonWorkoutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarbonWorkoutTests.m; sourceTree = "<group>"; };
+		7059A69518EE60010045807C /* IPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPhoneStoryboard.storyboard; sourceTree = "<group>"; };
+		7059A69A18F4C0A80045807C /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = Models/Exercise.h; sourceTree = "<group>"; };
+		7059A69B18F4C0A80045807C /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = Models/Exercise.m; sourceTree = "<group>"; };
+		7059A69D18F4C0EA0045807C /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = Models/Workout.h; sourceTree = "<group>"; };
+		7059A69E18F4C0EA0045807C /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = Models/Workout.m; sourceTree = "<group>"; };
+		7059A6A018F4C0FD0045807C /* WorkoutPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutPlan.h; path = Models/WorkoutPlan.h; sourceTree = "<group>"; };
+		7059A6A118F4C0FD0045807C /* WorkoutPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutPlan.m; path = Models/WorkoutPlan.m; sourceTree = "<group>"; };
+		7059A6A318F4CD8D0045807C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Controllers/RootViewController.h; sourceTree = "<group>"; };
+		7059A6A418F4CD8D0045807C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Controllers/RootViewController.m; sourceTree = "<group>"; };
+		7059A6A618F4D11F0045807C /* Exercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Exercises.json; sourceTree = "<group>"; };
+		7059A6A818F4D15F0045807C /* Workouts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Workouts.json; sourceTree = "<group>"; };
+		7059A6AA18F5C0940045807C /* Routine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Routine.h; sourceTree = "<group>"; };
+		7059A6AB18F5C0940045807C /* Routine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Routine.m; sourceTree = "<group>"; };
+		7072D23D191F3B5A00D5622F /* SetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetView.h; path = Views/SetView.h; sourceTree = "<group>"; };
+		7072D23E191F3B5A00D5622F /* SetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetView.m; path = Views/SetView.m; sourceTree = "<group>"; };
+		7072D240191FF68000D5622F /* main_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_icon.png; sourceTree = "<group>"; };
+		7072D242191FFA6200D5622F /* main_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main_icon.png; path = CarbonWorkout/Images/icons/main_icon.png; sourceTree = "<group>"; };
+		7072D243191FFE6E00D5622F /* logo29pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo29pt.png; path = CarbonWorkout/Images/icons/logo29pt.png; sourceTree = "<group>"; };
+		7072D244191FFE6E00D5622F /* logo40pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo40pt.png; path = CarbonWorkout/Images/icons/logo40pt.png; sourceTree = "<group>"; };
+		7072D245191FFE6E00D5622F /* logo60pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo60pt.png; path = CarbonWorkout/Images/icons/logo60pt.png; sourceTree = "<group>"; };
+		7072D249192027CB00D5622F /* Goku3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goku3.png; sourceTree = "<group>"; };
+		70AD1A0C19004F9A0024E2EE /* WorkoutPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutPlansViewController.h; path = Controllers/WorkoutPlansViewController.h; sourceTree = "<group>"; };
+		70AD1A0D19004F9A0024E2EE /* WorkoutPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutPlansViewController.m; path = Controllers/WorkoutPlansViewController.m; sourceTree = "<group>"; };
+		70AD1A0F19005C170024E2EE /* EditWorkoutPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditWorkoutPlansViewController.h; path = Controllers/EditWorkoutPlansViewController.h; sourceTree = "<group>"; };
+		70AD1A1019005C170024E2EE /* EditWorkoutPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditWorkoutPlansViewController.m; path = Controllers/EditWorkoutPlansViewController.m; sourceTree = "<group>"; };
+		70AD1A1219005C7F0024E2EE /* EditRoutinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditRoutinesViewController.h; path = Controllers/EditRoutinesViewController.h; sourceTree = "<group>"; };
+		70AD1A1319005C7F0024E2EE /* EditRoutinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditRoutinesViewController.m; path = Controllers/EditRoutinesViewController.m; sourceTree = "<group>"; };
+		70AD1A15190070250024E2EE /* WLHorizontalSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLHorizontalSegmentedControl.h; path = Views/WLHorizontalSegmentedControl.h; sourceTree = "<group>"; };
+		70AD1A16190070250024E2EE /* WLHorizontalSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLHorizontalSegmentedControl.m; path = Views/WLHorizontalSegmentedControl.m; sourceTree = "<group>"; };
+		70AD1A17190070250024E2EE /* WLSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLSegment.h; path = Views/WLSegment.h; sourceTree = "<group>"; };
+		70AD1A18190070250024E2EE /* WLSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLSegment.m; path = Views/WLSegment.m; sourceTree = "<group>"; };
+		70AD1A19190070250024E2EE /* WLSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WLSegmentedControl.h; path = Views/WLSegmentedControl.h; sourceTree = "<group>"; };
+		70AD1A1A190070250024E2EE /* WLSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WLSegmentedControl.m; path = Views/WLSegmentedControl.m; sourceTree = "<group>"; };
+		70AD1A221900A3BB0024E2EE /* glyphicons_190_circle_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_190_circle_plus.png; sourceTree = "<group>"; };
+		70AD1A231900A3BB0024E2EE /* glyphicons_191_circle_minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_191_circle_minus.png; sourceTree = "<group>"; };
+		70BF26BD18FB4298002FCE50 /* RoutinesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutinesViewController.h; path = Controllers/RoutinesViewController.h; sourceTree = "<group>"; };
+		70BF26BE18FB4298002FCE50 /* RoutinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutinesViewController.m; path = Controllers/RoutinesViewController.m; sourceTree = "<group>"; };
+		70BF26C018FB4377002FCE50 /* RoutineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutineViewController.h; path = Controllers/RoutineViewController.h; sourceTree = "<group>"; };
+		70BF26C118FB4377002FCE50 /* RoutineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutineViewController.m; path = Controllers/RoutineViewController.m; sourceTree = "<group>"; };
+		70DF719C18FB24310017C2AA /* Goku1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goku1.png; sourceTree = "<group>"; };
+		70DF719D18FB24310017C2AA /* Goku2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goku2.png; sourceTree = "<group>"; };
+		70DF719F18FB24310017C2AA /* Goku4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goku4.png; sourceTree = "<group>"; };
+		70DF71A418FB2B5C0017C2AA /* History.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = History.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +172,7 @@
 				7059A66718EE5FD20045807C /* CoreData.framework in Frameworks */,
 				7059A66518EE5FD20045807C /* UIKit.framework in Frameworks */,
 				7059A66118EE5FD20045807C /* Foundation.framework in Frameworks */,
+				40B35DE2BDEC42DA90ED1C5E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,17 +193,22 @@
 		7059A65418EE5FD20045807C = {
 			isa = PBXGroup;
 			children = (
+				7072D243191FFE6E00D5622F /* logo29pt.png */,
+				7072D244191FFE6E00D5622F /* logo40pt.png */,
+				7072D245191FFE6E00D5622F /* logo60pt.png */,
+				7072D242191FFA6200D5622F /* main_icon.png */,
 				7059A66818EE5FD20045807C /* CarbonWorkout */,
 				7059A68518EE5FD20045807C /* CarbonWorkoutTests */,
 				7059A65F18EE5FD20045807C /* Frameworks */,
 				7059A65E18EE5FD20045807C /* Products */,
+				6FA89C436E7F49E0B1EB238F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		7059A65E18EE5FD20045807C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7059A65D18EE5FD20045807C /* CarbonWorkout.app */,
+				7059A65D18EE5FD20045807C /* CarbonFitness.app */,
 				7059A67D18EE5FD20045807C /* CarbonWorkoutTests.xctest */,
 			);
 			name = Products;
@@ -108,6 +222,7 @@
 				7059A66418EE5FD20045807C /* UIKit.framework */,
 				7059A66618EE5FD20045807C /* CoreData.framework */,
 				7059A67E18EE5FD20045807C /* XCTest.framework */,
+				6328526C94844898B275E0D2 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,11 +230,15 @@
 		7059A66818EE5FD20045807C /* CarbonWorkout */ = {
 			isa = PBXGroup;
 			children = (
+				70AD1A1F1900930C0024E2EE /* Controllers */,
 				7059A67118EE5FD20045807C /* AppDelegate.h */,
 				7059A67218EE5FD20045807C /* AppDelegate.m */,
 				7059A67718EE5FD20045807C /* Images.xcassets */,
 				7059A67418EE5FD20045807C /* CarbonWorkout.xcdatamodeld */,
 				7059A66918EE5FD20045807C /* Supporting Files */,
+				7059A69518EE60010045807C /* IPhoneStoryboard.storyboard */,
+				70AD1A20190093290024E2EE /* Models */,
+				70AD1A1E190092F10024E2EE /* Views */,
 			);
 			path = CarbonWorkout;
 			sourceTree = "<group>";
@@ -127,10 +246,14 @@
 		7059A66918EE5FD20045807C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				70DF719A18FB24310017C2AA /* Images */,
 				7059A66A18EE5FD20045807C /* CarbonWorkout-Info.plist */,
 				7059A66B18EE5FD20045807C /* InfoPlist.strings */,
 				7059A66E18EE5FD20045807C /* main.m */,
 				7059A67018EE5FD20045807C /* CarbonWorkout-Prefix.pch */,
+				7059A6A618F4D11F0045807C /* Exercises.json */,
+				7059A6A818F4D15F0045807C /* Workouts.json */,
+				70DF71A418FB2B5C0017C2AA /* History.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -153,6 +276,106 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		70AD1A1E190092F10024E2EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7072D23D191F3B5A00D5622F /* SetView.h */,
+				7072D23E191F3B5A00D5622F /* SetView.m */,
+				7023636119034D50001EC631 /* AdvancedSetView.xib */,
+				70AD1A15190070250024E2EE /* WLHorizontalSegmentedControl.h */,
+				70AD1A16190070250024E2EE /* WLHorizontalSegmentedControl.m */,
+				70AD1A17190070250024E2EE /* WLSegment.h */,
+				70AD1A18190070250024E2EE /* WLSegment.m */,
+				70AD1A19190070250024E2EE /* WLSegmentedControl.h */,
+				70AD1A1A190070250024E2EE /* WLSegmentedControl.m */,
+				701F65B618FEEC8700E1F98D /* CalendarView.h */,
+				701F65B718FEEC8700E1F98D /* CalendarView.m */,
+				7023636319035243001EC631 /* AdvancedSetView.h */,
+				7023636419035243001EC631 /* AdvancedSetView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		70AD1A1F1900930C0024E2EE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				70BF26BD18FB4298002FCE50 /* RoutinesViewController.h */,
+				70BF26BE18FB4298002FCE50 /* RoutinesViewController.m */,
+				70BF26C018FB4377002FCE50 /* RoutineViewController.h */,
+				70BF26C118FB4377002FCE50 /* RoutineViewController.m */,
+				7059A6A318F4CD8D0045807C /* RootViewController.h */,
+				7059A6A418F4CD8D0045807C /* RootViewController.m */,
+				701F658F18FE273E00E1F98D /* HistoryViewController.h */,
+				701F659018FE273E00E1F98D /* HistoryViewController.m */,
+				70AD1A0C19004F9A0024E2EE /* WorkoutPlansViewController.h */,
+				70AD1A0D19004F9A0024E2EE /* WorkoutPlansViewController.m */,
+				70AD1A0F19005C170024E2EE /* EditWorkoutPlansViewController.h */,
+				70AD1A1019005C170024E2EE /* EditWorkoutPlansViewController.m */,
+				70AD1A1219005C7F0024E2EE /* EditRoutinesViewController.h */,
+				70AD1A1319005C7F0024E2EE /* EditRoutinesViewController.m */,
+				702FCF731908091400FCCDF2 /* ExerciseListViewController.h */,
+				702FCF741908091400FCCDF2 /* ExerciseListViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		70AD1A20190093290024E2EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7059A69A18F4C0A80045807C /* Exercise.h */,
+				7059A69B18F4C0A80045807C /* Exercise.m */,
+				7059A69D18F4C0EA0045807C /* Workout.h */,
+				7059A69E18F4C0EA0045807C /* Workout.m */,
+				7059A6A018F4C0FD0045807C /* WorkoutPlan.h */,
+				7059A6A118F4C0FD0045807C /* WorkoutPlan.m */,
+				7059A6AA18F5C0940045807C /* Routine.h */,
+				7059A6AB18F5C0940045807C /* Routine.m */,
+				701F2D7C1904DEB300157876 /* Set.h */,
+				701F2D7D1904DEB300157876 /* Set.m */,
+				701F2D7F1904DED300157876 /* SetTrack.h */,
+				701F2D801904DED300157876 /* SetTrack.m */,
+				702FCF6D1907376D00FCCDF2 /* WorkoutPlanRoutine.h */,
+				702FCF6E1907376D00FCCDF2 /* WorkoutPlanRoutine.m */,
+				702FCF701907381300FCCDF2 /* User.h */,
+				702FCF711907381300FCCDF2 /* User.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		70AD1A211900A3BB0024E2EE /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				7072D240191FF68000D5622F /* main_icon.png */,
+				702DBE521910015D0061AAE9 /* menu-512.png */,
+				702FCF7A190A13EA00FCCDF2 /* weightlift-512.png */,
+				702FCF78190A12E400FCCDF2 /* calendar-512.png */,
+				702FCF76190A10ED00FCCDF2 /* dumbbell-512.png */,
+				70AD1A221900A3BB0024E2EE /* glyphicons_190_circle_plus.png */,
+				70AD1A231900A3BB0024E2EE /* glyphicons_191_circle_minus.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		70DF719A18FB24310017C2AA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				70AD1A211900A3BB0024E2EE /* icons */,
+				70DF719B18FB24310017C2AA /* Gokus */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		70DF719B18FB24310017C2AA /* Gokus */ = {
+			isa = PBXGroup;
+			children = (
+				7072D249192027CB00D5622F /* Goku3.png */,
+				70DF719C18FB24310017C2AA /* Goku1.png */,
+				70DF719D18FB24310017C2AA /* Goku2.png */,
+				70DF719F18FB24310017C2AA /* Goku4.png */,
+			);
+			path = Gokus;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,9 +383,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7059A68F18EE5FD20045807C /* Build configuration list for PBXNativeTarget "CarbonWorkout" */;
 			buildPhases = (
+				1A15BFCC0052461E9018309F /* Check Pods Manifest.lock */,
 				7059A65918EE5FD20045807C /* Sources */,
 				7059A65A18EE5FD20045807C /* Frameworks */,
 				7059A65B18EE5FD20045807C /* Resources */,
+				510B156119344B87A3213826 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,7 +395,7 @@
 			);
 			name = CarbonWorkout;
 			productName = CarbonWorkout;
-			productReference = 7059A65D18EE5FD20045807C /* CarbonWorkout.app */;
+			productReference = 7059A65D18EE5FD20045807C /* CarbonFitness.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7059A67C18EE5FD20045807C /* CarbonWorkoutTests */ = {
@@ -200,6 +425,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Kevin Carbone";
 				TargetAttributes = {
+					7059A65C18EE5FD20045807C = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					7059A67C18EE5FD20045807C = {
 						TestTargetID = 7059A65C18EE5FD20045807C;
 					};
@@ -228,8 +460,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7072D24B1920729F00D5622F /* Goku3.png in Resources */,
+				7072D246191FFE6E00D5622F /* logo29pt.png in Resources */,
+				7072D247191FFE6E00D5622F /* logo40pt.png in Resources */,
+				7072D248191FFE6E00D5622F /* logo60pt.png in Resources */,
+				7072D241191FF68000D5622F /* main_icon.png in Resources */,
+				70AD1A251900A3BB0024E2EE /* glyphicons_191_circle_minus.png in Resources */,
+				702FCF7B190A13EA00FCCDF2 /* weightlift-512.png in Resources */,
+				70DF71A118FB24310017C2AA /* Goku2.png in Resources */,
+				70AD1A241900A3BB0024E2EE /* glyphicons_190_circle_plus.png in Resources */,
+				70DF71A318FB24310017C2AA /* Goku4.png in Resources */,
+				7023636219034D50001EC631 /* AdvancedSetView.xib in Resources */,
+				702FCF77190A10ED00FCCDF2 /* dumbbell-512.png in Resources */,
+				702FCF79190A12E400FCCDF2 /* calendar-512.png in Resources */,
+				70DF71A518FB2B5C0017C2AA /* History.json in Resources */,
+				7059A6A918F4D15F0045807C /* Workouts.json in Resources */,
+				70DF71A018FB24310017C2AA /* Goku1.png in Resources */,
 				7059A66D18EE5FD20045807C /* InfoPlist.strings in Resources */,
+				702DBE531910015D0061AAE9 /* menu-512.png in Resources */,
+				7059A6A718F4D11F0045807C /* Exercises.json in Resources */,
 				7059A67818EE5FD20045807C /* Images.xcassets in Resources */,
+				7059A69618EE60010045807C /* IPhoneStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,14 +494,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A15BFCC0052461E9018309F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		510B156119344B87A3213826 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7059A65918EE5FD20045807C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7059A67318EE5FD20045807C /* AppDelegate.m in Sources */,
+				7059A6AC18F5C0940045807C /* Routine.m in Sources */,
+				70BF26C218FB4377002FCE50 /* RoutineViewController.m in Sources */,
+				702FCF6F1907376D00FCCDF2 /* WorkoutPlanRoutine.m in Sources */,
+				70AD1A1B190070250024E2EE /* WLHorizontalSegmentedControl.m in Sources */,
+				7059A69C18F4C0A80045807C /* Exercise.m in Sources */,
+				70AD1A1D190070250024E2EE /* WLSegmentedControl.m in Sources */,
+				701F659118FE273E00E1F98D /* HistoryViewController.m in Sources */,
+				701F2D811904DED300157876 /* SetTrack.m in Sources */,
+				7059A6A518F4CD8D0045807C /* RootViewController.m in Sources */,
+				701F2D7E1904DEB400157876 /* Set.m in Sources */,
+				70AD1A1119005C170024E2EE /* EditWorkoutPlansViewController.m in Sources */,
+				702FCF721907381300FCCDF2 /* User.m in Sources */,
+				701F65B818FEEC8700E1F98D /* CalendarView.m in Sources */,
 				7059A67618EE5FD20045807C /* CarbonWorkout.xcdatamodeld in Sources */,
+				70AD1A0E19004F9A0024E2EE /* WorkoutPlansViewController.m in Sources */,
+				7059A6A218F4C0FD0045807C /* WorkoutPlan.m in Sources */,
 				7059A66F18EE5FD20045807C /* main.m in Sources */,
+				702FCF751908091400FCCDF2 /* ExerciseListViewController.m in Sources */,
+				7072D23F191F3B5A00D5622F /* SetView.m in Sources */,
+				70AD1A1419005C7F0024E2EE /* EditRoutinesViewController.m in Sources */,
+				7059A69F18F4C0EA0045807C /* Workout.m in Sources */,
+				70BF26BF18FB4298002FCE50 /* RoutinesViewController.m in Sources */,
+				70AD1A1C190070250024E2EE /* WLSegment.m in Sources */,
+				7023636519035243001EC631 /* AdvancedSetView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,26 +672,48 @@
 		};
 		7059A69018EE5FD20045807C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FA89C436E7F49E0B1EB238F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kmcarbone16/Desktop,
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CarbonWorkout/CarbonWorkout-Prefix.pch";
 				INFOPLIST_FILE = "CarbonWorkout/CarbonWorkout-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kmcarbone16/Desktop,
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = CarbonFitness;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		7059A69118EE5FD20045807C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FA89C436E7F49E0B1EB238F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kmcarbone16/Desktop,
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CarbonWorkout/CarbonWorkout-Prefix.pch";
 				INFOPLIST_FILE = "CarbonWorkout/CarbonWorkout-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kmcarbone16/Desktop,
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = CarbonFitness;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -449,6 +777,7 @@
 				7059A69118EE5FD20045807C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7059A69218EE5FD20045807C /* Build configuration list for PBXNativeTarget "CarbonWorkoutTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +786,7 @@
 				7059A69418EE5FD20045807C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
