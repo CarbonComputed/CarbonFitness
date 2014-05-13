@@ -50,6 +50,9 @@
 		7072D248191FFE6E00D5622F /* logo60pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D245191FFE6E00D5622F /* logo60pt.png */; };
 		7072D24B1920729F00D5622F /* Goku3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D249192027CB00D5622F /* Goku3.png */; };
 		7072D24E1920921B00D5622F /* Routine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7072D24D1920921B00D5622F /* Routine.m */; };
+		7072D2511922996900D5622F /* twitter-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D24F1922996900D5622F /* twitter-512.png */; };
+		7072D2521922996900D5622F /* facebook-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D2501922996900D5622F /* facebook-512.png */; };
+		7072D2541922C70400D5622F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072D2531922C70400D5622F /* Social.framework */; };
 		70AD1A0E19004F9A0024E2EE /* WorkoutPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A0D19004F9A0024E2EE /* WorkoutPlansViewController.m */; };
 		70AD1A1119005C170024E2EE /* EditWorkoutPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A1019005C170024E2EE /* EditWorkoutPlansViewController.m */; };
 		70AD1A1419005C7F0024E2EE /* EditRoutinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A1319005C7F0024E2EE /* EditRoutinesViewController.m */; };
@@ -139,6 +142,9 @@
 		7072D249192027CB00D5622F /* Goku3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goku3.png; sourceTree = "<group>"; };
 		7072D24C1920921B00D5622F /* Routine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Routine.h; path = Models/Routine.h; sourceTree = "<group>"; };
 		7072D24D1920921B00D5622F /* Routine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Routine.m; path = Models/Routine.m; sourceTree = "<group>"; };
+		7072D24F1922996900D5622F /* twitter-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-512.png"; sourceTree = "<group>"; };
+		7072D2501922996900D5622F /* facebook-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-512.png"; sourceTree = "<group>"; };
+		7072D2531922C70400D5622F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		70AD1A0C19004F9A0024E2EE /* WorkoutPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutPlansViewController.h; path = Controllers/WorkoutPlansViewController.h; sourceTree = "<group>"; };
 		70AD1A0D19004F9A0024E2EE /* WorkoutPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutPlansViewController.m; path = Controllers/WorkoutPlansViewController.m; sourceTree = "<group>"; };
 		70AD1A0F19005C170024E2EE /* EditWorkoutPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditWorkoutPlansViewController.h; path = Controllers/EditWorkoutPlansViewController.h; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7072D2541922C70400D5622F /* Social.framework in Frameworks */,
 				7059A66318EE5FD20045807C /* CoreGraphics.framework in Frameworks */,
 				7059A66718EE5FD20045807C /* CoreData.framework in Frameworks */,
 				7059A66518EE5FD20045807C /* UIKit.framework in Frameworks */,
@@ -217,6 +224,7 @@
 		7059A65F18EE5FD20045807C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7072D2531922C70400D5622F /* Social.framework */,
 				7059A66018EE5FD20045807C /* Foundation.framework */,
 				7059A66218EE5FD20045807C /* CoreGraphics.framework */,
 				7059A66418EE5FD20045807C /* UIKit.framework */,
@@ -345,6 +353,8 @@
 		70AD1A211900A3BB0024E2EE /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				7072D24F1922996900D5622F /* twitter-512.png */,
+				7072D2501922996900D5622F /* facebook-512.png */,
 				7072D240191FF68000D5622F /* main_icon.png */,
 				702DBE521910015D0061AAE9 /* menu-512.png */,
 				702FCF7A190A13EA00FCCDF2 /* weightlift-512.png */,
@@ -465,6 +475,7 @@
 				7072D247191FFE6E00D5622F /* logo40pt.png in Resources */,
 				7072D248191FFE6E00D5622F /* logo60pt.png in Resources */,
 				7072D241191FF68000D5622F /* main_icon.png in Resources */,
+				7072D2521922996900D5622F /* facebook-512.png in Resources */,
 				70AD1A251900A3BB0024E2EE /* glyphicons_191_circle_minus.png in Resources */,
 				702FCF7B190A13EA00FCCDF2 /* weightlift-512.png in Resources */,
 				70DF71A118FB24310017C2AA /* Goku2.png in Resources */,
@@ -478,6 +489,7 @@
 				70DF71A018FB24310017C2AA /* Goku1.png in Resources */,
 				7059A66D18EE5FD20045807C /* InfoPlist.strings in Resources */,
 				702DBE531910015D0061AAE9 /* menu-512.png in Resources */,
+				7072D2511922996900D5622F /* twitter-512.png in Resources */,
 				7059A6A718F4D11F0045807C /* Exercises.json in Resources */,
 				7059A67818EE5FD20045807C /* Images.xcassets in Resources */,
 				7059A69618EE60010045807C /* IPhoneStoryboard.storyboard in Resources */,

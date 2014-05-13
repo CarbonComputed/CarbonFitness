@@ -25,7 +25,7 @@ enum TYPE {REP, TIME};
 
 -(id) initWithDictionary:(NSDictionary*) attributes;
 -(id)copyWithZone:(NSZone *)zone;
-
+- (NSComparisonResult)compare:(Exercise *)otherObject;
 
 
 @end

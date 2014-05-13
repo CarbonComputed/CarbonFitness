@@ -16,6 +16,8 @@
 #import "Exercise.h"
 #import "Routine.h"
 
+#import <Social/Social.h>
+
 
 @interface RootViewController ()
 
@@ -282,6 +284,35 @@
         [_workoutDict setObject:wplan forKey:@(wplan.wid)];
     }
     //NSDictionary* w = _workoutDict;
+}
+
+- (IBAction)shareFacebook:(id)sender {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        // Initialize Compose View Controller
+        SLComposeViewController *vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        // Configure Compose View Controller
+        [vc setInitialText:@"Getting in shape with CarbonFitness!"];
+        // Present Compose View Controller
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
+        NSString *message = @"It seems that we cannot talk to Facebook at the moment or you have not yet added your Facebook account to this device. Go to the Settings application to add your Facebook account to this device.";
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+- (IBAction)shareTwitter:(id)sender {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        // Initialize Compose View Controller
+        SLComposeViewController *vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        // Configure Compose View Controller
+        [vc setInitialText:@"Getting in shape with CarbonFitness!"];
+        // Present Compose View Controller
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
+        NSString *message = @"It seems that we cannot talk to Facebook at the moment or you have not yet added your Facebook account to this device. Go to the Settings application to add your Facebook account to this device.";
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 

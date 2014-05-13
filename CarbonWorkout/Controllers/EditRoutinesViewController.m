@@ -10,6 +10,12 @@
 
 #define NUMBERS_ONLY @"1234567890"
 #define CHARACTER_LIMIT 3
+static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
+static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
+static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
+CGFloat animatedDistance;
 
 @interface EditRoutinesViewController ()
 
@@ -245,11 +251,14 @@
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
+                                             selector:@selector(keyboardDidHide:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
 }
 
 
@@ -260,35 +269,18 @@
 }
 
 
-- (void)keyboardWasShown:(NSNotification *)notification {
-    
-//    NSDictionary* info = [notification userInfo];
-//    
-//    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-//    
-//    CGPoint buttonOrigin = self.advancedView.frame.origin;
-//    
-//    CGFloat buttonHeight = self.advancedView.frame.size.height;
-//    
-//    CGRect visibleRect = self.view.frame;
-//    
-//    visibleRect.size.height -= keyboardSize.height;
-//    
-//    if (!CGRectContainsPoint(visibleRect, buttonOrigin)){
-//        
-//        CGPoint scrollPoint = CGPointMake(0.0, buttonOrigin.y - visibleRect.size.height + buttonHeight);
-//        
-//        [self.scrollView setContentOffset:scrollPoint animated:YES];
-//        
-//    }
-    
+- (void)keyboardDidShow: (NSNotification *) notif{
+    [_scrollView setContentOffset:CGPointMake(0, 60) animated:YES];
 }
 
+- (void)keyboardDidHide: (NSNotification *) notif{
+    //keyboard will hide
+//    _scrollView.frame = CGRectMake(_scrollView.frame.origin.x,
+//                                  _scrollView.frame.origin.y,
+//                                  _scrollView.frame.size.width,
+//                                  _scrollView.frame.size.height + 220);   //move down
+    [_scrollView setContentOffset:CGPointMake(0, -65) animated:YES];
 
-// Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    [self.scrollView setContentOffset:CGPointZero animated:YES];
 }
 
 /*

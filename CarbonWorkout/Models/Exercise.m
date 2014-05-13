@@ -48,4 +48,8 @@
     
     return another;
 }
+
+- (NSComparisonResult)compare:(Exercise *)otherObject {
+    return [_name compare:otherObject.name];
+}
 @end

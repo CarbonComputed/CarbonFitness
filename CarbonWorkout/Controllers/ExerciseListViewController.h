@@ -18,6 +18,7 @@
 @property (weak) NSDictionary* exerciseDict;
 
 @property NSMutableArray *selectedExercises;
+@property NSMutableDictionary* displayList;
 
 @end
 

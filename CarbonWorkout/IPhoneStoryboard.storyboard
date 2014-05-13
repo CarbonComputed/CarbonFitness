@@ -35,9 +35,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEG-I9-Gcj">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEG-I9-Gcj">
                                 <rect key="frame" x="96" y="120" width="128" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="WpK-Rl-M6N"/>
+                                    <constraint firstAttribute="height" constant="96" id="a81-L8-6L6"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="dumbbell-512.png"/>
                                 <userDefinedRuntimeAttributes>
@@ -49,12 +53,12 @@
                                     <action selector="startWorkoutButtonPressed:" destination="gpU-G6-yRa" eventType="touchUpInside" id="Tqy-mh-ecV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-EH-PCi">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-EH-PCi">
                                 <rect key="frame" x="129" y="259" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="HEa-5w-xRo"/>
-                                    <constraint firstAttribute="height" constant="64" id="V8J-fM-ZvV"/>
+                                    <constraint firstAttribute="height" constant="64" id="EPw-4x-Fa7"/>
+                                    <constraint firstAttribute="width" constant="64" id="c9C-qc-Jkp"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="weightlift-512.png"/>
@@ -68,9 +72,13 @@
                                     <action selector="workoutPlansButtonPressed:" destination="gpU-G6-yRa" eventType="touchUpInside" id="q0E-gB-7Kr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eae-Yf-MwC">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eae-Yf-MwC">
                                 <rect key="frame" x="129" y="386" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Apw-V7-khw"/>
+                                    <constraint firstAttribute="width" constant="64" id="I7c-D6-rT2"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="calendar-512.png"/>
                                 <userDefinedRuntimeAttributes>
@@ -82,58 +90,84 @@
                                     <action selector="historyButtonPressed:" destination="gpU-G6-yRa" eventType="touchUpInside" id="MAJ-71-d9S"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW WORKOUT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXF-RB-QNV">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="NEW WORKOUT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXF-RB-QNV">
                                 <rect key="frame" x="92" y="203" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="vQb-N4-hrg"/>
+                                    <constraint firstAttribute="height" constant="21" id="39f-jW-5iM"/>
+                                    <constraint firstAttribute="width" constant="136" id="cBy-ZB-KJ4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKOUT PLANS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p07-z5-8yu">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="WORKOUT PLANS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p07-z5-8yu">
                                 <rect key="frame" x="93" y="331" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="2dq-Oa-PUc"/>
+                                    <constraint firstAttribute="height" constant="21" id="04V-e1-ILR"/>
+                                    <constraint firstAttribute="width" constant="136" id="nbV-bt-YeT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HISTORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32C-56-dUe">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="HISTORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32C-56-dUe">
                                 <rect key="frame" x="124" y="458" width="73" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="6Gq-rz-4Iy"/>
-                                    <constraint firstAttribute="width" constant="73" id="TUn-Yp-VBf"/>
+                                    <constraint firstAttribute="width" constant="73" id="ohw-Ef-sbR"/>
+                                    <constraint firstAttribute="height" constant="21" id="xXA-eW-e4A"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-K1-woH">
+                                <rect key="frame" x="280" y="530" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="1ez-es-pku"/>
+                                    <constraint firstAttribute="height" constant="32" id="y9S-uZ-oIl"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="facebook-512.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareFacebook:" destination="gpU-G6-yRa" eventType="touchUpInside" id="BP6-tn-6Xk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3E1-OY-FqF">
+                                <rect key="frame" x="240" y="530" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="6SH-f9-Vrc"/>
+                                    <constraint firstAttribute="height" constant="32" id="v6k-rc-cj9"/>
+                                </constraints>
+                                <state key="normal" title="Button" backgroundImage="twitter-512.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareTwitter:" destination="gpU-G6-yRa" eventType="touchUpInside" id="EQO-e5-YCL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fbT-EH-PCi" firstAttribute="top" secondItem="VXF-RB-QNV" secondAttribute="bottom" constant="35" id="31b-ou-tgM"/>
-                            <constraint firstItem="EEG-I9-Gcj" firstAttribute="centerX" secondItem="Fz7-xm-djF" secondAttribute="centerX" id="A3L-zj-2Wq"/>
-                            <constraint firstAttribute="trailing" secondItem="p07-z5-8yu" secondAttribute="trailing" constant="91" id="FAN-mA-idZ"/>
-                            <constraint firstItem="a1L-jv-NxJ" firstAttribute="top" secondItem="32C-56-dUe" secondAttribute="bottom" constant="89" id="Kbq-m9-qsS"/>
-                            <constraint firstItem="32C-56-dUe" firstAttribute="top" secondItem="eae-Yf-MwC" secondAttribute="bottom" constant="8" symbolic="YES" id="Nmq-XG-e1I"/>
-                            <constraint firstItem="EEG-I9-Gcj" firstAttribute="top" secondItem="4Al-7C-dRq" secondAttribute="bottom" constant="56" id="Qyy-St-Kvg"/>
-                            <constraint firstItem="32C-56-dUe" firstAttribute="centerX" secondItem="VXF-RB-QNV" secondAttribute="centerX" id="RZF-js-inP"/>
-                            <constraint firstItem="p07-z5-8yu" firstAttribute="top" secondItem="fbT-EH-PCi" secondAttribute="bottom" constant="8" symbolic="YES" id="TNz-t1-RBF"/>
-                            <constraint firstItem="EEG-I9-Gcj" firstAttribute="leading" secondItem="Fz7-xm-djF" secondAttribute="leading" constant="96" id="Y2d-A6-CyD"/>
-                            <constraint firstItem="fbT-EH-PCi" firstAttribute="trailing" secondItem="eae-Yf-MwC" secondAttribute="trailing" id="duB-xY-fhK"/>
-                            <constraint firstItem="fbT-EH-PCi" firstAttribute="top" secondItem="EEG-I9-Gcj" secondAttribute="bottom" constant="43" id="fSy-tP-afW"/>
-                            <constraint firstItem="eae-Yf-MwC" firstAttribute="top" secondItem="p07-z5-8yu" secondAttribute="bottom" constant="34" id="mZ8-bp-hLm"/>
-                            <constraint firstItem="p07-z5-8yu" firstAttribute="leading" secondItem="Fz7-xm-djF" secondAttribute="leading" constant="93" id="mkV-R7-owt"/>
-                            <constraint firstItem="eae-Yf-MwC" firstAttribute="leading" secondItem="fbT-EH-PCi" secondAttribute="leading" id="nK4-zk-dER"/>
-                            <constraint firstItem="EEG-I9-Gcj" firstAttribute="centerX" secondItem="VXF-RB-QNV" secondAttribute="centerX" id="rA5-ib-uZz"/>
-                            <constraint firstItem="fbT-EH-PCi" firstAttribute="centerX" secondItem="p07-z5-8yu" secondAttribute="centerX" id="tec-XZ-m3o"/>
-                            <constraint firstItem="VXF-RB-QNV" firstAttribute="leading" secondItem="Fz7-xm-djF" secondAttribute="leading" constant="92" id="vMJ-jc-C0A"/>
-                            <constraint firstItem="VXF-RB-QNV" firstAttribute="top" secondItem="4Al-7C-dRq" secondAttribute="bottom" constant="139" id="zSd-Dc-hOH"/>
+                            <constraint firstItem="32C-56-dUe" firstAttribute="centerX" secondItem="EEG-I9-Gcj" secondAttribute="centerX" id="1bc-jy-KuA"/>
+                            <constraint firstItem="a1L-jv-NxJ" firstAttribute="top" secondItem="3E1-OY-FqF" secondAttribute="bottom" constant="6" id="5hN-eE-Det"/>
+                            <constraint firstItem="EEG-I9-Gcj" firstAttribute="top" relation="lessThanOrEqual" secondItem="4Al-7C-dRq" secondAttribute="bottom" constant="40" id="D6h-dr-xYR"/>
+                            <constraint firstItem="VXF-RB-QNV" firstAttribute="top" secondItem="EEG-I9-Gcj" secondAttribute="bottom" constant="-13" id="GCL-f1-RNk"/>
+                            <constraint firstItem="32C-56-dUe" firstAttribute="centerX" secondItem="VXF-RB-QNV" secondAttribute="centerX" id="H5f-Jb-Ywz"/>
+                            <constraint firstItem="a1L-jv-NxJ" firstAttribute="top" secondItem="EZY-K1-woH" secondAttribute="bottom" constant="6" id="IBy-fb-6Ah"/>
+                            <constraint firstItem="32C-56-dUe" firstAttribute="centerX" secondItem="Fz7-xm-djF" secondAttribute="centerX" id="Q4O-2V-pWV"/>
+                            <constraint firstItem="32C-56-dUe" firstAttribute="top" secondItem="eae-Yf-MwC" secondAttribute="bottom" constant="8" id="UFh-3S-YkL"/>
+                            <constraint firstItem="EZY-K1-woH" firstAttribute="leading" secondItem="3E1-OY-FqF" secondAttribute="trailing" constant="8" id="WGn-7H-idT"/>
+                            <constraint firstAttribute="centerY" secondItem="fbT-EH-PCi" secondAttribute="centerY" constant="-7" id="ncA-UJ-z3o"/>
+                            <constraint firstItem="a1L-jv-NxJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="32C-56-dUe" secondAttribute="bottom" constant="40" id="qWL-dF-5Fn"/>
+                            <constraint firstItem="p07-z5-8yu" firstAttribute="top" secondItem="fbT-EH-PCi" secondAttribute="bottom" constant="8" id="rV7-S9-2Ju"/>
+                            <constraint firstItem="fbT-EH-PCi" firstAttribute="top" secondItem="EEG-I9-Gcj" secondAttribute="bottom" constant="43" id="uIs-Mu-P5d"/>
+                            <constraint firstAttribute="trailing" secondItem="EZY-K1-woH" secondAttribute="trailing" constant="8" id="vle-ck-UAv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="CARBON FITNESS" id="dKu-7Z-8P8"/>
@@ -983,6 +1017,7 @@
                         <outlet property="reffedView" destination="6ec-uB-Iev" id="9C1-oJ-vy3"/>
                         <outlet property="repsField" destination="JYt-QL-ljN" id="aoh-9P-AEH"/>
                         <outlet property="reps_weightView" destination="6ec-uB-Iev" id="eeJ-NH-0KB"/>
+                        <outlet property="scrollView" destination="jpm-hD-Nqh" id="rNt-JV-C87"/>
                         <outlet property="segmentedControl" destination="Pbw-eA-xwO" id="Set-bU-xfE"/>
                         <outlet property="setsField" destination="DmG-gR-xAO" id="54l-s9-94Z"/>
                         <outlet property="weightField" destination="q1u-3z-ZiC" id="dMd-Df-ele"/>
@@ -1001,8 +1036,10 @@
     <resources>
         <image name="calendar-512.png" width="512" height="512"/>
         <image name="dumbbell-512.png" width="512" height="512"/>
+        <image name="facebook-512.png" width="512" height="512"/>
         <image name="glyphicons_190_circle_plus.png" width="626" height="554"/>
         <image name="glyphicons_191_circle_minus.png" width="626" height="554"/>
+        <image name="twitter-512.png" width="512" height="512"/>
         <image name="weightlift-512.png" width="512" height="512"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1011,6 +1048,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="9nH-GL-0qB"/>
+        <segue reference="mzx-fP-kV7"/>
     </inferredMetricsTieBreakers>
 </document>

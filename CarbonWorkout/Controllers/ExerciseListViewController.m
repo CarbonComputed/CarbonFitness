@@ -24,12 +24,26 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _displayList = [NSMutableDictionary new];
     _selectedExercises = [NSMutableArray new];
     [self.exerciseTableView setDelegate:self];
     [self.exerciseTableView setDataSource:self];
+    
+    [_displayList setObject:[NSMutableArray new] forKey:@"Exercises"];
+    for(Exercise* e in _exerciseDict.allValues){
+        [[_displayList objectForKey:@"Exercises"] addObject:e];
+    }
+    NSMutableArray* sortedArray = [[_displayList objectForKey:@"Exercises"] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        Exercise *ex1 = (Exercise*)a;
+        Exercise *ex2 = (Exercise*)b;
+        return [ex1 compare:ex2];
+    }];
+    [_displayList setObject:sortedArray forKey:@"Exercises"];
         // Do any additional setup after loading the view.
 }
 
@@ -48,7 +62,7 @@
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ExerciseCell"];
     }
-    Exercise* r = [_exerciseDict.allValues objectAtIndex:indexPath.row];
+    Exercise* r = [_displayList.allValues[indexPath.section] objectAtIndex:indexPath.row];
     cell.textLabel.text = r.name;
     cell.detailTextLabel.text = r.description;
     return cell;
@@ -77,15 +91,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [_exerciseTableView cellForRowAtIndexPath:indexPath];
-    if (![_selectedExercises containsObject:[_exerciseDict.allValues objectAtIndex:indexPath.row]])  // if not available
+    if (![_selectedExercises containsObject:[_displayList.allValues[indexPath.section] objectAtIndex:indexPath.row]])  // if not available
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [_selectedExercises addObject: [_exerciseDict.allValues objectAtIndex:indexPath.row]];
+        [_selectedExercises addObject: [_displayList.allValues[indexPath.section] objectAtIndex:indexPath.row]];
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [_selectedExercises removeObject: [_exerciseDict.allValues objectAtIndex:indexPath.row]];
+        [_selectedExercises removeObject: [_displayList.allValues[indexPath.section] objectAtIndex:indexPath.row]];
     }
 }
 /*
