@@ -16,7 +16,12 @@
 #import "Routine.h"
 #import "Exercise.h"
 
+enum Sort {ALPHA,BODY};
+
 @interface RoutinesViewController ()
+
+@property UIActionSheet* sortSheet;
+@property int sortType;
 
 @end
 
@@ -46,7 +51,7 @@
     
     self.routinesTableView.contentInset = UIEdgeInsetsMake(-65, 0, 0, 0);
     
-    
+    _sortType = BODY;
     
     [_routinesTableView setDelegate:self];
 
@@ -65,6 +70,12 @@
     else{
         _finishButton.hidden = true;
     }
+    
+    _sortSheet = [[UIActionSheet alloc] initWithTitle:@"Sort Options: " delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+                  @"Alphabetically",
+                  @"Body Type",
+                  nil];
+    _sortSheet.tag = 1;
 
     // Do any additional setup after loading the view.
 }
@@ -186,6 +197,7 @@
         NSIndexPath *ip = [self.routinesTableView indexPathForSelectedRow];
         evc.routine = [[[_displayList allValues] objectAtIndex:ip.section] objectAtIndex:ip.row];;
         evc.currentWorkout = _currentWorkout;
+        evc.fromHistory = _fromHistory;
     }
 }
 
@@ -199,8 +211,8 @@
     
 }
 
-
-- (IBAction)menuPressed:(id)sender {
+-(void)sortByBodyType{
+    
     [_displayList removeAllObjects];
     for(Routine* r in _currentWorkout.routines){
         switch (r.workoutPlanRoutine.exercise.body) {
@@ -209,14 +221,20 @@
                     [_displayList setObject:[NSMutableArray new] forKey:@"UPPER BODY" ];
                 }
                 [[_displayList objectForKey:@"UPPER BODY"] addObject:r];
-
+                
                 break;
             case LOWER:
                 if(![_displayList objectForKey:@"LOWER BODY"]){
                     [_displayList setObject:[NSMutableArray new] forKey:@"LOWER BODY" ];
                 }
                 [[_displayList objectForKey:@"LOWER BODY"] addObject:r];
-
+                break;
+            case CORE:
+                if(![_displayList objectForKey:@"CORE"]){
+                    [_displayList setObject:[NSMutableArray new] forKey:@"LOWER BODY" ];
+                }
+                [[_displayList objectForKey:@"CORE"] addObject:r];
+                
                 break;
                 
             default:
@@ -224,6 +242,52 @@
         }
     }
     [_routinesTableView reloadData];
+    _sortType = BODY;
+    
+}
+
+-(void)sortAlphabetically{
+    [_displayList removeAllObjects];
+    [_displayList setObject:[NSMutableArray new] forKey:@"Exercises"];
+    for(Routine* r in _currentWorkout.routines){
+        [[_displayList objectForKey:@"Exercises"] addObject:r];
+    }
+    NSMutableArray* sortedArray = [[_displayList objectForKey:@"Exercises"] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        Routine *ex1 = (Routine*)a;
+        Routine *ex2 = (Routine*)b;
+        return [ex1.workoutPlanRoutine.exercise compare:ex2.workoutPlanRoutine.exercise];
+    }];
+    _sortType = ALPHA;
+    
+    [_displayList setObject:sortedArray forKey:@"Exercises"];
+    [_routinesTableView reloadData];
+
+}
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (popup.tag) {
+        case 1: {
+            switch (buttonIndex) {
+                case 0:
+                    [self sortAlphabetically];
+                    break;
+                case 1:
+                    [self sortByBodyType];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (IBAction)menuPressed:(id)sender {
+    [_sortSheet showInView:[UIApplication sharedApplication].keyWindow];
+
 }
 
 /*

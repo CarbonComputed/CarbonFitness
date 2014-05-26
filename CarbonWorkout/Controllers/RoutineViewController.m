@@ -8,7 +8,9 @@
 
 #import "RoutineViewController.h"
 #import "EditRoutinesViewController.h"
+#import "ImageViewController.h"
 #import "Set.h"
+#import "User.h"
 #import "RootViewController.h"
 #import "WorkoutPlan.h"
 #import <AFNetworking/AFNetworking.h>
@@ -52,8 +54,13 @@
 {
     [super loadView];
     [self loadWorkoutImage];
+    _viewHolder.hidden = true;
+    _setView = [[SetView alloc] initWithFrame:CGRectMake(20, 124, 280, 94)];
     _setView.delegate = self;
-    _setView  = [_setView initWithFrame:_setView.frame setArray:_routine.setTrack.sets];
+
+    [self.view addSubview:_setView];
+    //_setView  = [_setView initWithFrame:_setView.frame setArray:_routine.setTrack.sets];
+    
 }
 - (IBAction)labelSwiped:(id)sender {
     [self hideNotLabel];
@@ -95,6 +102,84 @@
     [postOperation start];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    //[_routine.setTrack.sets removeAllObjects] ;
+    if(!_currentWorkout.currentPlan && !_fromHistory){
+        NSMutableDictionary* workoutDict = [User sharedUser].workoutDict;
+        _currentWorkout.currentPlan = [workoutDict objectForKey:@([User sharedUser].defaultWorkout)];
+    }
+    if(!_currentWorkout.currentPlan || _fromHistory){
+        
+        SetTrack* s = [_routine.setTrack copyWithZone:nil];
+        _routine = [_routine initWithWorkoutPlanRoutine:_routine.workoutPlanRoutine];
+        int i =0;
+        int weight=-1;
+        for(Set* set in s.sets){
+            if(set.reps > -1){
+                [_routine.setTrack.sets setObject:set atIndexedSubscript:i];
+                
+            }
+            else{
+                if(weight<0){
+                    weight = [[_routine.setTrack.sets objectAtIndex:i] weight];
+                }
+            }
+            i++;
+        }
+        if(weight < 0){
+            weight = [[_routine.setTrack.sets objectAtIndex:_routine.setTrack.sets.count-1] weight];
+        }
+        _weightLabel.text = [NSString stringWithFormat:@"%dlbs", weight];
+        
+        [_setView setSets:_routine.setTrack.sets];
+        [_setView setNeedsLayout];
+        return;
+    }
+    for(WorkoutPlanRoutine* wpr in _currentWorkout.currentPlan.workoutPlanRoutines){
+        //should use an actual id here
+        if(wpr.exercise.eid == _routine.workoutPlanRoutine.exercise.eid){
+            //Routine* r = [[Routine alloc] initWithWorkoutPlanRoutine:wpr];
+            
+            SetTrack* s = [_routine.setTrack copyWithZone:nil];
+            _routine = [_routine initWithWorkoutPlanRoutine:wpr];
+            int i =0;
+            int weight=-1;
+            for(Set* set in s.sets){
+                if(set.reps > -1){
+                    [_routine.setTrack.sets setObject:set atIndexedSubscript:i];
+
+                }
+                else{
+                    if(weight<0){
+                        weight = [[_routine.setTrack.sets objectAtIndex:i] weight];
+                    }
+                }
+                 i++;
+            }
+            if(weight < 0){
+                weight = [[_routine.setTrack.sets objectAtIndex:_routine.setTrack.sets.count-1] weight];
+            }
+            _weightLabel.text = [NSString stringWithFormat:@"%dlbs", weight];
+
+            [_setView setSets:_routine.setTrack.sets];
+            [_setView setNeedsLayout];
+            break;
+            
+        }
+        
+    }
+    
+//    if([_routine.setTrack.sets count] > 0){
+//        Set* set = [_routine.setTrack.sets objectAtIndex:0];
+//        
+//        
+//        _weightLabel.text = [NSString stringWithFormat:@"%dlbs", set.weight];
+//    }
+
+
+    
+}
 
 
 -(void)showNotLabel:(NSString*)message afterDelay:(NSTimeInterval) t{
@@ -280,6 +365,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _imageView.userInteractionEnabled = YES;
     _exerciseLabel.text = [_routine.workoutPlanRoutine.exercise.name uppercaseString];
     if([_routine.setTrack.sets count] > 0){
         Set* set = [_routine.setTrack.sets objectAtIndex:0];
@@ -295,11 +381,17 @@
 }
 
 
+- (IBAction)editCurrentRoutinePressed:(id)sender {
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) routineEdited:(WorkoutPlanRoutine*) wpr{
+    
 }
 
 
@@ -308,7 +400,30 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    if ([[segue identifier] isEqualToString:@"EditRoutineSegue"])
+    {
+        // Get reference to the destination view controller
+        EditRoutinesViewController *evc = [segue destinationViewController];
+        for(WorkoutPlanRoutine* wpr in _currentWorkout.currentPlan.workoutPlanRoutines){
+            //should use an actual id here
+            if(wpr.exercise.eid == _routine.workoutPlanRoutine.exercise.eid){
+                    evc.currentRoutine = wpr;
+                    break;
+                
+            }
+        }
+        if(!_currentWorkout.currentPlan){
+            evc.currentRoutine = _routine.workoutPlanRoutine;
+        }
+    }
+    if ([[segue identifier] isEqualToString:@"imageViewSegue"])
+    {
+        // Get reference to the destination view controller
+        ImageViewController *ivc = [segue destinationViewController];
+        
+        ivc.image = _imageView.image;
+        
+    }
 }
 
 

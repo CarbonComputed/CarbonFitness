@@ -11,6 +11,7 @@
 
 @interface Set : NSObject
 
+
 @property int reps;
 @property int max_reps;
 @property int weight;

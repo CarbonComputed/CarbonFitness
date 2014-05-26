@@ -30,5 +30,7 @@
 
 @property NSMutableDictionary* displayList;
 
+@property BOOL fromHistory;
+
 
 @end

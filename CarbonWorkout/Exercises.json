@@ -9,7 +9,7 @@
   },
   {
   "id" : 5,
-  "name": "Squat",
+  "name": "Squats",
   "description": "Muscles Targeted: Thighs,Hips,Buttocks,Quads",
   "image" : "http://www.freefitnessguru.com/Anatomy/images/Power%20Squat%20front%20combined.jpg",
   "body": 2
@@ -38,121 +38,153 @@
   },
   {
   "id": 8,
-  "name": "dolor",
-  "description": "cursus vestibulum. Mauris",
-  "image": "a,",
+  "name": "Dumbbell Bench Press",
+  "description": "Muscles Worked: Chest, Triceps, Deltoids",
+  "image": "http://gymhard.weebly.com/uploads/1/3/9/5/13953654/104498_orig.jpg?228",
   "body": 1
   },
   {
   "id": 9,
-  "name": "lorem",
-  "description": "non, lobortis quis,",
-  "image": "elit",
-  "body": 2
+  "name": "Barbell Incline Bench Press",
+  "description": "Muscles Worked: Chest, Triceps, Deltoids",
+  "image": "http://img832.imageshack.us/img832/2677/inclinebbbench.png",
+  "body": 1
   },
   {
   "id": 10,
-  "name": "dolor,",
-  "description": "ullamcorper viverra. Maecenas",
-  "image": "sit",
-  "body": 4
-  },
-  {
-  "id": 11,
-  "name": "quis",
-  "description": "convallis est, vitae",
-  "image": "ipsum",
-  "body": 4
+  "name": "Dumbell Incline Bench Press",
+  "description": "Muscles Worked: Chest, Triceps, Deltoids",
+  "image": "http://www.serwer1482676.home.pl/upload/images/training_anatomy_chest_incline_2014-04-16_00-14-36.jpg",
+  "body": 1
   },
   {
   "id": 12,
-  "name": "laoreet,",
-  "description": "Phasellus nulla. Integer",
-  "image": "lectus",
-  "body": 4
+  "name": "Dumbell Decline Bench Press",
+  "description": "Muscles Worked: Muscles Worked: Chest, Triceps, Deltoids",
+  "image": "http://workoutlabs.com/wp-content/uploads/watermarked/Decline-_Dumbbell_Press.png",
+  "body": 1
   },
   {
   "id": 13,
-  "name": "egestas",
-  "description": "vitae velit egestas",
-  "image": "odio.",
+  "name": "Push-Ups",
+  "description": "Muscles Worked: Chest, Triceps, Deltoids",
+  "image": "http://www.buzzle.com/images/diagrams/push-up-muscles.jpg",
   "body": 1
   },
   {
   "id": 14,
-  "name": "arcu.",
-  "description": "amet ornare lectus",
-  "image": "aliquet",
-  "body": 4
+  "name": "Dips",
+  "description": "Muscles Worked: Chest, Triceps, Deltoids",
+  "image": "http://0.static.wix.com/media/67485de9d5a0c325c9d39548ad9985bb.wix_mp_1024",
+  "body": 1
   },
   {
   "id": 15,
-  "name": "Duis",
-  "description": "quis lectus. Nullam",
-  "image": "Nullam",
+  "name": "Flat Dumbbell Flyes",
+  "description": "Muscles Worked: Chest, Biceps, Brachioradialis, Rotator Cuff, Deltoids",
+  "image": "http://www.freefitnessguru.com/Anatomy/images/Dumbell%20Flyes%202%20combined.jpg",
   "body": 1
   },
   {
   "id": 16,
-  "name": "auctor",
-  "description": "amet ultricies sem",
-  "image": "placerat,",
-  "body": 3
+  "name": "Incline Dumbbell Flyes",
+  "description": "Muscles Worked: Chest, Biceps, Brachioradialis, Rotator Cuff, Deltoids",
+  "image": "http://extrastrong.ru/wp-content/uploads/2010/04/dumbbell-fly-45-bench-1024x778.jpg",
+  "body": 1
   },
+  
   {
-  "id": 17,
-  "name": "molestie",
-  "description": "lobortis quis, pede.",
-  "image": "dictum",
+  "id": 18,
+  "name": "Pull-Ups",
+  "description": "Muscles Worked: ",
+  "image": "laoreet",
   "body": 1
   },
   {
-  "id": 18,
-  "name": "porttitor",
-  "description": "justo nec ante.",
-  "image": "laoreet",
-  "body": 3
-  },
-  {
   "id": 19,
-  "name": "est",
-  "description": "justo sit amet",
+  "name": "Chin-Ups",
+  "description": "Muscles Worked: ",
   "image": "diam",
-  "body": 3
+  "body": 1
   },
   {
   "id": 20,
-  "name": "Sed",
-  "description": "porttitor interdum. Sed",
+  "name": "Lat Pull-Downs",
+  "description": "Muscles Worked: ",
   "image": "eget,",
-  "body": 3
+  "body": 1
   },
   {
   "id": 21,
-  "name": "tellus",
-  "description": "mauris ipsum porta",
+  "name": "Shrugs",
+  "description": "Muscles Worked: ",
   "image": "ipsum",
-  "body": 2
+  "body": 1
   },
   {
   "id": 22,
-  "name": "massa",
-  "description": "erat. Etiam vestibulum",
+  "name": "Barbell Bicep Curls",
+  "description": "Muscles Worked: ",
   "image": "est",
-  "body": 2
+  "body": 1
   },
   {
   "id": 23,
-  "name": "et",
-  "description": "gravida. Praesent eu",
+  "name": "Dumbbell Bicep Curls ",
+  "description": "Muscles Worked: ",
   "image": "Cras",
-  "body": 2
+  "body": 1
   },
   {
   "id": 24,
-  "name": "nibh",
-  "description": "dictum. Phasellus in",
+  "name": "Skull Crushers",
+  "description": "Muscles Worked: ",
   "image": "dui",
-  "body": 4
+  "body": 1
+  },
+  {
+  "id": 25,
+  "name": "Crunches",
+  "description": "Muscles Worked: ",
+  "image": "dui",
+  "body": 3
+  }
+  ,
+  {
+  "id": 26,
+  "name": "Dumbbell Shoulder Presses",
+  "description": "Muscles Worked: ",
+  "image": "dui",
+  "body": 1
+  },
+  {
+  "id": 28,
+  "name": "Barbell Pullover",
+  "description": "Muscles Worked: ",
+  "image": "dui",
+  "body": 1
+  }
+  ,
+  {
+  "id": 29,
+  "name": "Lunge",
+  "description": "Muscles Worked: ",
+  "image": "dui",
+  "body": 2
+  }
+  ,
+  {
+  "id": 30,
+  "name": "Calf Raises",
+  "description": "Muscles Worked: ",
+  "image": "dui",
+  "body": 2
+  },
+  {
+  "id": 31,
+  "name": "Side Crunches",
+  "description": "Muscles Worked: ",
+  "image": "dui",
+  "body": 3
   }
   ]

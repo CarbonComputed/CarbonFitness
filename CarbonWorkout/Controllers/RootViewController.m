@@ -164,6 +164,7 @@
         if(workout){
             if(!workout.isCompleted){
                 _currentWorkout = workout;
+                //_workoutDict objectForKey:@([User sharedUser].defaultWorkout)]
             }
         }
     }
@@ -283,6 +284,7 @@
         WorkoutPlan* wplan = [[WorkoutPlan alloc] initWithAttributes:workout withExerciseDictionary:_exerciseDict];
         [_workoutDict setObject:wplan forKey:@(wplan.wid)];
     }
+    [User sharedUser].workoutDict = _workoutDict;
     //NSDictionary* w = _workoutDict;
 }
 

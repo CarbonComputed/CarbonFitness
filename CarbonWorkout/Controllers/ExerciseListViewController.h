@@ -20,6 +20,8 @@
 @property NSMutableArray *selectedExercises;
 @property NSMutableDictionary* displayList;
 
+@property UIActionSheet* sortSheet;
+
 @end
 
 @protocol ExerciseListViewControllerDelegate <NSObject>

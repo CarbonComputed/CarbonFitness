@@ -67,10 +67,25 @@ int roundTo(double number, int r){
             int rep = startR;
             int weight = startW;
             for(int i = 0;i<nsets;i++){
-                if(roundTo(weight, 5) > endingW){
-                    weight -= 5;
+//                if(roundTo(weight, 5) > endingW){
+//                    weight -= 5;
+//                }
+                
+                if(endingW > startW){
+                    if(weight > endingW){
+                        weight = MIN(endingW, weight);
+                    }
                 }
-                weight = MIN(endingW, weight);
+                if(startW > endingW){
+                    if(weight > startW){
+                        weight = MIN(startW, weight);
+                    }
+                    if(weight < endingW){
+                        weight = MIN(endingW, weight);
+                        
+                    }
+                }
+
                 Set* set = [[Set alloc] initWithReps:-1 maxReps:rep weight:roundTo(weight, 5)];
                 [_sets addObject:set];
                 rep += repSlope;
@@ -88,7 +103,20 @@ int roundTo(double number, int r){
 //                if(roundTo(weight, 5) > endingW){
 //                    weight -= 5;
 //                }
-                weight = MIN(endingW, weight);
+                if(endingW > startW){
+                    if(weight > endingW){
+                        weight = MIN(endingW, weight);
+                    }
+                }
+                if(startW > endingW){
+                    if(weight > startW){
+                        weight = MIN(startW, weight);
+                    }
+                    if(weight < endingW){
+                        weight = MIN(endingW, weight);
+
+                    }
+                }
                 Set* set = [[Set alloc] initWithReps:-1 maxReps:rep weight:roundTo(weight, 5)];
                 [_sets addObject:set];
                 rep += repSlope;
@@ -125,6 +153,7 @@ int roundTo(double number, int r){
 
 -(id)copyWithZone:(NSZone *)zone{
     SetTrack* another = [SetTrack new];
+    another.sets = [NSMutableArray new];
     for(Set* set in _sets){
         [another.sets addObject:[set copyWithZone:nil]];
     }

@@ -168,6 +168,7 @@
     {
         // Get reference to the destination view controller
         RoutinesViewController *evc = [segue destinationViewController];
+        evc.fromHistory = true;
         Workout* w = sender;
         evc.currentWorkout = w;
         

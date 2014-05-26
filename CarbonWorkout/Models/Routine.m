@@ -51,8 +51,11 @@
         if(set.reps==-1){
             return -1;
         }
+        
+    }
+    for(int i = 0;i<[_setTrack.sets count];i++){
+        Set* set = [_setTrack.sets objectAtIndex:i];
         if(set.reps != set.max_reps){
-            _didComplete = true;
             retval = 0;;
         }
         

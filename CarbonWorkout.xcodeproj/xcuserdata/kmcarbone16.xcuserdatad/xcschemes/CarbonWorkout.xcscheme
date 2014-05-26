@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7059A65C18EE5FD20045807C"
-               BuildableName = "CarbonWorkout.app"
+               BuildableName = "CarbonFitness.app"
                BlueprintName = "CarbonWorkout"
                ReferencedContainer = "container:CarbonWorkout.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7059A65C18EE5FD20045807C"
-            BuildableName = "CarbonWorkout.app"
+            BuildableName = "CarbonFitness.app"
             BlueprintName = "CarbonWorkout"
             ReferencedContainer = "container:CarbonWorkout.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7059A65C18EE5FD20045807C"
-            BuildableName = "CarbonWorkout.app"
+            BuildableName = "CarbonFitness.app"
             BlueprintName = "CarbonWorkout"
             ReferencedContainer = "container:CarbonWorkout.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7059A65C18EE5FD20045807C"
-            BuildableName = "CarbonWorkout.app"
+            BuildableName = "CarbonFitness.app"
             BlueprintName = "CarbonWorkout"
             ReferencedContainer = "container:CarbonWorkout.xcodeproj">
          </BuildableReference>

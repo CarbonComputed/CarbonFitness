@@ -13,6 +13,8 @@
 @property NSString* name;
 @property int defaultWorkout;
 
+@property NSMutableDictionary *workoutDict;
+
 +(User*) sharedUser;
 @end
 

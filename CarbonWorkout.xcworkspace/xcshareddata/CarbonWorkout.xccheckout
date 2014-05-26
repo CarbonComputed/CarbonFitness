@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A3403099-2F8A-42C4-BF83-A8A7B45712ED</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CarbonWorkout</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1A61943B-5C7C-4A94-9478-D8C0FFCEEC0C</key>
+		<string>https://github.com/CarbonComputed/CarbonWorkout.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CarbonWorkout.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1A61943B-5C7C-4A94-9478-D8C0FFCEEC0C</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/CarbonComputed/CarbonWorkout.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1A61943B-5C7C-4A94-9478-D8C0FFCEEC0C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1A61943B-5C7C-4A94-9478-D8C0FFCEEC0C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CarbonWorkout</string>
+		</dict>
+	</array>
+</dict>
+</plist>

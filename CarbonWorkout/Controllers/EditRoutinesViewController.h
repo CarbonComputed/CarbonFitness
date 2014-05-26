@@ -11,6 +11,12 @@
 #import "WLHorizontalSegmentedControl.h"
 #import "AdvancedSetView.h"
 
+@protocol EditRoutineDelegate <NSObject>
+
+-(void) routineEdited:(WorkoutPlanRoutine*) wpr;
+
+@end
+
 @interface EditRoutinesViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet WLHorizontalSegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -31,6 +37,8 @@
 @property (weak, nonatomic) IBOutlet AdvancedSetView *reffedView;
 @property AdvancedSetView* advancedView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property id<EditRoutineDelegate> delegate;
 
 
 @end

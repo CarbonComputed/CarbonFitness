@@ -21,6 +21,7 @@
 		702FCF77190A10ED00FCCDF2 /* dumbbell-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 702FCF76190A10ED00FCCDF2 /* dumbbell-512.png */; };
 		702FCF79190A12E400FCCDF2 /* calendar-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 702FCF78190A12E400FCCDF2 /* calendar-512.png */; };
 		702FCF7B190A13EA00FCCDF2 /* weightlift-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 702FCF7A190A13EA00FCCDF2 /* weightlift-512.png */; };
+		705336861926A22D00C8F7DC /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 705336851926A22D00C8F7DC /* ImageViewController.m */; };
 		7059A66118EE5FD20045807C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7059A66018EE5FD20045807C /* Foundation.framework */; };
 		7059A66318EE5FD20045807C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7059A66218EE5FD20045807C /* CoreGraphics.framework */; };
 		7059A66518EE5FD20045807C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7059A66418EE5FD20045807C /* UIKit.framework */; };
@@ -53,6 +54,8 @@
 		7072D2511922996900D5622F /* twitter-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D24F1922996900D5622F /* twitter-512.png */; };
 		7072D2521922996900D5622F /* facebook-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D2501922996900D5622F /* facebook-512.png */; };
 		7072D2541922C70400D5622F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7072D2531922C70400D5622F /* Social.framework */; };
+		7072D2561922D83A00D5622F /* about-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 7072D2551922D83A00D5622F /* about-32.png */; };
+		7072D2591922D93E00D5622F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7072D2581922D93E00D5622F /* AboutViewController.m */; };
 		70AD1A0E19004F9A0024E2EE /* WorkoutPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A0D19004F9A0024E2EE /* WorkoutPlansViewController.m */; };
 		70AD1A1119005C170024E2EE /* EditWorkoutPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A1019005C170024E2EE /* EditWorkoutPlansViewController.m */; };
 		70AD1A1419005C7F0024E2EE /* EditRoutinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A1319005C7F0024E2EE /* EditRoutinesViewController.m */; };
@@ -103,6 +106,8 @@
 		702FCF76190A10ED00FCCDF2 /* dumbbell-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dumbbell-512.png"; sourceTree = "<group>"; };
 		702FCF78190A12E400FCCDF2 /* calendar-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-512.png"; sourceTree = "<group>"; };
 		702FCF7A190A13EA00FCCDF2 /* weightlift-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weightlift-512.png"; sourceTree = "<group>"; };
+		705336841926A22D00C8F7DC /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewController.h; path = Controllers/ImageViewController.h; sourceTree = "<group>"; };
+		705336851926A22D00C8F7DC /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewController.m; path = Controllers/ImageViewController.m; sourceTree = "<group>"; };
 		7059A65D18EE5FD20045807C /* CarbonFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarbonFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7059A66018EE5FD20045807C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7059A66218EE5FD20045807C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +150,9 @@
 		7072D24F1922996900D5622F /* twitter-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-512.png"; sourceTree = "<group>"; };
 		7072D2501922996900D5622F /* facebook-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-512.png"; sourceTree = "<group>"; };
 		7072D2531922C70400D5622F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		7072D2551922D83A00D5622F /* about-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about-32.png"; sourceTree = "<group>"; };
+		7072D2571922D93E00D5622F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Controllers/AboutViewController.h; sourceTree = "<group>"; };
+		7072D2581922D93E00D5622F /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Controllers/AboutViewController.m; sourceTree = "<group>"; };
 		70AD1A0C19004F9A0024E2EE /* WorkoutPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutPlansViewController.h; path = Controllers/WorkoutPlansViewController.h; sourceTree = "<group>"; };
 		70AD1A0D19004F9A0024E2EE /* WorkoutPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutPlansViewController.m; path = Controllers/WorkoutPlansViewController.m; sourceTree = "<group>"; };
 		70AD1A0F19005C170024E2EE /* EditWorkoutPlansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditWorkoutPlansViewController.h; path = Controllers/EditWorkoutPlansViewController.h; sourceTree = "<group>"; };
@@ -323,6 +331,10 @@
 				70AD1A1319005C7F0024E2EE /* EditRoutinesViewController.m */,
 				702FCF731908091400FCCDF2 /* ExerciseListViewController.h */,
 				702FCF741908091400FCCDF2 /* ExerciseListViewController.m */,
+				7072D2571922D93E00D5622F /* AboutViewController.h */,
+				7072D2581922D93E00D5622F /* AboutViewController.m */,
+				705336841926A22D00C8F7DC /* ImageViewController.h */,
+				705336851926A22D00C8F7DC /* ImageViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -360,6 +372,7 @@
 				702FCF7A190A13EA00FCCDF2 /* weightlift-512.png */,
 				702FCF78190A12E400FCCDF2 /* calendar-512.png */,
 				702FCF76190A10ED00FCCDF2 /* dumbbell-512.png */,
+				7072D2551922D83A00D5622F /* about-32.png */,
 				70AD1A221900A3BB0024E2EE /* glyphicons_190_circle_plus.png */,
 				70AD1A231900A3BB0024E2EE /* glyphicons_191_circle_minus.png */,
 			);
@@ -482,6 +495,7 @@
 				70AD1A241900A3BB0024E2EE /* glyphicons_190_circle_plus.png in Resources */,
 				70DF71A318FB24310017C2AA /* Goku4.png in Resources */,
 				7023636219034D50001EC631 /* AdvancedSetView.xib in Resources */,
+				7072D2561922D83A00D5622F /* about-32.png in Resources */,
 				702FCF77190A10ED00FCCDF2 /* dumbbell-512.png in Resources */,
 				702FCF79190A12E400FCCDF2 /* calendar-512.png in Resources */,
 				70DF71A518FB2B5C0017C2AA /* History.json in Resources */,
@@ -550,6 +564,7 @@
 				70AD1A1B190070250024E2EE /* WLHorizontalSegmentedControl.m in Sources */,
 				7059A69C18F4C0A80045807C /* Exercise.m in Sources */,
 				70AD1A1D190070250024E2EE /* WLSegmentedControl.m in Sources */,
+				705336861926A22D00C8F7DC /* ImageViewController.m in Sources */,
 				701F659118FE273E00E1F98D /* HistoryViewController.m in Sources */,
 				7072D24E1920921B00D5622F /* Routine.m in Sources */,
 				701F2D811904DED300157876 /* SetTrack.m in Sources */,
@@ -568,6 +583,7 @@
 				7059A69F18F4C0EA0045807C /* Workout.m in Sources */,
 				70BF26BF18FB4298002FCE50 /* RoutinesViewController.m in Sources */,
 				70AD1A1C190070250024E2EE /* WLSegment.m in Sources */,
+				7072D2591922D93E00D5622F /* AboutViewController.m in Sources */,
 				7023636519035243001EC631 /* AdvancedSetView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

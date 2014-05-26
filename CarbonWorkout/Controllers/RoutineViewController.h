@@ -13,6 +13,7 @@
 #import "SetView.h"
 
 
+
 @interface RoutineViewController : UIViewController<SetViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *exerciseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *maxLabel;
@@ -27,9 +28,11 @@
 
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 
-@property (weak, nonatomic) IBOutlet SetView *setView;
+@property (weak, nonatomic) IBOutlet UIView *viewHolder;
+@property (strong, nonatomic) SetView *setView;
 
-@property (weak,nonatomic) Routine* routine;
+
+@property (strong,nonatomic) Routine* routine;
 @property Workout* currentWorkout;
 
 @property (weak, nonatomic) IBOutlet UILabel *setTimerLabel;
@@ -39,6 +42,7 @@
 @property int totalNotDelay;
 
 @property BOOL popdownHidden;
+@property BOOL fromHistory;
 
 
 @end
