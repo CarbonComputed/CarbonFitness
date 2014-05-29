@@ -96,95 +96,88 @@
   {
   "id": 18,
   "name": "Pull-Ups",
-  "description": "Muscles Worked: ",
-  "image": "laoreet",
+  "description": "Muscles Worked: Lats, Biceps, Brachioradialis",
+  "image": "http://media-cache-ak0.pinimg.com/originals/f3/54/1c/f3541c52048c378996fe37ffa37b3804.jpg",
   "body": 1
   },
   {
   "id": 19,
   "name": "Chin-Ups",
-  "description": "Muscles Worked: ",
-  "image": "diam",
+  "description": "Muscles Worked: Lats, Biceps, Brachioradialis",
+  "image": "http://media-cache-ak0.pinimg.com/736x/51/8e/6e/518e6ea3b0bb6b286ee44bbb9b1b51d6.jpg",
   "body": 1
   },
   {
   "id": 20,
   "name": "Lat Pull-Downs",
-  "description": "Muscles Worked: ",
-  "image": "eget,",
+  "description": "Muscles Worked: Lats",
+  "image": "http://media-cache-ak0.pinimg.com/736x/f4/c9/b5/f4c9b5cbf65599599762a0af9f308e71.jpg",
   "body": 1
   },
   {
   "id": 21,
   "name": "Shrugs",
-  "description": "Muscles Worked: ",
-  "image": "ipsum",
+  "description": "Muscles Worked: Traps, Deltoids",
+  "image": "http://legendspoon.com/wp-content/uploads/Barbell-Shrug.png",
   "body": 1
   },
   {
   "id": 22,
   "name": "Barbell Bicep Curls",
-  "description": "Muscles Worked: ",
-  "image": "est",
+  "description": "Muscles Worked: Biceps, Brachioradialis, Wrist Flexors",
+  "image": "http://freefitnessguru.com/images/p16h7u5j5lm7s1fl8j5f16k01o2d3.jpg",
   "body": 1
   },
   {
   "id": 23,
   "name": "Dumbbell Bicep Curls ",
-  "description": "Muscles Worked: ",
-  "image": "Cras",
+  "description": "Muscles Worked: Biceps, Brachioradialis, Wrist Flexors",
+  "image": "http://www.build-some-muscle.com/images/curlTraining.jpg",
   "body": 1
   },
   {
   "id": 24,
   "name": "Skull Crushers",
-  "description": "Muscles Worked: ",
-  "image": "dui",
+  "description": "Muscles Worked: Triceps, Brachioradialis, Wrist Flexors",
+  "image": "http://gymhard.weebly.com/uploads/1/3/9/5/13953654/9263806_orig.jpg?1",
   "body": 1
   },
   {
   "id": 25,
   "name": "Crunches",
-  "description": "Muscles Worked: ",
-  "image": "dui",
+  "description": "Muscles Worked: Abs",
+  "image": "http://www.mavenofsavin.com/wp-content/uploads/2013/07/Anatomy-of-the-Crunch.png",
   "body": 3
   }
   ,
   {
   "id": 26,
   "name": "Dumbbell Shoulder Presses",
-  "description": "Muscles Worked: ",
-  "image": "dui",
+  "description": "Muscles Worked: Deltoids, Triceps, Traps",
+  "image": "http://media-cache-ec0.pinimg.com/736x/8a/06/0d/8a060d1525fa066d1722bfacc813cf9c.jpg",
   "body": 1
   },
   {
   "id": 28,
   "name": "Barbell Pullover",
-  "description": "Muscles Worked: ",
-  "image": "dui",
+  "description": "Muscles Worked: Lats, Brachioradialis, Trices, Deltoids, Chest",
+  "image": "http://knowmuscles.com/wp-content/uploads/2013/03/s1.jpg",
   "body": 1
   }
   ,
   {
   "id": 29,
   "name": "Lunge",
-  "description": "Muscles Worked: ",
-  "image": "dui",
+  "description": "Muscles Worked: Quads, Abductors, Adductors, Glutes, Soleus",
+  "image": "http://bfitness.org/up/1396649032.jpg",
   "body": 2
   }
   ,
   {
   "id": 30,
   "name": "Calf Raises",
-  "description": "Muscles Worked: ",
-  "image": "dui",
+  "description": "Muscles Worked: Calves",
+  "image": "http://www.medical-artist.com/assets/images/Standing-calf-raise-strength-training.jpg",
   "body": 2
-  },
-  {
-  "id": 31,
-  "name": "Side Crunches",
-  "description": "Muscles Worked: ",
-  "image": "dui",
-  "body": 3
   }
   ]

@@ -16,7 +16,27 @@
 #import "Routine.h"
 #import "Exercise.h"
 
-enum Sort {ALPHA,BODY};
+enum Sort {ALPHA,BODY,DAY};
+
+@implementation NSDictionary (Extra)
+
+-(NSArray *) sortedKeys {
+    return [[self allKeys] sortedArrayUsingSelector:@selector(compare:)];
+}
+
+-(NSArray *) allValuesSortedByKey {
+    return [self objectsForKeys:self.sortedKeys notFoundMarker:[NSNull null]];
+}
+
+-(id) firstKey {
+    return [self.sortedKeys firstObject];
+}
+
+-(id) firstValue {
+    return [self valueForKey: [self firstKey]];
+}
+
+@end
 
 @interface RoutinesViewController ()
 
@@ -74,6 +94,7 @@ enum Sort {ALPHA,BODY};
     _sortSheet = [[UIActionSheet alloc] initWithTitle:@"Sort Options: " delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                   @"Alphabetically",
                   @"Body Type",
+                  @"Day",
                   nil];
     _sortSheet.tag = 1;
 
@@ -116,7 +137,7 @@ enum Sort {ALPHA,BODY};
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //Routine* r = [_currentWorkout.routines objectAtIndex:indexPath.row];
-    Routine* r = [[[_displayList allValues] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    Routine* r = [[[_displayList allValuesSortedByKey] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     UITableViewCell *cell =  [_routinesTableView dequeueReusableCellWithIdentifier:@"Cell"];;
     if (cell == nil) {
     
@@ -126,7 +147,7 @@ enum Sort {ALPHA,BODY};
     if(r.didComplete){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     float progress = (float)((float)_numWorkoutsCompleted / (float)[_currentWorkout.routines count]);
     [_exerciseProgress setProgress:progress animated:true];
@@ -166,18 +187,48 @@ enum Sort {ALPHA,BODY};
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [[[_displayList allValues] objectAtIndex:section] count];
+    return [[[_displayList allValuesSortedByKey] objectAtIndex:section] count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [_displayList allValues].count;
+    return [_displayList allValuesSortedByKey].count;
 }
 
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return [[_displayList allKeys] objectAtIndex:section];
+    
+    if(_sortType==DAY){
+        NSValue* day = [[_displayList sortedKeys] objectAtIndex:section];
+        if([day  isEqual: @(S)]){
+            return @"SUNDAY";
+        }
+        if([day  isEqual: @(M)]){
+            return @"MONDAY";
+        }
+        if([day  isEqual: @(T)]){
+            return @"TUESDAY";
+        }
+        if([day  isEqual: @(W)]){
+            return @"WEDNESDAY";
+        }
+        if([day  isEqual: @(R)]){
+            return @"THURSAY";
+        }
+        if([day  isEqual: @(F)]){
+            return @"FRIDAY";
+        }
+        if([day  isEqual: @(SA)]){
+            return @"SATURDAY";
+        }
+        if([day  isEqual: @(10)]){
+            return @"NO DAYS";
+        }
+    }
+
+    
+    return [[_displayList sortedKeys] objectAtIndex:section];
 }
 
 //- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
@@ -195,7 +246,7 @@ enum Sort {ALPHA,BODY};
         // Get reference to the destination view controller
         RoutineViewController *evc = [segue destinationViewController];
         NSIndexPath *ip = [self.routinesTableView indexPathForSelectedRow];
-        evc.routine = [[[_displayList allValues] objectAtIndex:ip.section] objectAtIndex:ip.row];;
+        evc.routine = [[[_displayList allValuesSortedByKey] objectAtIndex:ip.section] objectAtIndex:ip.row];;
         evc.currentWorkout = _currentWorkout;
         evc.fromHistory = _fromHistory;
     }
@@ -231,18 +282,43 @@ enum Sort {ALPHA,BODY};
                 break;
             case CORE:
                 if(![_displayList objectForKey:@"CORE"]){
-                    [_displayList setObject:[NSMutableArray new] forKey:@"LOWER BODY" ];
+                    [_displayList setObject:[NSMutableArray new] forKey:@"CORE" ];
                 }
                 [[_displayList objectForKey:@"CORE"] addObject:r];
                 
                 break;
-                
-            default:
-                break;
+
         }
     }
-    [_routinesTableView reloadData];
     _sortType = BODY;
+
+    [_routinesTableView reloadData];
+    
+}
+
+-(void)sortByDay{
+    
+    [_displayList removeAllObjects];
+    for(Routine* r in _currentWorkout.routines){
+        for(NSValue *day in r.workoutPlanRoutine.days){
+
+            if(![_displayList objectForKey:day]){
+                [_displayList setObject:[NSMutableArray new] forKey:day ];
+            }
+            [[_displayList objectForKey:day] addObject:r];
+        }
+        if(r.workoutPlanRoutine.days.count == 0){
+            NSValue* day = @(10);
+            if(![_displayList objectForKey:day]){
+                [_displayList setObject:[NSMutableArray new] forKey:day ];
+            }
+            [[_displayList objectForKey:day] addObject:r];
+        }
+
+    }
+    _sortType = DAY;
+
+    [_routinesTableView reloadData];
     
 }
 
@@ -274,6 +350,9 @@ enum Sort {ALPHA,BODY};
                     break;
                 case 1:
                     [self sortByBodyType];
+                    break;
+                case 2:
+                    [self sortByDay];
                     break;
                 default:
                     break;
