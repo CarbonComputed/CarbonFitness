@@ -23,9 +23,56 @@ static const CGFloat kGridMargin = 10;
         _dateFormatter.locale = [NSLocale autoupdatingCurrentLocale];
         _calendar = [NSCalendar currentCalendar];
         _weekBarHeight = 32;
-        
         self.selectedDate = nil;
         self.displayedDate = [NSDate date];
+        CGFloat top = 0;
+        NSDateComponents *components = [self.calendar components: NSWeekdayCalendarUnit
+                                                        fromDate: [self displayedMonthStartDate]];
+        NSInteger shift = components.weekday - self.calendar.firstWeekday;
+        if (shift < 0) {
+            shift = 7 + shift;
+        }
+        
+        // Calculate range
+        NSRange range = [self.calendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit
+                                           forDate:self.displayedDate];
+        int padding = 4;
+        //int cellHeight = self.bounds.size.height / 6.0;
+        int cellHeight = 15;
+        int cellWidth = (self.bounds.size.width - (kGridMargin * 2) - (padding * 6)) / 7.0;
+        if (self.weekBarHeight) {
+            self.weekdayBar.frame = CGRectMake(0, top, self.bounds.size.width, self.weekBarHeight);
+            CGRect contentRect = CGRectInset(self.weekdayBar.bounds, kGridMargin, 0);
+            for (NSUInteger i = 0; i < [self.weekdayNameLabels count]; ++i) {
+                UILabel *label = [self.weekdayNameLabels objectAtIndex:i];
+                label.frame = CGRectMake((kGridMargin)+((padding+cellWidth) * ((0 + i) % 7)), 0,
+                                         contentRect.size.width / 7, contentRect.size.height);
+            }
+            top = self.weekdayBar.frame.origin.y + self.weekdayBar.frame.size.height;
+        } else {
+            self.weekdayBar.frame = CGRectZero;
+        }
+        
+        for (NSUInteger i = 0; i < [self.dayCells count]; ++i) {
+            UIButton *cellView = [self.dayCells objectAtIndex:i];
+            cellView.frame = CGRectMake((kGridMargin)+((padding+cellWidth) * ((shift + i) % 7)) ,top+(cellHeight+padding) * ((shift + i) / 7 ),
+                                        cellWidth, cellHeight);
+            //cellView.backgroundColor = [UIColor lightGrayColor];
+            NSString* day  = [NSString stringWithFormat:@"%d",i+1];
+            [cellView setTitle:day forState:UIControlStateNormal];
+            [cellView setTitle:day forState:UIControlStateHighlighted];
+            [cellView setTitle:day forState:UIControlStateSelected];
+            [cellView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [cellView setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+            [cellView setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+            
+            cellView.titleLabel.textColor = [UIColor blackColor];
+            cellView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            cellView.layer.borderWidth = 1;
+            cellView.backgroundColor = [UIColor whiteColor];
+            cellView.hidden = i >= range.length;
+            
+        }
     }
     return self;
 }
@@ -42,6 +89,8 @@ static const CGFloat kGridMargin = 10;
         
         self.selectedDate = nil;
         self.displayedDate = [NSDate date];
+        
+                    //self.bounds = CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width, 500);
     }
     return self;
 }
@@ -125,6 +174,7 @@ static const CGFloat kGridMargin = 10;
     if (!_weekdayBar) {
         _weekdayBar = [[UIView alloc] init];
         _weekdayBar.backgroundColor = [UIColor clearColor];
+        
     }
     return _weekdayBar;
 }
@@ -143,11 +193,11 @@ static const CGFloat kGridMargin = 10;
     NSRange range = [self.calendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit
                                        forDate:self.displayedDate];
     int padding = 4;
-    int cellHeight = self.bounds.size.height / 6.0;
-    int cellWidth = (self.bounds.size.width - (kGridMargin * 2) - (padding * 6)) / 7.0;
+    int cellHeight = 40;
+    int cellWidth = (self.frame.size.width - (kGridMargin * 2) - (padding * 6)) / 7.0;
     if (self.weekBarHeight) {
-        self.weekdayBar.frame = CGRectMake(0, top, self.bounds.size.width, self.weekBarHeight);
-        CGRect contentRect = CGRectInset(self.weekdayBar.bounds, kGridMargin, 0);
+        self.weekdayBar.frame = CGRectMake(0, top, self.frame.size.width, self.weekBarHeight);
+        CGRect contentRect = CGRectInset(self.weekdayBar.frame, kGridMargin, 0);
         for (NSUInteger i = 0; i < [self.weekdayNameLabels count]; ++i) {
             UILabel *label = [self.weekdayNameLabels objectAtIndex:i];
             label.frame = CGRectMake((kGridMargin)+((padding+cellWidth) * ((0 + i) % 7)), 0,
@@ -157,7 +207,7 @@ static const CGFloat kGridMargin = 10;
     } else {
         self.weekdayBar.frame = CGRectZero;
     }
- 
+    
     for (NSUInteger i = 0; i < [self.dayCells count]; ++i) {
         UIButton *cellView = [self.dayCells objectAtIndex:i];
         cellView.frame = CGRectMake((kGridMargin)+((padding+cellWidth) * ((shift + i) % 7)) ,top+(cellHeight+padding) * ((shift + i) / 7 ),
@@ -170,7 +220,7 @@ static const CGFloat kGridMargin = 10;
         [cellView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [cellView setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         [cellView setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-
+        
         cellView.titleLabel.textColor = [UIColor blackColor];
         cellView.layer.borderColor = [UIColor lightGrayColor].CGColor;
         cellView.layer.borderWidth = 1;
@@ -178,7 +228,10 @@ static const CGFloat kGridMargin = 10;
         cellView.hidden = i >= range.length;
         
     }
+
     
+    
+//    self.bounds = CGRectMake(self.bounds.origin.x, self.bounds.origin.y,self.bounds.size.width, self.bounds.size.height+25);
 }
 
 
@@ -201,6 +254,7 @@ static const CGFloat kGridMargin = 10;
 
 
 - (void) touchedCellView: (UIButton *) cellView {
+
     NSDateComponents *components = [_calendar components:NSYearCalendarUnit|NSMonthCalendarUnit
                                                fromDate:self.displayedDate];
     components.day = cellView.tag;

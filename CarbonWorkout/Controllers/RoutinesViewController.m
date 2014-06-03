@@ -64,14 +64,35 @@ enum Sort {ALPHA,BODY,DAY};
 {
     [super viewDidLoad];
     _displayList = [NSMutableDictionary new];
-    [_displayList setObject:[NSMutableArray new] forKey:@"Exercises"];
+    [_displayList removeAllObjects];
     for(Routine* r in _currentWorkout.routines){
-        [[_displayList objectForKey:@"Exercises"] addObject:r];
+        for(NSValue *day in r.workoutPlanRoutine.days){
+            
+            if(![_displayList objectForKey:day]){
+                [_displayList setObject:[NSMutableArray new] forKey:day ];
+            }
+            [[_displayList objectForKey:day] addObject:r];
+        }
+        if(r.workoutPlanRoutine.days.count == 0){
+            NSValue* day = @(10);
+            if(![_displayList objectForKey:day]){
+                [_displayList setObject:[NSMutableArray new] forKey:day ];
+            }
+            [[_displayList objectForKey:day] addObject:r];
+        }
+        
     }
+    _sortType = DAY;
+   // [self sortByDay];
+
+//    [_displayList setObject:[NSMutableArray new] forKey:@"Exercises"];
+//    for(Routine* r in _currentWorkout.routines){
+//        [[_displayList objectForKey:@"Exercises"] addObject:r];
+//    }
     
     self.routinesTableView.contentInset = UIEdgeInsetsMake(-65, 0, 0, 0);
     
-    _sortType = BODY;
+    //_sortType = BODY;
     
     [_routinesTableView setDelegate:self];
 
@@ -134,6 +155,35 @@ enum Sort {ALPHA,BODY,DAY};
     // Dispose of any resources that can be recreated.
 }
 
+-(float) getProgress{
+    float nCompleted = 0;
+    float totalRoutines = 0;
+    if(_sortType == DAY){
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+        [dateFormatter setDateFormat:@"e"];
+        int day = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+        for(Routine* r in _currentWorkout.routines){
+            if([r.workoutPlanRoutine.days containsObject:@(day)]){
+                if(r.didComplete){
+                    nCompleted++;
+                }
+                totalRoutines++;
+            }
+        }
+    }
+    else{
+        nCompleted =(float)_numWorkoutsCompleted;
+        totalRoutines = (float) _currentWorkout.routines.count;
+    }
+    if(totalRoutines == 0){
+        return 0;
+    }
+    return nCompleted/totalRoutines;
+    
+    
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //Routine* r = [_currentWorkout.routines objectAtIndex:indexPath.row];
@@ -149,7 +199,8 @@ enum Sort {ALPHA,BODY,DAY};
     } else {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    float progress = (float)((float)_numWorkoutsCompleted / (float)[_currentWorkout.routines count]);
+    float progress = [self getProgress];
+    //float progress = (float)((float)_numWorkoutsCompleted / (float)[_currentWorkout.routines count]);
     [_exerciseProgress setProgress:progress animated:true];
     UIImage* image;
     if(progress >=.99){
@@ -265,7 +316,13 @@ enum Sort {ALPHA,BODY,DAY};
 -(void)sortByBodyType{
     
     [_displayList removeAllObjects];
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"e"];
+    int today = [[dateFormatter stringFromDate:[NSDate date]] intValue];
     for(Routine* r in _currentWorkout.routines){
+        if(![r.workoutPlanRoutine.days containsObject:@(today)]){
+            continue;
+        }
         switch (r.workoutPlanRoutine.exercise.body) {
             case UPPER:
                 if(![_displayList objectForKey:@"UPPER BODY"]){
@@ -290,6 +347,24 @@ enum Sort {ALPHA,BODY,DAY};
 
         }
     }
+    if(_displayList.count == 0){
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"No Workouts listed for today"
+                                                          message:@"You can edit your workout plans to add some to this day of the week."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        
+        [message show];
+    }
+    for(NSString* key in _displayList.allKeys){
+        NSMutableArray* sortedArray = [[_displayList objectForKey:key] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+            Routine *ex1 = (Routine*)a;
+            Routine *ex2 = (Routine*)b;
+            return [ex1.workoutPlanRoutine.exercise compare:ex2.workoutPlanRoutine.exercise];
+        }];
+        [_displayList setObject:sortedArray forKey:key];
+    }
+
     _sortType = BODY;
 
     [_routinesTableView reloadData];
@@ -324,8 +399,14 @@ enum Sort {ALPHA,BODY,DAY};
 
 -(void)sortAlphabetically{
     [_displayList removeAllObjects];
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"e"];
+    int today = [[dateFormatter stringFromDate:[NSDate date]] intValue];
     [_displayList setObject:[NSMutableArray new] forKey:@"Exercises"];
     for(Routine* r in _currentWorkout.routines){
+        if(![r.workoutPlanRoutine.days containsObject:@(today)]){
+            continue;
+        }
         [[_displayList objectForKey:@"Exercises"] addObject:r];
     }
     NSMutableArray* sortedArray = [[_displayList objectForKey:@"Exercises"] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
@@ -333,6 +414,16 @@ enum Sort {ALPHA,BODY,DAY};
         Routine *ex2 = (Routine*)b;
         return [ex1.workoutPlanRoutine.exercise compare:ex2.workoutPlanRoutine.exercise];
     }];
+    
+    if(sortedArray.count == 0){
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"No Workouts listed for today"
+                                                          message:@"You can edit your workout plans to add some to this day of the week."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        
+        [message show];
+    }
     _sortType = ALPHA;
     
     [_displayList setObject:sortedArray forKey:@"Exercises"];

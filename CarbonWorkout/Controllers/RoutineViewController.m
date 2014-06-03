@@ -19,6 +19,11 @@
 @property int timeSec;
 @property int timeMin;
 @property int timeHour;
+
+@property int defaultHeightConstraint;
+@property int defaultDistanceConstraint;
+@property int defaultHeight;
+
 @end
 
 @implementation RoutineViewController
@@ -37,6 +42,8 @@
 -(void)setViewResized:(int)buttonSize{
                 _heightConstraint.constant += buttonSize;
                 _distanceToTimeCon.constant -= buttonSize;
+                CGRect frame = _setView.frame;
+    [_setView setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height+buttonSize)];
                 if(_distanceToTimeCon.constant < 95 ){
                     _distanceToImageCon.constant -= buttonSize;
     
@@ -57,6 +64,7 @@
     _viewHolder.hidden = true;
     _setView = [[SetView alloc] initWithFrame:CGRectMake(20, 124, 280, 94)];
     _setView.delegate = self;
+    //_setView.backgroundColor = [UIColor greenColor];
 
     [self.view addSubview:_setView];
     //_setView  = [_setView initWithFrame:_setView.frame setArray:_routine.setTrack.sets];
@@ -104,6 +112,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    _heightConstraint.constant = _defaultHeightConstraint;
+    _distanceToTimeCon.constant = _defaultDistanceConstraint;
+    CGRect frame = _setView.frame;
+    [_setView setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, _defaultHeight)];
+
     //[_routine.setTrack.sets removeAllObjects] ;
     if(!_currentWorkout.currentPlan && !_fromHistory){
         NSMutableDictionary* workoutDict = [User sharedUser].workoutDict;
@@ -138,7 +151,12 @@
     }
     for(WorkoutPlanRoutine* wpr in _currentWorkout.currentPlan.workoutPlanRoutines){
         //should use an actual id here
-        if(wpr.exercise.eid == _routine.workoutPlanRoutine.exercise.eid){
+        if(wpr.exercise.eid == _routine.workoutPlanRoutine.exercise.eid
+           && wpr.startingReps == _routine.workoutPlanRoutine.startingReps
+           //&& wpr.endingReps = _routine.workoutPlanRoutine.endingReps
+           && wpr.startingWeight == _routine.workoutPlanRoutine.startingWeight
+           //&& wpr.endingWeight = _routine.workoutPlanRoutine.endingWeight
+           && [wpr.days isEqualToSet:_routine.workoutPlanRoutine.days]){
             //Routine* r = [[Routine alloc] initWithWorkoutPlanRoutine:wpr];
             
             SetTrack* s = [_routine.setTrack copyWithZone:nil];
@@ -241,9 +259,25 @@
         if(_currentWorkout != nil){
             for(WorkoutPlanRoutine* wpr in _currentWorkout.currentPlan.workoutPlanRoutines){
                 //should use an actual id here
-                if(wpr.exercise.eid == _routine.workoutPlanRoutine.exercise.eid){
+                if(wpr.exercise.eid == _routine.workoutPlanRoutine.exercise.eid
+                   && wpr.startingReps == _routine.workoutPlanRoutine.startingReps
+                   //&& wpr.endingReps = _routine.workoutPlanRoutine.endingReps
+                   && wpr.startingWeight == _routine.workoutPlanRoutine.startingWeight
+                   //&& wpr.endingWeight = _routine.workoutPlanRoutine.endingWeight
+                   )
+                {
+                    if([_currentWorkout.currentPlan.name isEqualToString:@"Bodyweight"] && wpr.startingWeight == 0){
+                        NSString* str = [NSString stringWithFormat:@"Nice Job!"];
+                        [self showNotLabel:str afterDelay:5];
+                        return;
+                    }
                     wpr.startingWeight += 5;
                     wpr.endingWeight += 5;
+                    _routine.workoutPlanRoutine.startingWeight += 5;
+                    _routine.workoutPlanRoutine.endingWeight += 5;
+                    
+                    //_routine.s
+                    
                     if(_routine.workoutPlanRoutine.max > wpr.max  ){
                         wpr.max = _routine.workoutPlanRoutine.max;
                     }
@@ -365,12 +399,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _defaultHeightConstraint =  _heightConstraint.constant;
+    _defaultDistanceConstraint = _distanceToTimeCon.constant;
+    _defaultHeight = _setView.frame.size.height;
     _imageView.userInteractionEnabled = YES;
     _exerciseLabel.text = [_routine.workoutPlanRoutine.exercise.name uppercaseString];
     if([_routine.setTrack.sets count] > 0){
         Set* set = [_routine.setTrack.sets objectAtIndex:0];
         
-        
+        if(set.weight == 0){
+            _weightLabel.text = [NSString stringWithFormat:@"%d reps", set.reps];
+
+        }
         _weightLabel.text = [NSString stringWithFormat:@"%dlbs", set.weight];
     }
 
@@ -406,7 +446,13 @@
         EditRoutinesViewController *evc = [segue destinationViewController];
         for(WorkoutPlanRoutine* wpr in _currentWorkout.currentPlan.workoutPlanRoutines){
             //should use an actual id here
-            if(wpr.exercise.eid == _routine.workoutPlanRoutine.exercise.eid){
+            if(wpr.exercise.eid == _routine.workoutPlanRoutine.exercise.eid
+               && wpr.startingReps == _routine.workoutPlanRoutine.startingReps
+               //&& wpr.endingReps = _routine.workoutPlanRoutine.endingReps
+               && wpr.startingWeight == _routine.workoutPlanRoutine.startingWeight
+               //&& wpr.endingWeight = _routine.workoutPlanRoutine.endingWeight
+               && [wpr.days isEqualToSet:_routine.workoutPlanRoutine.days])
+               {
                     evc.currentRoutine = wpr;
                     break;
                 

@@ -46,6 +46,8 @@
                                withObject:nil];
         [rvc performSelectorInBackground:@selector(saveWorkouts)
                               withObject:nil];
+        [rvc performSelectorInBackground:@selector(saveUser)
+                              withObject:nil];
         rvc.backgroundTask = UIBackgroundTaskInvalid;
         rvc.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
             NSLog(@"Background handler called. Not running background tasks anymore.");

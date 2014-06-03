@@ -152,7 +152,7 @@
   ,
   {
   "id": 26,
-  "name": "Dumbbell Shoulder Presses",
+  "name": "Dumbbell Shoulder Press",
   "description": "Muscles Worked: Deltoids, Triceps, Traps",
   "image": "http://media-cache-ec0.pinimg.com/736x/8a/06/0d/8a060d1525fa066d1722bfacc813cf9c.jpg",
   "body": 1
@@ -179,5 +179,37 @@
   "description": "Muscles Worked: Calves",
   "image": "http://www.medical-artist.com/assets/images/Standing-calf-raise-strength-training.jpg",
   "body": 2
+  }
+  ,
+  {
+  "id": 31,
+  "name": "Dumbbell Row",
+  "description": "Muscles Worked: Middle Back, Biceps, Lats, Shoulders",
+  "image": "http://www.cbfitnesstrainer.com/wp-content/uploads/2014/04/db-row.jpg",
+  "body": 1
+  }
+  ,
+  {
+  "id": 32,
+  "name": "Lateral Raises",
+  "description": "Muscles Worked: Traps, Deltoids",
+  "image": "http://www.freefitnessguru.com/Anatomy/images/side%20lateral%20raise%202%20combined.jpg",
+  "body": 1
+  }
+  ,
+  {
+  "id": 33,
+  "name": "Leg Curls",
+  "description": "Muscles Worked: Hamstrings",
+  "image": "http://peacegym.com/Image/Editor/Img/Lying-Leg-Curl.jpg",
+  "body": 2
+  }
+  ,
+  {
+  "id": 34,
+  "name": "Weighted Situps",
+  "description": "Muscles Worked: Abs",
+  "image": "https://runclimbrace.files.wordpress.com/2012/05/abs-exercises_xl.jpg",
+  "body": 3
   }
   ]

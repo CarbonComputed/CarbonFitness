@@ -126,6 +126,10 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     int value = [[prefs objectForKey:@"defaultWorkout"] intValue];
     [User sharedUser].defaultWorkout = value;
+    if(value==0){
+        [User sharedUser].defaultWorkout = 1;
+    }
+    
 }
 
 -(void) saveUser{

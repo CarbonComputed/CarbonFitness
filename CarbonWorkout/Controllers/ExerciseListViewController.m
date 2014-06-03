@@ -99,6 +99,14 @@ enum Sort {ALPHA,BODY};
                 break;
         }
     }
+    for(NSString* key in _displayList.allKeys){
+        NSMutableArray* sortedArray = [[_displayList objectForKey:key] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+            Exercise *ex1 = (Exercise*)a;
+            Exercise *ex2 = (Exercise*)b;
+            return [ex1 compare:ex2];
+        }];
+        [_displayList setObject:sortedArray forKey:key];
+    }
     _sortType = BODY;
 
     [_exerciseTableView reloadData];
