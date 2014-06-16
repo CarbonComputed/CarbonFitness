@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40B35DE2BDEC42DA90ED1C5E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6328526C94844898B275E0D2 /* libPods.a */; };
+		701656E1194F6D54004B07E5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 701656DF194F6D54004B07E5 /* Model.xcdatamodeld */; };
 		701F2D7E1904DEB400157876 /* Set.m in Sources */ = {isa = PBXBuildFile; fileRef = 701F2D7D1904DEB300157876 /* Set.m */; };
 		701F2D811904DED300157876 /* SetTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 701F2D801904DED300157876 /* SetTrack.m */; };
 		701F659118FE273E00E1F98D /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701F659018FE273E00E1F98D /* HistoryViewController.m */; };
@@ -87,6 +88,7 @@
 /* Begin PBXFileReference section */
 		6328526C94844898B275E0D2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA89C436E7F49E0B1EB238F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		701656E0194F6D54004B07E5 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		701F2D7C1904DEB300157876 /* Set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Set.h; path = Models/Set.h; sourceTree = "<group>"; };
 		701F2D7D1904DEB300157876 /* Set.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Set.m; path = Models/Set.m; sourceTree = "<group>"; };
 		701F2D7F1904DED300157876 /* SetTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetTrack.h; path = Models/SetTrack.h; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		7059A65418EE5FD20045807C = {
 			isa = PBXGroup;
 			children = (
+				701656DF194F6D54004B07E5 /* Model.xcdatamodeld */,
 				7072D242191FFA6200D5622F /* main_icon.png */,
 				7059A66818EE5FD20045807C /* CarbonWorkout */,
 				7059A68518EE5FD20045807C /* CarbonWorkoutTests */,
@@ -569,6 +572,7 @@
 				7059A67318EE5FD20045807C /* AppDelegate.m in Sources */,
 				70BF26C218FB4377002FCE50 /* RoutineViewController.m in Sources */,
 				702FCF6F1907376D00FCCDF2 /* WorkoutPlanRoutine.m in Sources */,
+				701656E1194F6D54004B07E5 /* Model.xcdatamodeld in Sources */,
 				70AD1A1B190070250024E2EE /* WLHorizontalSegmentedControl.m in Sources */,
 				7059A69C18F4C0A80045807C /* Exercise.m in Sources */,
 				70AD1A1D190070250024E2EE /* WLSegmentedControl.m in Sources */,
@@ -720,6 +724,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CarbonWorkout/CarbonWorkout-Prefix.pch";
 				INFOPLIST_FILE = "CarbonWorkout/CarbonWorkout-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kmcarbone16/Desktop,
@@ -745,6 +750,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CarbonWorkout/CarbonWorkout-Prefix.pch";
 				INFOPLIST_FILE = "CarbonWorkout/CarbonWorkout-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kmcarbone16/Desktop,
@@ -829,6 +835,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		701656DF194F6D54004B07E5 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				701656E0194F6D54004B07E5 /* Model.xcdatamodel */,
+			);
+			currentVersion = 701656E0194F6D54004B07E5 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		7059A67418EE5FD20045807C /* CarbonWorkout.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

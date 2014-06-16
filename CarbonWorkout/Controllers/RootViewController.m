@@ -280,7 +280,7 @@
 
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Workouts" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
-    if(dataDoc){
+    if(dataDoc && dataDoc.length > 10){
         data = dataDoc;
     }
     NSArray *workoutArrayJson = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];

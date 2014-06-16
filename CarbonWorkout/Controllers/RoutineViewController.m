@@ -285,7 +285,7 @@
             }
             Set* set = [_routine.setTrack.sets objectAtIndex:index];
             _weightLabel.text = [NSString stringWithFormat:@"%dlbs", set.weight];
-            NSString* str = [NSString stringWithFormat:@"Nice Job! Next Starting Weight: %dlbs",_routine.workoutPlanRoutine.startingWeight+5];
+            NSString* str = [NSString stringWithFormat:@"Nice Job! Next Starting Weight: %dlbs",_routine.workoutPlanRoutine.startingWeight];
             [self showNotLabel:str afterDelay:5];
         }
         

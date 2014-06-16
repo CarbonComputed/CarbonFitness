@@ -42,12 +42,6 @@
     UINavigationController* nav = (UINavigationController*) self.window.rootViewController;
     RootViewController* rvc = (RootViewController*) [nav.childViewControllers objectAtIndex:0];
     if(rvc.currentWorkout){
-        [rvc performSelectorInBackground:@selector(saveHistory)
-                               withObject:nil];
-        [rvc performSelectorInBackground:@selector(saveWorkouts)
-                              withObject:nil];
-        [rvc performSelectorInBackground:@selector(saveUser)
-                              withObject:nil];
         rvc.backgroundTask = UIBackgroundTaskInvalid;
         rvc.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
             NSLog(@"Background handler called. Not running background tasks anymore.");
@@ -56,6 +50,17 @@
         }];
 
     }
+    [rvc saveHistory];
+    [rvc saveWorkouts];
+    [rvc saveUser];
+//    [rvc performSelectorInBackground:@selector(saveHistory)
+//                          withObject:nil];
+//    
+//    [rvc performSelectorInBackground:@selector(saveWorkouts)
+//                          withObject:nil];
+//    [rvc performSelectorInBackground:@selector(saveUser)
+//                          withObject:nil];
+
     //check to see if workout is active
     //if yes
        //try to request background time
