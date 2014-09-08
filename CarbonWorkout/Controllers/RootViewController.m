@@ -297,7 +297,7 @@
         // Initialize Compose View Controller
         SLComposeViewController *vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         // Configure Compose View Controller
-        [vc setInitialText:@"Getting in shape with CarbonFitness!"];
+        [vc setInitialText:@"Getting in shape with #CarbonFitness"];
         // Present Compose View Controller
         [self presentViewController:vc animated:YES completion:nil];
     } else {
@@ -311,7 +311,7 @@
         // Initialize Compose View Controller
         SLComposeViewController *vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         // Configure Compose View Controller
-        [vc setInitialText:@"Getting in shape with CarbonFitness!"];
+        [vc setInitialText:@"Getting in shape with #CarbonFitness"];
         // Present Compose View Controller
         [self presentViewController:vc animated:YES completion:nil];
     } else {

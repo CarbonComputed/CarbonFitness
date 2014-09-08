@@ -33,7 +33,6 @@
 		702AAB671939598D00C5E6D0 /* weightlift-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 702AAB551939598D00C5E6D0 /* weightlift-512.png */; };
 		702AAB681939598D00C5E6D0 /* Goku1.png in Resources */ = {isa = PBXBuildFile; fileRef = 702AAB571939598D00C5E6D0 /* Goku1.png */; };
 		702AAB691939598D00C5E6D0 /* Goku2.png in Resources */ = {isa = PBXBuildFile; fileRef = 702AAB581939598D00C5E6D0 /* Goku2.png */; };
-		702AAB6A1939598D00C5E6D0 /* goku3.png in Resources */ = {isa = PBXBuildFile; fileRef = 702AAB591939598D00C5E6D0 /* goku3.png */; };
 		702AAB6B1939598D00C5E6D0 /* Goku4.png in Resources */ = {isa = PBXBuildFile; fileRef = 702AAB5A1939598D00C5E6D0 /* Goku4.png */; };
 		702FCF6F1907376D00FCCDF2 /* WorkoutPlanRoutine.m in Sources */ = {isa = PBXBuildFile; fileRef = 702FCF6E1907376D00FCCDF2 /* WorkoutPlanRoutine.m */; };
 		702FCF721907381300FCCDF2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 702FCF711907381300FCCDF2 /* User.m */; };
@@ -72,6 +71,7 @@
 		70AD1A1D190070250024E2EE /* WLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AD1A1A190070250024E2EE /* WLSegmentedControl.m */; };
 		70BF26BF18FB4298002FCE50 /* RoutinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BF26BE18FB4298002FCE50 /* RoutinesViewController.m */; };
 		70BF26C218FB4377002FCE50 /* RoutineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BF26C118FB4377002FCE50 /* RoutineViewController.m */; };
+		70DED8D71999AED0003745C6 /* Goku3.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DED8D61999AED0003745C6 /* Goku3.png */; };
 		70DF71A518FB2B5C0017C2AA /* History.json in Resources */ = {isa = PBXBuildFile; fileRef = 70DF71A418FB2B5C0017C2AA /* History.json */; };
 /* End PBXBuildFile section */
 
@@ -118,7 +118,6 @@
 		702AAB551939598D00C5E6D0 /* weightlift-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weightlift-512.png"; sourceTree = "<group>"; };
 		702AAB571939598D00C5E6D0 /* Goku1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goku1.png; sourceTree = "<group>"; };
 		702AAB581939598D00C5E6D0 /* Goku2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goku2.png; sourceTree = "<group>"; };
-		702AAB591939598D00C5E6D0 /* goku3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goku3.png; sourceTree = "<group>"; };
 		702AAB5A1939598D00C5E6D0 /* Goku4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goku4.png; sourceTree = "<group>"; };
 		702FCF6D1907376D00FCCDF2 /* WorkoutPlanRoutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutPlanRoutine.h; path = Models/WorkoutPlanRoutine.h; sourceTree = "<group>"; };
 		702FCF6E1907376D00FCCDF2 /* WorkoutPlanRoutine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutPlanRoutine.m; path = Models/WorkoutPlanRoutine.m; sourceTree = "<group>"; };
@@ -180,6 +179,7 @@
 		70BF26BE18FB4298002FCE50 /* RoutinesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutinesViewController.m; path = Controllers/RoutinesViewController.m; sourceTree = "<group>"; };
 		70BF26C018FB4377002FCE50 /* RoutineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutineViewController.h; path = Controllers/RoutineViewController.h; sourceTree = "<group>"; };
 		70BF26C118FB4377002FCE50 /* RoutineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutineViewController.m; path = Controllers/RoutineViewController.m; sourceTree = "<group>"; };
+		70DED8D61999AED0003745C6 /* Goku3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goku3.png; sourceTree = "<group>"; };
 		70DF71A418FB2B5C0017C2AA /* History.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = History.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,9 +234,9 @@
 		702AAB561939598D00C5E6D0 /* Gokus */ = {
 			isa = PBXGroup;
 			children = (
+				70DED8D61999AED0003745C6 /* Goku3.png */,
 				702AAB571939598D00C5E6D0 /* Goku1.png */,
 				702AAB581939598D00C5E6D0 /* Goku2.png */,
-				702AAB591939598D00C5E6D0 /* goku3.png */,
 				702AAB5A1939598D00C5E6D0 /* Goku4.png */,
 			);
 			path = Gokus;
@@ -458,6 +458,7 @@
 				ORGANIZATIONNAME = "Kevin Carbone";
 				TargetAttributes = {
 					7059A65C18EE5FD20045807C = {
+						DevelopmentTeam = Q3LK4635JF;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -492,7 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				702AAB6A1939598D00C5E6D0 /* goku3.png in Resources */,
+				70DED8D71999AED0003745C6 /* Goku3.png in Resources */,
 				7023636219034D50001EC631 /* AdvancedSetView.xib in Resources */,
 				702AAB47193855DF00C5E6D0 /* Default@2.png in Resources */,
 				70DF71A518FB2B5C0017C2AA /* History.json in Resources */,
@@ -654,6 +655,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kevin Carbone (DCCZ4V9H7R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -693,6 +695,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kevin Carbone (DCCZ4V9H7R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -716,6 +719,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kmcarbone16/Desktop,
@@ -731,6 +736,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = CarbonFitness;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -742,6 +748,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kmcarbone16/Desktop,
@@ -757,6 +765,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = CarbonFitness;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

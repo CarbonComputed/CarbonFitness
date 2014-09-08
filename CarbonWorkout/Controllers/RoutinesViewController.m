@@ -82,6 +82,24 @@ enum Sort {ALPHA,BODY,DAY};
         }
         
     }
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"e"];
+    int today = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    if(![_displayList objectForKey:@(today)]){
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"No Workouts listed for today"
+                                                          message:@"Adding all routines to current workout. You can edit your workout plans to add some to this day of the week."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [_displayList removeAllObjects];
+        NSValue* day = @(11);
+        [_displayList setObject:[NSMutableArray new] forKey:day ];
+        for(Routine* r in _currentWorkout.routines){
+            [[_displayList objectForKey:day] addObject:r];
+            
+        }
+        [message show];
+    }
     _sortType = DAY;
    // [self sortByDay];
 
@@ -118,7 +136,7 @@ enum Sort {ALPHA,BODY,DAY};
                   @"Day",
                   nil];
     _sortSheet.tag = 1;
-
+    
     // Do any additional setup after loading the view.
 }
 
@@ -158,10 +176,12 @@ enum Sort {ALPHA,BODY,DAY};
 -(float) getProgress{
     float nCompleted = 0;
     float totalRoutines = 0;
-    if(_sortType == DAY){
-        NSDateFormatter *dateFormatter = [NSDateFormatter new];
-        [dateFormatter setDateFormat:@"e"];
-        int day = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"e"];
+    NSValue* today = [[_displayList sortedKeys] objectAtIndex:0];
+    int day = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    if(_sortType == DAY && ![today isEqualToValue:@(11)]){
+
         for(Routine* r in _currentWorkout.routines){
             if([r.workoutPlanRoutine.days containsObject:@(day)]){
                 if(r.didComplete){
@@ -172,8 +192,18 @@ enum Sort {ALPHA,BODY,DAY};
         }
     }
     else{
-        nCompleted =(float)_numWorkoutsCompleted;
-        totalRoutines = (float) _currentWorkout.routines.count;
+        for(NSArray* dict in [_displayList allValues]){
+            for(Routine* r in dict){
+                //if([r.workoutPlanRoutine.days containsObject:@(day)]){
+                    if(r.didComplete){
+                        nCompleted++;
+                    }
+                    totalRoutines++;
+               // }
+            }
+        }
+        //nCompleted =(float)_numWorkoutsCompleted;
+        //totalRoutines = (float) _currentWorkout.routines.count;
     }
     if(totalRoutines == 0){
         return 0;
@@ -276,6 +306,9 @@ enum Sort {ALPHA,BODY,DAY};
         if([day  isEqual: @(10)]){
             return @"NO DAYS";
         }
+        if([day  isEqual: @(11)]){
+            return @"Today";
+        }
     }
 
     
@@ -349,13 +382,40 @@ enum Sort {ALPHA,BODY,DAY};
     }
     if(_displayList.count == 0){
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"No Workouts listed for today"
-                                                          message:@"You can edit your workout plans to add some to this day of the week."
+                                                          message:@"Adding all routines to current workout. You can edit your workout plans to add some to this day of the week."
                                                          delegate:nil
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
         
         [message show];
+        for(Routine* r in _currentWorkout.routines){
+            
+            switch (r.workoutPlanRoutine.exercise.body) {
+                case UPPER:
+                    if(![_displayList objectForKey:@"UPPER BODY"]){
+                        [_displayList setObject:[NSMutableArray new] forKey:@"UPPER BODY" ];
+                    }
+                    [[_displayList objectForKey:@"UPPER BODY"] addObject:r];
+                    
+                    break;
+                case LOWER:
+                    if(![_displayList objectForKey:@"LOWER BODY"]){
+                        [_displayList setObject:[NSMutableArray new] forKey:@"LOWER BODY" ];
+                    }
+                    [[_displayList objectForKey:@"LOWER BODY"] addObject:r];
+                    break;
+                case CORE:
+                    if(![_displayList objectForKey:@"CORE"]){
+                        [_displayList setObject:[NSMutableArray new] forKey:@"CORE" ];
+                    }
+                    [[_displayList objectForKey:@"CORE"] addObject:r];
+                    
+                    break;
+                    
+            }
+        }
     }
+
     for(NSString* key in _displayList.allKeys){
         NSMutableArray* sortedArray = [[_displayList objectForKey:key] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
             Routine *ex1 = (Routine*)a;
@@ -391,6 +451,24 @@ enum Sort {ALPHA,BODY,DAY};
         }
 
     }
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"e"];
+    int today = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    if(![_displayList objectForKey:@(today)]){
+//        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"No Workouts listed for today"
+//                                                          message:@"Adding all routines to current workout. You can edit your workout plans to add some to this day of the week."
+//                                                         delegate:nil
+//                                                cancelButtonTitle:@"OK"
+//                                                otherButtonTitles:nil];
+        [_displayList removeAllObjects];
+        NSValue* day = @(11);
+        [_displayList setObject:[NSMutableArray new] forKey:day ];
+        for(Routine* r in _currentWorkout.routines){
+             [[_displayList objectForKey:day] addObject:r];
+            
+        }
+
+    }
     _sortType = DAY;
 
     [_routinesTableView reloadData];
@@ -417,13 +495,23 @@ enum Sort {ALPHA,BODY,DAY};
     
     if(sortedArray.count == 0){
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"No Workouts listed for today"
-                                                          message:@"You can edit your workout plans to add some to this day of the week."
+                                                          message:@"Adding all routines to current workout. You can edit your workout plans to add some to this day of the week."
                                                          delegate:nil
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
         
         [message show];
+        for(Routine* r in _currentWorkout.routines){
+            
+            [[_displayList objectForKey:@"Exercises"] addObject:r];
+        }
     }
+
+    sortedArray = [[_displayList objectForKey:@"Exercises"] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        Routine *ex1 = (Routine*)a;
+        Routine *ex2 = (Routine*)b;
+        return [ex1.workoutPlanRoutine.exercise compare:ex2.workoutPlanRoutine.exercise];
+    }];
     _sortType = ALPHA;
     
     [_displayList setObject:sortedArray forKey:@"Exercises"];

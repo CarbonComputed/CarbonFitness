@@ -7,6 +7,7 @@
 //
 
 #import "EditRoutinesViewController.h"
+#import "Set.h"
 
 #define NUMBERS_ONLY @"1234567890"
 #define CHARACTER_LIMIT 3
@@ -32,6 +33,35 @@ CGFloat animatedDistance;
         // Custom initialization
     }
     return self;
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        // back button was pressed.  We know this is true because self is no longer
+        // in the navigation stack.
+        if(_inProgressRoutine){
+            SetTrack* s = [_inProgressRoutine.setTrack copyWithZone:nil];
+            _inProgressRoutine = [_inProgressRoutine initWithWorkoutPlanRoutine:_currentRoutine];
+            int i =0;
+            int weight=-1;
+            for(Set* set in s.sets){
+                if(i >= _inProgressRoutine.setTrack.sets.count){
+                    break;
+                }
+                if(set.reps > -1){
+                    [_inProgressRoutine.setTrack.sets setObject:set atIndexedSubscript:i];
+                    
+                }
+                else{
+                    if(weight<0){
+                        weight = [[_inProgressRoutine.setTrack.sets objectAtIndex:i] weight];
+                    }
+                }
+                i++;
+            }
+        }
+    }
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad

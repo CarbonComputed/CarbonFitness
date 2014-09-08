@@ -15,6 +15,8 @@
 #import "WorkoutPlan.h"
 #import <AFNetworking/AFNetworking.h>
 
+
+
 @interface RoutineViewController ()
 @property int timeSec;
 @property int timeMin;
@@ -156,6 +158,7 @@
            //&& wpr.endingReps = _routine.workoutPlanRoutine.endingReps
            && wpr.startingWeight == _routine.workoutPlanRoutine.startingWeight
            //&& wpr.endingWeight = _routine.workoutPlanRoutine.endingWeight
+          // && [wpr.days intersectsSet:_routine.workoutPlanRoutine.days]){
            && [wpr.days isEqualToSet:_routine.workoutPlanRoutine.days]){
             //Routine* r = [[Routine alloc] initWithWorkoutPlanRoutine:wpr];
             
@@ -448,12 +451,11 @@
             //should use an actual id here
             if(wpr.exercise.eid == _routine.workoutPlanRoutine.exercise.eid
                && wpr.startingReps == _routine.workoutPlanRoutine.startingReps
-               //&& wpr.endingReps = _routine.workoutPlanRoutine.endingReps
                && wpr.startingWeight == _routine.workoutPlanRoutine.startingWeight
-               //&& wpr.endingWeight = _routine.workoutPlanRoutine.endingWeight
-               && [wpr.days isEqualToSet:_routine.workoutPlanRoutine.days])
-               {
+                 //&& [wpr.days intersectsSet:_routine.workoutPlanRoutine.days]){
+                && [wpr.days isEqualToSet:_routine.workoutPlanRoutine.days]){
                     evc.currentRoutine = wpr;
+                evc.inProgressRoutine = _routine;
                     break;
                 
             }

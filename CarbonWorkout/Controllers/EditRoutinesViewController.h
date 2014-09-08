@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WorkoutPlanRoutine.h"
+#import "Routine.h"
 #import "WLHorizontalSegmentedControl.h"
 #import "AdvancedSetView.h"
 
@@ -22,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @property WorkoutPlanRoutine* currentRoutine;
+
+@property Routine* inProgressRoutine;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *incrementControl;
 
 @property (weak, nonatomic) IBOutlet UILabel *exerciseNameLabel;
