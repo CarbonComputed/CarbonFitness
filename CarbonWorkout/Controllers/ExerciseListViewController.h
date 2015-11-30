@@ -10,7 +10,7 @@
 
 @protocol ExerciseListViewControllerDelegate;
 
-@interface ExerciseListViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface ExerciseListViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, UIActionSheetDelegate>
 
 @property id<ExerciseListViewControllerDelegate> delegate;
 

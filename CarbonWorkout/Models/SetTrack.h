@@ -15,12 +15,12 @@ enum INC_TYPE {EQUAL,RAMP,PYRAMID};
 
 @property NSMutableArray* sets;
 
--(id)initWithSetType:(int)type
-             numSets:(int)sets
-         startingRep:(int)startR
-           endingRep:(int)endingR
-      startingWeight:(int)startW
-        endingWeight:(int)endingW;
+-(id)initWithSetType:(NSInteger)type
+             numSets:(NSInteger)sets
+         startingRep:(NSInteger)startR
+           endingRep:(NSInteger)endingR
+      startingWeight:(NSInteger)startW
+        endingWeight:(NSInteger)endingW;
 
 -(id) initWithAttributes:(NSDictionary*)attributes;
 - (NSDictionary *)dictionaryFromData;

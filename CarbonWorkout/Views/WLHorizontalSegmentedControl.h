@@ -9,6 +9,5 @@
 #import "WLSegmentedControl.h"
 
 @interface WLHorizontalSegmentedControl : WLSegmentedControl 
--(void)selectSegmentWithIndex:(NSInteger)index ;
 
 @end

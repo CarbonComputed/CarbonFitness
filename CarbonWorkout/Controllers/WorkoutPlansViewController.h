@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WorkoutPlansViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface WorkoutPlansViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *workoutPlansTableView;
 @property (weak) NSMutableDictionary* workoutDict;
 

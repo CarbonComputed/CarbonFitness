@@ -33,6 +33,7 @@
     [_workoutPlansTableView setDataSource:self];
     
     
+    
     // Do any additional setup after loading the view.
 }
 
@@ -155,24 +156,11 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+
     if(buttonIndex==0){
         [User sharedUser].defaultWorkout = [[_workoutDict.allValues objectAtIndex:actionSheet.tag] wid];
         [self.workoutPlansTableView reloadData];
     }
 }
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

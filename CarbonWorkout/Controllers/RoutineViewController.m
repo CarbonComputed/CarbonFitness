@@ -41,7 +41,7 @@
     return self;
 }
 
--(void)setViewResized:(int)buttonSize{
+-(void)setViewResized:(NSUInteger)buttonSize{
                 _heightConstraint.constant += buttonSize;
                 _distanceToTimeCon.constant -= buttonSize;
                 CGRect frame = _setView.frame;
@@ -66,29 +66,21 @@
     _viewHolder.hidden = true;
     _setView = [[SetView alloc] initWithFrame:CGRectMake(20, 124, 280, 94)];
     _setView.delegate = self;
-    //_setView.backgroundColor = [UIColor greenColor];
 
     [self.view addSubview:_setView];
-    //_setView  = [_setView initWithFrame:_setView.frame setArray:_routine.setTrack.sets];
-    
+	
 }
 - (IBAction)labelSwiped:(id)sender {
     [self hideNotLabel];
-
 }
 
 -(void)hideNotLabel{
+	_topSpaceToLayout.constant = -_popdownLabel.frame.size.height;
+
     [UIView animateWithDuration:.2
                      animations:^{
-                         //if(_popdownHidden == false){
-                         //    _popdownHidden = true;
-                         _topSpaceToLayout.constant = -_popdownLabel.frame.size.height;
-
-                             _topSpaceToLayout.constant -= _popdownLabel.frame.size.height;
-
-                         //}
                          
-                         [_popdownLabel layoutIfNeeded];
+                         [_popdownLabel.superview layoutIfNeeded];
                      }
                      completion: ^(BOOL finished) {//creates a variable (BOOL) called "finished" that is set to *YES* when animation IS completed.
                          
@@ -128,8 +120,8 @@
         
         SetTrack* s = [_routine.setTrack copyWithZone:nil];
         _routine = [_routine initWithWorkoutPlanRoutine:_routine.workoutPlanRoutine];
-        int i =0;
-        int weight=-1;
+        NSInteger i =0;
+        NSInteger weight=-1;
         for(Set* set in s.sets){
             if(set.reps > -1){
                 [_routine.setTrack.sets setObject:set atIndexedSubscript:i];
@@ -145,7 +137,7 @@
         if(weight < 0){
             weight = [[_routine.setTrack.sets objectAtIndex:_routine.setTrack.sets.count-1] weight];
         }
-        _weightLabel.text = [NSString stringWithFormat:@"%dlbs", weight];
+        _weightLabel.text = [NSString stringWithFormat:@"%ld lbs", weight];
         
         [_setView setSets:_routine.setTrack.sets];
         [_setView setNeedsLayout];
@@ -164,8 +156,8 @@
             
             SetTrack* s = [_routine.setTrack copyWithZone:nil];
             _routine = [_routine initWithWorkoutPlanRoutine:wpr];
-            int i =0;
-            int weight=-1;
+            NSInteger i = 0;
+            NSInteger weight = -1;
             for(Set* set in s.sets){
                 if(set.reps > -1){
                     [_routine.setTrack.sets setObject:set atIndexedSubscript:i];
@@ -181,7 +173,7 @@
             if(weight < 0){
                 weight = [[_routine.setTrack.sets objectAtIndex:_routine.setTrack.sets.count-1] weight];
             }
-            _weightLabel.text = [NSString stringWithFormat:@"%dlbs", weight];
+            _weightLabel.text = [NSString stringWithFormat:@"%ld lbs", weight];
 
             [_setView setSets:_routine.setTrack.sets];
             [_setView setNeedsLayout];
@@ -190,14 +182,6 @@
         }
         
     }
-    
-//    if([_routine.setTrack.sets count] > 0){
-//        Set* set = [_routine.setTrack.sets objectAtIndex:0];
-//        
-//        
-//        _weightLabel.text = [NSString stringWithFormat:@"%dlbs", set.weight];
-//    }
-
 
     
 }
@@ -208,16 +192,12 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self
                                              selector:@selector(hideNotLabel)
                                                object:nil];
+	_topSpaceToLayout.constant = 0;
+
     [UIView animateWithDuration:0.2
                      animations:^{
-                         //if(_popdownHidden){
-                         //    _popdownHidden = false;
-                         _topSpaceToLayout.constant = -_popdownLabel.frame.size.height;
-                             _topSpaceToLayout.constant += _popdownLabel.frame.size.height;
-
-                         //}
-                         
-                         [_popdownLabel layoutIfNeeded];
+						 
+                         [_popdownLabel.superview layoutIfNeeded];
                      }
                      completion: ^(BOOL finished) {//creates a variable (BOOL) called "finished" that is set to *YES* when animation IS completed.
                          
@@ -245,7 +225,7 @@
                                              selector:@selector(startSetTimer)
                                                object:nil];
     [_setTimer invalidate];
-    int index = sender.tag;
+    NSInteger index = sender.tag;
 
 
     
@@ -279,7 +259,6 @@
                     _routine.workoutPlanRoutine.startingWeight += 5;
                     _routine.workoutPlanRoutine.endingWeight += 5;
                     
-                    //_routine.s
                     
                     if(_routine.workoutPlanRoutine.max > wpr.max  ){
                         wpr.max = _routine.workoutPlanRoutine.max;
@@ -287,8 +266,8 @@
                 }
             }
             Set* set = [_routine.setTrack.sets objectAtIndex:index];
-            _weightLabel.text = [NSString stringWithFormat:@"%dlbs", set.weight];
-            NSString* str = [NSString stringWithFormat:@"Nice Job! Next Starting Weight: %dlbs",_routine.workoutPlanRoutine.startingWeight];
+            _weightLabel.text = [NSString stringWithFormat:@"%ld lbs", set.weight];
+            NSString* str = [NSString stringWithFormat:@"Nice Job! Next Starting Weight: %ld lbs",_routine.workoutPlanRoutine.startingWeight];
             [self showNotLabel:str afterDelay:5];
         }
         
@@ -299,7 +278,7 @@
         [self performSelector:@selector(startSetTimer) withObject:nil afterDelay:0.5];
         if(index + 1 < [_routine.setTrack.sets count]){
             Set* set2 = [_routine.setTrack.sets objectAtIndex:index+1];
-            _weightLabel.text = [NSString stringWithFormat:@"%dlbs", set2.weight];
+            _weightLabel.text = [NSString stringWithFormat:@"%ld lbs", set2.weight];
         }
     }
 
@@ -411,10 +390,10 @@
         Set* set = [_routine.setTrack.sets objectAtIndex:0];
         
         if(set.weight == 0){
-            _weightLabel.text = [NSString stringWithFormat:@"%d reps", set.reps];
+            _weightLabel.text = [NSString stringWithFormat:@"%ld reps", (long)set.reps];
 
         }
-        _weightLabel.text = [NSString stringWithFormat:@"%dlbs", set.weight];
+        _weightLabel.text = [NSString stringWithFormat:@"%ld lbs", (long)set.weight];
     }
 
     //_maxLabel.text =  [NSString stringWithFormat:@"Max: %dlbs", _routine.workoutPlanRoutine.max];

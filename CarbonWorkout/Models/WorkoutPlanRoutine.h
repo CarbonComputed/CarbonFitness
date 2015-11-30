@@ -14,14 +14,14 @@ enum Day {S=1,M,T,W,R,F,SA};
 
 @interface WorkoutPlanRoutine : NSObject
 
-@property int sets;
-@property int startingReps;
-@property int startingWeight;
-@property int endingReps;
-@property int endingWeight;
+@property NSInteger sets;
+@property NSInteger startingReps;
+@property NSInteger startingWeight;
+@property NSInteger endingReps;
+@property NSInteger endingWeight;
 
-@property int max;
-@property int incrementType;
+@property NSInteger max;
+@property NSInteger incrementType;
 
 @property Exercise* exercise;
 

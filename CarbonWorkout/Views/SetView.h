@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol SetViewDelegate
--(void)setViewResized:(int)buttonSize;
+-(void)setViewResized:(NSUInteger)buttonSize;
 -(void)setButtonPressed:(UIButton *)sender;
 
 @end
@@ -17,7 +17,7 @@
 
 @interface SetView : UIView
 @property NSMutableArray* setButtons;
-@property NSMutableArray* sets;
+@property (nonatomic) NSMutableArray* sets;
 @property id<SetViewDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame setArray:(NSMutableArray*)sets;

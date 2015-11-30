@@ -11,7 +11,7 @@
 @interface User : NSObject
 @property int uid;
 @property NSString* name;
-@property int defaultWorkout;
+@property NSInteger defaultWorkout;
 
 @property NSMutableDictionary *workoutDict;
 

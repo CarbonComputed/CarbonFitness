@@ -10,6 +10,7 @@
 #import "WorkoutPlanRoutine.h"
 
 @implementation WorkoutPlan
+@synthesize description = _description;
 
 - (id)init
 {

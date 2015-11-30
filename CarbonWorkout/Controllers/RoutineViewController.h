@@ -39,7 +39,7 @@
 @property (strong,atomic) NSTimer* setTimer;
 
 
-@property int totalNotDelay;
+@property NSInteger totalNotDelay;
 
 @property BOOL popdownHidden;
 @property BOOL fromHistory;

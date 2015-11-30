@@ -18,14 +18,14 @@
         _sets = sets;
         _setButtons = [NSMutableArray new];
         
-        int plusy = -5;
-        int row = 0;
-        int buttonsLeft = [_sets count];
-        int defaultCirclesPerRow = 5;
-        int buttonsInRow = 0;
-        int viewWidth = frame.size.width;
-        int viewHeight = frame.size.height;
-        int buttonSize = 45;
+		NSInteger plusy = -5;
+        NSInteger row = 0;
+        NSUInteger buttonsLeft = [_sets count];
+        NSInteger defaultCirclesPerRow = 5;
+        NSInteger buttonsInRow = 0;
+        NSInteger viewWidth = frame.size.width;
+        NSInteger viewHeight = frame.size.height;
+        NSInteger buttonSize = 45;
         if([_sets count] % 5 == 0){
             defaultCirclesPerRow = 5;
         }
@@ -76,13 +76,13 @@
             }
             
             
-            int circlesPerRow = MIN(defaultCirclesPerRow, buttonsLeft);
+            NSUInteger circlesPerRow = MIN(defaultCirclesPerRow, buttonsLeft);
             
             CGFloat xmultiplier = (((2*(buttonsInRow%circlesPerRow) + 2) / (CGFloat)(circlesPerRow + 1)))/2;
             //CGFloat ymultiplier = (((2*(row) + 2) / (CGFloat)(row + 1)))/2;
 
-            int x = xmultiplier * viewWidth;
-            int y = plusy + ((viewHeight/2) - (buttonSize/2));
+            NSUInteger x = xmultiplier * viewWidth;
+            NSUInteger y = plusy + ((viewHeight/2) - (buttonSize/2));
             //int y = (ymultiplier * viewHeight);
             
             //NSLog(@"%d,%d,%f",plusy,y,xmultiplier);
@@ -97,7 +97,7 @@
             if(set.reps != -1){
                 [setButton setBackgroundColor:[UIColor colorWithCGColor:setButton.layer.borderColor]];
                 
-                [setButton setTitle: [NSString stringWithFormat:@"%d", set.reps] forState:UIControlStateNormal];
+                [setButton setTitle: [NSString stringWithFormat:@"%ld", (long)set.reps] forState:UIControlStateNormal];
             }
             setButton.userInteractionEnabled = YES;
             [setButton addTarget:self action:@selector(setButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -123,14 +123,14 @@
     }
 
     CGRect frame = self.frame;
-    int plusy = -5;
-    int row = 0;
-    int buttonsLeft = [_sets count];
-    int defaultCirclesPerRow = 5;
-    int buttonsInRow = 0;
-    int viewWidth = frame.size.width;
-    int viewHeight = frame.size.height;
-    int buttonSize = 45;
+    NSInteger plusy = -5;
+    NSInteger row = 0;
+    NSUInteger buttonsLeft = [_sets count];
+    NSUInteger defaultCirclesPerRow = 5;
+    NSUInteger buttonsInRow = 0;
+    NSUInteger viewWidth = frame.size.width;
+    NSUInteger viewHeight = frame.size.height;
+    NSUInteger buttonSize = 45;
     if([_sets count] % 5 == 0){
         defaultCirclesPerRow = 5;
     }
@@ -181,13 +181,13 @@
         }
         
         
-        int circlesPerRow = MIN(defaultCirclesPerRow, buttonsLeft);
+        NSUInteger circlesPerRow = MIN(defaultCirclesPerRow, buttonsLeft);
         
         CGFloat xmultiplier = (((2*(buttonsInRow%circlesPerRow) + 2) / (CGFloat)(circlesPerRow + 1)))/2;
         //CGFloat ymultiplier = (((2*(row) + 2) / (CGFloat)(row + 1)))/2;
         
-        int x = xmultiplier * viewWidth;
-        int y = plusy + ((viewHeight/2) - (buttonSize/2));
+        NSUInteger x = xmultiplier * viewWidth;
+        NSUInteger y = plusy + ((viewHeight/2) - (buttonSize/2));
         //int y = (ymultiplier * viewHeight);
         
         //NSLog(@"%d,%d,%f",plusy,y,xmultiplier);
@@ -202,7 +202,7 @@
         if(set.reps != -1){
             [setButton setBackgroundColor:[UIColor colorWithCGColor:setButton.layer.borderColor]];
             
-            [setButton setTitle: [NSString stringWithFormat:@"%d", set.reps] forState:UIControlStateNormal];
+            [setButton setTitle: [NSString stringWithFormat:@"%ld", (long)set.reps] forState:UIControlStateNormal];
         }
         setButton.userInteractionEnabled = YES;
         [setButton addTarget:self action:@selector(setButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -213,7 +213,7 @@
 }
 
 -(void)setButtonPressed:(UIButton *)sender{
-    int index = sender.tag;
+    NSInteger index = sender.tag;
     UIButton* pressed = [_setButtons objectAtIndex:index];
     [pressed setBackgroundColor:[UIColor colorWithCGColor:pressed.layer.borderColor]];
     Set* set = [_sets objectAtIndex:index];
@@ -224,7 +224,7 @@
     else{
         set.reps--;
     }
-    [pressed setTitle: [NSString stringWithFormat:@"%d", set.reps] forState:UIControlStateNormal];
+    [pressed setTitle: [NSString stringWithFormat:@"%ld", (long)set.reps] forState:UIControlStateNormal];
 
     [_delegate setButtonPressed:sender];
 }

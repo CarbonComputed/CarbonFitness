@@ -11,7 +11,7 @@
 #import "Workout.h"
 #import "WorkoutPlan.h"
 
-@interface RoutinesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface RoutinesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *routinesTableView;
 @property (weak, nonatomic) IBOutlet UILabel *exerciseTimerLabel;
 

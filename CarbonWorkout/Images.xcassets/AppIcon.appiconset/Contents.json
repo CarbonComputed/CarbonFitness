@@ -7,16 +7,34 @@
       "scale" : "2x"
     },
     {
+      "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "dumbbell-181.png",
+      "scale" : "3x"
+    },
+    {
       "size" : "40x40",
       "idiom" : "iphone",
       "filename" : "logo40pt.png",
       "scale" : "2x"
     },
     {
+      "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "dumbbell-121.png",
+      "scale" : "3x"
+    },
+    {
       "size" : "60x60",
       "idiom" : "iphone",
       "filename" : "logo60pt.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "dumbbell-180.png",
+      "scale" : "3x"
     },
     {
       "idiom" : "ipad",

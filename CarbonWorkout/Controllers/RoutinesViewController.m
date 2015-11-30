@@ -375,8 +375,9 @@ enum Sort {ALPHA,BODY,DAY};
                     [_displayList setObject:[NSMutableArray new] forKey:@"CORE" ];
                 }
                 [[_displayList objectForKey:@"CORE"] addObject:r];
-                
                 break;
+			case CARDIO:
+				break;
 
         }
     }
@@ -409,18 +410,17 @@ enum Sort {ALPHA,BODY,DAY};
                         [_displayList setObject:[NSMutableArray new] forKey:@"CORE" ];
                     }
                     [[_displayList objectForKey:@"CORE"] addObject:r];
-                    
                     break;
+				case CARDIO:
+					break;
                     
             }
         }
     }
 
     for(NSString* key in _displayList.allKeys){
-        NSMutableArray* sortedArray = [[_displayList objectForKey:key] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-            Routine *ex1 = (Routine*)a;
-            Routine *ex2 = (Routine*)b;
-            return [ex1.workoutPlanRoutine.exercise compare:ex2.workoutPlanRoutine.exercise];
+        NSArray* sortedArray = [[_displayList objectForKey:key] sortedArrayUsingComparator:^NSComparisonResult(Routine *r1, Routine *r2) {
+            return [r1.workoutPlanRoutine.exercise compare:r2.workoutPlanRoutine.exercise];
         }];
         [_displayList setObject:sortedArray forKey:key];
     }
@@ -487,10 +487,8 @@ enum Sort {ALPHA,BODY,DAY};
         }
         [[_displayList objectForKey:@"Exercises"] addObject:r];
     }
-    NSMutableArray* sortedArray = [[_displayList objectForKey:@"Exercises"] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        Routine *ex1 = (Routine*)a;
-        Routine *ex2 = (Routine*)b;
-        return [ex1.workoutPlanRoutine.exercise compare:ex2.workoutPlanRoutine.exercise];
+    NSArray* sortedArray = [[_displayList objectForKey:@"Exercises"] sortedArrayUsingComparator:^NSComparisonResult(Routine *r1, Routine *r2) {
+        return [r1.workoutPlanRoutine.exercise compare:r2.workoutPlanRoutine.exercise];
     }];
     
     if(sortedArray.count == 0){

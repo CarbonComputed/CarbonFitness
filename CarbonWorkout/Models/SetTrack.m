@@ -38,21 +38,21 @@ int roundTo(double number, int r){
     return self;
 }
 
--(id)initWithSetType:(int)type
-             numSets:(int)nsets
-         startingRep:(int)startR
-           endingRep:(int)endingR
-      startingWeight:(int)startW
-        endingWeight:(int)endingW{
+-(id)initWithSetType:(NSInteger)type
+             numSets:(NSInteger)nsets
+         startingRep:(NSInteger)startR
+           endingRep:(NSInteger)endingR
+      startingWeight:(NSInteger)startW
+        endingWeight:(NSInteger)endingW{
     self = [super init];
     if(self){
 
         _sets = [NSMutableArray new];
         if(type==EQUAL){
-            int weight = startW;
+            NSInteger weight = startW;
             
             weight = roundTo(weight, 5);
-            for(int i = 0;i<nsets;i++){
+            for(NSInteger i = 0;i<nsets;i++){
             
 //                if(roundTo(weight, 5) > endingW){
 //                    weight -= 5;
@@ -62,11 +62,11 @@ int roundTo(double number, int r){
             }
         }
         else if(type==RAMP){
-            int repSlope = (endingR - startR) / (nsets - 1);
-            int weightSlope = (endingW - startW) / (nsets - 1);
-            int rep = startR;
-            int weight = startW;
-            for(int i = 0;i<nsets;i++){
+            NSInteger repSlope = (endingR - startR) / (nsets - 1);
+            NSInteger weightSlope = (endingW - startW) / (nsets - 1);
+            NSInteger rep = startR;
+            NSInteger weight = startW;
+            for(NSInteger i = 0;i<nsets;i++){
 //                if(roundTo(weight, 5) > endingW){
 //                    weight -= 5;
 //                }
@@ -95,11 +95,11 @@ int roundTo(double number, int r){
             
         }
         else if(type==PYRAMID){
-            int repSlope = (endingR - startR) / ((nsets/2) + 1 - 1);
-            int weightSlope = (endingW - startW) / ((nsets/2) + 1 - 1);
-            int rep = startR;
-            int weight = startW;
-            for(int i = 0;i<nsets;i++){
+            NSInteger repSlope = (endingR - startR) / ((nsets/2) + 1 - 1);
+            NSInteger weightSlope = (endingW - startW) / ((nsets/2) + 1 - 1);
+            NSInteger rep = startR;
+            NSInteger weight = startW;
+            for(NSInteger i = 0;i<nsets;i++){
 //                if(roundTo(weight, 5) > endingW){
 //                    weight -= 5;
 //                }

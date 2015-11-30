@@ -100,9 +100,7 @@ enum Sort {ALPHA,BODY};
         }
     }
     for(NSString* key in _displayList.allKeys){
-        NSMutableArray* sortedArray = [[_displayList objectForKey:key] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-            Exercise *ex1 = (Exercise*)a;
-            Exercise *ex2 = (Exercise*)b;
+        NSArray* sortedArray = [[_displayList objectForKey:key] sortedArrayUsingComparator:^NSComparisonResult(Exercise *ex1, Exercise *ex2) {
             return [ex1 compare:ex2];
         }];
         [_displayList setObject:sortedArray forKey:key];
@@ -118,9 +116,7 @@ enum Sort {ALPHA,BODY};
     for(Exercise* e in _exerciseDict.allValues){
         [[_displayList objectForKey:@"Exercises"] addObject:e];
     }
-    NSMutableArray* sortedArray = [[_displayList objectForKey:@"Exercises"] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        Exercise *ex1 = (Exercise*)a;
-        Exercise *ex2 = (Exercise*)b;
+    NSArray* sortedArray = [[_displayList objectForKey:@"Exercises"] sortedArrayUsingComparator:^NSComparisonResult(Exercise *ex1, Exercise *ex2) {
         return [ex1 compare:ex2];
     }];
     _sortType = ALPHA;
@@ -204,15 +200,6 @@ enum Sort {ALPHA,BODY};
 - (IBAction)sortPressed:(id)sender {
     [_sortSheet showInView:[UIApplication sharedApplication].keyWindow];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

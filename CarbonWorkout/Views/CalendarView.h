@@ -17,23 +17,23 @@
 
 @interface CalendarView : UIView
 
-    @property NSCalendar *calendar;
-    @property NSDate *selectedDate;
-    @property NSDate *displayedDate;
-    @property NSArray *dayCells;
+@property (nonatomic) NSCalendar *calendar;
+@property (nonatomic) NSDate *selectedDate;
+@property (nonatomic) NSDate *displayedDate;
+@property (nonatomic) NSArray *dayCells;
 
-    @property NSDateFormatter *dateFormatter;
+@property (nonatomic) NSDateFormatter *dateFormatter;
 
-    @property NSUInteger displayedYear;
-    @property NSUInteger displayedMonth;
+@property (nonatomic) NSUInteger displayedYear;
+@property (nonatomic) NSUInteger displayedMonth;
 
-    @property UIView* weekdayBar;
-    @property int weekBarHeight;
+@property (nonatomic) UIView* weekdayBar;
+@property (nonatomic) NSInteger weekBarHeight;
 
-    @property NSArray* weekdayNameLabels;
-    - (UIButton *) cellForDate: (NSDate *) date;
+@property (nonatomic) NSArray* weekdayNameLabels;
+- (UIButton *) cellForDate: (NSDate *) date;
 
-    @property id<CellPressedDelegate> delegate;
+@property id<CellPressedDelegate> delegate;
 
 -(void)highlightDate:(NSDate*)date;
 -(void)resetHighlights;

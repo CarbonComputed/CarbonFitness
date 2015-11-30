@@ -26,7 +26,7 @@ static const CGFloat kGridMargin = 10;
         self.selectedDate = nil;
         self.displayedDate = [NSDate date];
         CGFloat top = 0;
-        NSDateComponents *components = [self.calendar components: NSWeekdayCalendarUnit
+        NSDateComponents *components = [self.calendar components: NSCalendarUnitWeekday
                                                         fromDate: [self displayedMonthStartDate]];
         NSInteger shift = components.weekday - self.calendar.firstWeekday;
         if (shift < 0) {
@@ -34,7 +34,7 @@ static const CGFloat kGridMargin = 10;
         }
         
         // Calculate range
-        NSRange range = [self.calendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit
+        NSRange range = [self.calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitDay
                                            forDate:self.displayedDate];
         int padding = 4;
         //int cellHeight = self.bounds.size.height / 6.0;
@@ -58,7 +58,7 @@ static const CGFloat kGridMargin = 10;
             cellView.frame = CGRectMake((kGridMargin)+((padding+cellWidth) * ((shift + i) % 7)) ,top+(cellHeight+padding) * ((shift + i) / 7 ),
                                         cellWidth, cellHeight);
             //cellView.backgroundColor = [UIColor lightGrayColor];
-            NSString* day  = [NSString stringWithFormat:@"%d",i+1];
+            NSString* day  = [NSString stringWithFormat:@"%ld",(long)i+1];
             [cellView setTitle:day forState:UIControlStateNormal];
             [cellView setTitle:day forState:UIControlStateHighlighted];
             [cellView setTitle:day forState:UIControlStateSelected];
@@ -96,20 +96,20 @@ static const CGFloat kGridMargin = 10;
 }
 
 - (NSUInteger) displayedYear {
-    NSDateComponents *components = [self.calendar components: NSYearCalendarUnit
+    NSDateComponents *components = [self.calendar components: NSCalendarUnitYear
                                                     fromDate: self.displayedDate];
     return components.year;
 }
 
 - (NSUInteger) displayedMonth {
-    NSDateComponents *components = [self.calendar components: NSMonthCalendarUnit
+    NSDateComponents *components = [self.calendar components: NSCalendarUnitMonth
                                                     fromDate: self.displayedDate];
     return components.month;
 }
 
 
 - (NSDate *) displayedMonthStartDate {
-    NSDateComponents *components = [self.calendar components: NSMonthCalendarUnit|NSYearCalendarUnit
+    NSDateComponents *components = [self.calendar components: NSCalendarUnitMonth|NSCalendarUnitYear
                                                     fromDate: self.displayedDate];
     components.day = 1;
     return [self.calendar dateFromComponents: components];
@@ -126,7 +126,7 @@ static const CGFloat kGridMargin = 10;
             label.tag = i;
             label.text = [[_dateFormatter shortWeekdaySymbols] objectAtIndex: index];
             label.font = [UIFont boldSystemFontOfSize:12];
-            label.textAlignment = UITextAlignmentCenter;
+            label.textAlignment = NSTextAlignmentCenter;
 
             
             [labels addObject:label];
@@ -182,7 +182,7 @@ static const CGFloat kGridMargin = 10;
 - (void) layoutSubviews {
     [super layoutSubviews];
     CGFloat top = 0;
-    NSDateComponents *components = [self.calendar components: NSWeekdayCalendarUnit
+    NSDateComponents *components = [self.calendar components: NSCalendarUnitWeekday
                                                     fromDate: [self displayedMonthStartDate]];
     NSInteger shift = components.weekday - self.calendar.firstWeekday;
     if (shift < 0) {
@@ -190,7 +190,7 @@ static const CGFloat kGridMargin = 10;
     }
     
     // Calculate range
-    NSRange range = [self.calendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit
+    NSRange range = [self.calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitDay
                                        forDate:self.displayedDate];
     int padding = 4;
     int cellHeight = 40;
@@ -213,7 +213,7 @@ static const CGFloat kGridMargin = 10;
         cellView.frame = CGRectMake((kGridMargin)+((padding+cellWidth) * ((shift + i) % 7)) ,top+(cellHeight+padding) * ((shift + i) / 7 ),
                                     cellWidth, cellHeight);
         //cellView.backgroundColor = [UIColor lightGrayColor];
-        NSString* day  = [NSString stringWithFormat:@"%d",i+1];
+        NSString* day  = [NSString stringWithFormat:@"%ld",(long)i+1];
         [cellView setTitle:day forState:UIControlStateNormal];
         [cellView setTitle:day forState:UIControlStateHighlighted];
         [cellView setTitle:day forState:UIControlStateSelected];
@@ -240,7 +240,7 @@ static const CGFloat kGridMargin = 10;
         return nil;
     }
     
-    NSDateComponents *components = [self.calendar components: NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit
+    NSDateComponents *components = [self.calendar components: NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear
                                                     fromDate: date];
     if (components.month == self.displayedMonth &&
         components.year == self.displayedYear &&
@@ -255,7 +255,7 @@ static const CGFloat kGridMargin = 10;
 
 - (void) touchedCellView: (UIButton *) cellView {
 
-    NSDateComponents *components = [_calendar components:NSYearCalendarUnit|NSMonthCalendarUnit
+    NSDateComponents *components = [_calendar components:NSCalendarUnitYear|NSCalendarUnitMonth
                                                fromDate:self.displayedDate];
     components.day = cellView.tag;
     self.selectedDate = [_calendar dateFromComponents:components];;
@@ -284,13 +284,5 @@ static const CGFloat kGridMargin = 10;
     return _dayCells;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

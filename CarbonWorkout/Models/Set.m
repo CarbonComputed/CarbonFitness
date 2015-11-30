@@ -10,9 +10,9 @@
 
 @implementation Set
 
--(id)initWithReps:(int)reps
-          maxReps:(int)mreps
-           weight:(int)w{
+-(id)initWithReps:(NSInteger)reps
+          maxReps:(NSInteger)mreps
+           weight:(NSInteger)w{
     self = [super init];
     if(self){
         _reps = reps;

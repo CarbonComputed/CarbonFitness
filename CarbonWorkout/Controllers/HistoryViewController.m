@@ -34,7 +34,7 @@
 
     
     NSString *monthName = [[_calendarView.dateFormatter standaloneMonthSymbols] objectAtIndex: _calendarView.displayedMonth - 1];
-    self.monthLabel.text = [NSString stringWithFormat: @"%@ %d", monthName, _calendarView.displayedYear];
+    self.monthLabel.text = [NSString stringWithFormat: @"%@ %lu", monthName, _calendarView.displayedYear];
     [_calendarView setNeedsLayout];
     
     [self highlightHistory];
@@ -93,7 +93,7 @@
                          
                          _calendarView.displayedDate = [_calendarView.calendar dateByAddingComponents: monthStep toDate: _calendarView.displayedDate options: 0];
                          NSString *monthName = [[_calendarView.dateFormatter standaloneMonthSymbols] objectAtIndex: _calendarView.displayedMonth - 1];
-                         self.monthLabel.text = [NSString stringWithFormat: @"%@ %d", monthName, _calendarView.displayedYear];
+                         self.monthLabel.text = [NSString stringWithFormat: @"%@ %lu", monthName, _calendarView.displayedYear];
                          [_calendarView setNeedsLayout];
                          [_calendarView layoutIfNeeded];
                          [UIView animateWithDuration:.3
@@ -129,7 +129,7 @@
                          monthStep.month = 1;
                          _calendarView.displayedDate = [_calendarView.calendar dateByAddingComponents: monthStep toDate: _calendarView.displayedDate options: 0];
                          NSString *monthName = [[_calendarView.dateFormatter standaloneMonthSymbols] objectAtIndex: _calendarView.displayedMonth - 1];
-                         self.monthLabel.text = [NSString stringWithFormat: @"%@ %d", monthName, _calendarView.displayedYear];
+                         self.monthLabel.text = [NSString stringWithFormat: @"%@ %ld", monthName, _calendarView.displayedYear];
                          [_calendarView setNeedsLayout];
 
                          [_calendarView layoutIfNeeded];
@@ -176,15 +176,5 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

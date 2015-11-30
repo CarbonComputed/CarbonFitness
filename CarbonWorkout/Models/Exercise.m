@@ -8,7 +8,9 @@
 
 #import "Exercise.h"
 
+
 @implementation Exercise
+@synthesize description = _description;
 -(id) initWithDictionary:(NSDictionary*) attributes{
     self = [super init];
     if (self) {

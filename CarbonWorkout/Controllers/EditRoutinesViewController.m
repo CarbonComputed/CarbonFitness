@@ -11,11 +11,7 @@
 
 #define NUMBERS_ONLY @"1234567890"
 #define CHARACTER_LIMIT 3
-static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
-static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
-static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
-static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
-static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
+
 CGFloat animatedDistance;
 
 @interface EditRoutinesViewController ()
@@ -42,8 +38,8 @@ CGFloat animatedDistance;
         if(_inProgressRoutine){
             SetTrack* s = [_inProgressRoutine.setTrack copyWithZone:nil];
             _inProgressRoutine = [_inProgressRoutine initWithWorkoutPlanRoutine:_currentRoutine];
-            int i =0;
-            int weight=-1;
+            NSInteger i =0;
+            NSInteger weight=-1;
             for(Set* set in s.sets){
                 if(i >= _inProgressRoutine.setTrack.sets.count){
                     break;
@@ -73,6 +69,7 @@ CGFloat animatedDistance;
     _scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
 
     [_segmentedControl initWithItems:@[@"Sun", @"Mon", @"Tue", @"Wed", @"Thu", @"Fri", @"Sat"]];
+	
 	_segmentedControl.allowsMultiSelection = YES;
     
     _exerciseNameLabel.text = _currentRoutine.exercise.name;
@@ -153,14 +150,14 @@ CGFloat animatedDistance;
     _currentRoutine.sets = MAX(_currentRoutine.sets, _currentRoutine.incrementType + 1);
     [_incrementControl setSelectedSegmentIndex:_currentRoutine.incrementType];
 
-    _maxLabel.text = [NSString stringWithFormat:@"MAX: %d",_currentRoutine.max];
-    _setsField.text = [NSString stringWithFormat:@"%d",_currentRoutine.sets];
-    _repsField.text = [NSString stringWithFormat:@"%d",_currentRoutine.startingReps];
-    _weightField.text = [NSString stringWithFormat:@"%d",_currentRoutine.startingWeight];
-    _advancedView.startingRepField.text = [NSString stringWithFormat:@"%d",_currentRoutine.startingReps];
-    _advancedView.startingWeightField.text = [NSString stringWithFormat:@"%d",_currentRoutine.startingWeight];
-    _advancedView.endingRepField.text = [NSString stringWithFormat:@"%d",_currentRoutine.endingReps];
-    _advancedView.endingWeightField.text = [NSString stringWithFormat:@"%d",_currentRoutine.endingWeight];
+    _maxLabel.text = [NSString stringWithFormat:@"MAX: %ld",_currentRoutine.max];
+    _setsField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.sets];
+    _repsField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.startingReps];
+    _weightField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.startingWeight];
+    _advancedView.startingRepField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.startingReps];
+    _advancedView.startingWeightField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.startingWeight];
+    _advancedView.endingRepField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.endingReps];
+    _advancedView.endingWeightField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.endingWeight];
 }
 
 - (void)didReceiveMemoryWarning
@@ -304,24 +301,8 @@ CGFloat animatedDistance;
 }
 
 - (void)keyboardDidHide: (NSNotification *) notif{
-    //keyboard will hide
-//    _scrollView.frame = CGRectMake(_scrollView.frame.origin.x,
-//                                  _scrollView.frame.origin.y,
-//                                  _scrollView.frame.size.width,
-//                                  _scrollView.frame.size.height + 220);   //move down
     [_scrollView setContentOffset:CGPointMake(0, -65) animated:YES];
 
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

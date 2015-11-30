@@ -12,12 +12,10 @@
 @interface Set : NSObject
 
 
-@property int reps;
-@property int max_reps;
-@property int weight;
+@property NSInteger reps;
+@property NSInteger max_reps;
+@property NSInteger weight;
 
--(id)initWithReps:(int)reps
-           maxReps:(int)mreps
-           weight:(int)w;
+-(id)initWithReps:(NSInteger)reps maxReps:(NSInteger)mreps weight:(NSInteger)w;
 -(id)copyWithZone:(NSZone *)zone;
 @end

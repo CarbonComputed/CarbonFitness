@@ -12,7 +12,7 @@
 
 @interface WorkoutPlan : NSObject <NSCopying>
 
-@property int wid;
+@property NSInteger wid;
 @property NSString* name;
 @property NSString* description;
 @property NSMutableArray* workoutPlanRoutines;
