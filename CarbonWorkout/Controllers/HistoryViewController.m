@@ -78,12 +78,12 @@
     [_calendarView resetHighlights];
     
     
-    
+	_leftConstraint.constant += _calendarView.frame.size.width;
+
     [UIView animateWithDuration:.3
                      animations:^{
-                         _leftConstraint.constant += _calendarView.frame.size.width;
 
-                         [_calendarView layoutIfNeeded];
+                         [_calendarView.superview layoutIfNeeded];
                      }
                      completion: ^(BOOL finished) {//creates a variable (BOOL) called "finished" that is set to *YES* when animation IS completed.
                          _leftConstraint.constant -= _calendarView.frame.size.width;
@@ -96,9 +96,10 @@
                          self.monthLabel.text = [NSString stringWithFormat: @"%@ %lu", monthName, _calendarView.displayedYear];
                          [_calendarView setNeedsLayout];
                          [_calendarView layoutIfNeeded];
+						 _leftConstraint.constant += _calendarView.frame.size.width;
+
                          [UIView animateWithDuration:.3
                                           animations:^{
-                                              _leftConstraint.constant += _calendarView.frame.size.width;
                                               [_calendarView layoutIfNeeded];
                                           }
                                           completion: ^(BOOL finished) {
@@ -115,34 +116,40 @@
 
 
 - (IBAction)monthBackward:(id)sender {
-    [_calendarView resetHighlights];
-    [UIView animateWithDuration:.3
-                     animations:^{
-                         _leftConstraint.constant -= _calendarView.frame.size.width;
-                         
-                         [_calendarView layoutIfNeeded];
-                     }
-                     completion: ^(BOOL finished) {//creates a variable (BOOL) called "finished" that is set to *YES* when animation IS completed.
-                         _leftConstraint.constant += _calendarView.frame.size.width;
-                         _leftConstraint.constant += _calendarView.frame.size.width;
-                         NSDateComponents *monthStep = [NSDateComponents new];
-                         monthStep.month = 1;
-                         _calendarView.displayedDate = [_calendarView.calendar dateByAddingComponents: monthStep toDate: _calendarView.displayedDate options: 0];
-                         NSString *monthName = [[_calendarView.dateFormatter standaloneMonthSymbols] objectAtIndex: _calendarView.displayedMonth - 1];
-                         self.monthLabel.text = [NSString stringWithFormat: @"%@ %ld", monthName, _calendarView.displayedYear];
-                         [_calendarView setNeedsLayout];
+	[_calendarView resetHighlights];
 
-                         [_calendarView layoutIfNeeded];
-                         [UIView animateWithDuration:.3
-                                          animations:^{
-                                              _leftConstraint.constant -= _calendarView.frame.size.width;
-                                              [_calendarView layoutIfNeeded];
-                                          }
-                                          completion: ^(BOOL finished) {
-                                              [self highlightHistory];
-                                          }];
-                         
-                     }];
+	_leftConstraint.constant -= _calendarView.frame.size.width;
+	
+	[UIView animateWithDuration:.3
+					 animations:^{
+						 
+						 [_calendarView.superview layoutIfNeeded];
+					 }
+					 completion: ^(BOOL finished) {//creates a variable (BOOL) called "finished" that is set to *YES* when animation IS completed.
+						 _leftConstraint.constant += _calendarView.frame.size.width;
+						 _leftConstraint.constant += _calendarView.frame.size.width;
+						 NSDateComponents *monthStep = [NSDateComponents new];
+						 monthStep.month = 1;
+						 
+						 _calendarView.displayedDate = [_calendarView.calendar dateByAddingComponents: monthStep toDate: _calendarView.displayedDate options: 0];
+						 NSString *monthName = [[_calendarView.dateFormatter standaloneMonthSymbols] objectAtIndex: _calendarView.displayedMonth - 1];
+						 self.monthLabel.text = [NSString stringWithFormat: @"%@ %lu", monthName, _calendarView.displayedYear];
+						 [_calendarView setNeedsLayout];
+						 [_calendarView layoutIfNeeded];
+						 _leftConstraint.constant -= _calendarView.frame.size.width;
+						 
+						 [UIView animateWithDuration:.3
+										  animations:^{
+											  [_calendarView layoutIfNeeded];
+										  }
+										  completion: ^(BOOL finished) {
+											  [self highlightHistory];
+											  
+											  
+										  }];
+						 
+						 
+					 }];
 
  
 }
@@ -154,7 +161,7 @@
     RootViewController* rvc = (RootViewController*) [nav.childViewControllers objectAtIndex:0];
     Workout* workout =[rvc.historyDict objectForKey:[formatter stringFromDate:date]];
     if(!workout.isCompleted){
-        //ask to see if they would like to continue workout or 
+        //ask to see if they would like to continue workout or
     }
     [self performSegueWithIdentifier:@"historyWorkoutSegue" sender:workout];
     

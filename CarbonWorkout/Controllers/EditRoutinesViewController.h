@@ -38,7 +38,6 @@
 
 @property (weak, nonatomic) IBOutlet AdvancedSetView *reps_weightView;
 @property (weak, nonatomic) IBOutlet AdvancedSetView *reffedView;
-@property AdvancedSetView* advancedView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property id<EditRoutineDelegate> delegate;

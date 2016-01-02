@@ -29,7 +29,7 @@
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 
 @property (weak, nonatomic) IBOutlet UIView *viewHolder;
-@property (strong, nonatomic) SetView *setView;
+@property (weak, nonatomic) IBOutlet SetView *setView;
 
 
 @property (strong,nonatomic) Routine* routine;

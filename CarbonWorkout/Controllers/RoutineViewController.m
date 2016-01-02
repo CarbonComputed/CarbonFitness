@@ -26,6 +26,7 @@
 @property int defaultDistanceConstraint;
 @property int defaultHeight;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *setViewBottomConstraint;
 @end
 
 @implementation RoutineViewController
@@ -42,33 +43,18 @@
 }
 
 -(void)setViewResized:(NSUInteger)buttonSize{
-                _heightConstraint.constant += buttonSize;
-                _distanceToTimeCon.constant -= buttonSize;
-                CGRect frame = _setView.frame;
-    [_setView setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height+buttonSize)];
-                if(_distanceToTimeCon.constant < 95 ){
-                    _distanceToImageCon.constant -= buttonSize;
+    self.setViewBottomConstraint.constant = buttonSize;
     
-                }
-                [UIView animateWithDuration:0.5
-                                      delay:0
-                                    options:UIViewAnimationOptionCurveEaseOut
-                                 animations:^{
-                                     [_setView layoutIfNeeded];
-                                 } completion:nil
-                 ];
+    [self.setView setNeedsLayout];
+    [self.setView layoutIfNeeded];
+    [self.setView.superview setNeedsLayout];
+    [self.setView.superview layoutIfNeeded];
 }
 
 - (void)loadView
 {
     [super loadView];
     [self loadWorkoutImage];
-    _viewHolder.hidden = true;
-    _setView = [[SetView alloc] initWithFrame:CGRectMake(20, 124, 280, 94)];
-    _setView.delegate = self;
-
-    [self.view addSubview:_setView];
-	
 }
 - (IBAction)labelSwiped:(id)sender {
     [self hideNotLabel];
@@ -108,8 +94,6 @@
 {
     _heightConstraint.constant = _defaultHeightConstraint;
     _distanceToTimeCon.constant = _defaultDistanceConstraint;
-    CGRect frame = _setView.frame;
-    [_setView setFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, _defaultHeight)];
 
     //[_routine.setTrack.sets removeAllObjects] ;
     if(!_currentWorkout.currentPlan && !_fromHistory){
@@ -140,7 +124,6 @@
         _weightLabel.text = [NSString stringWithFormat:@"%ld lbs", weight];
         
         [_setView setSets:_routine.setTrack.sets];
-        [_setView setNeedsLayout];
         return;
     }
     for(WorkoutPlanRoutine* wpr in _currentWorkout.currentPlan.workoutPlanRoutines){
@@ -174,9 +157,8 @@
                 weight = [[_routine.setTrack.sets objectAtIndex:_routine.setTrack.sets.count-1] weight];
             }
             _weightLabel.text = [NSString stringWithFormat:@"%ld lbs", weight];
-
-            [_setView setSets:_routine.setTrack.sets];
-            [_setView setNeedsLayout];
+            
+            self.setView.sets = _routine.setTrack.sets;
             break;
             
         }
@@ -383,7 +365,7 @@
     [super viewDidLoad];
     _defaultHeightConstraint =  _heightConstraint.constant;
     _defaultDistanceConstraint = _distanceToTimeCon.constant;
-    _defaultHeight = _setView.frame.size.height;
+    _defaultHeight = 50;
     _imageView.userInteractionEnabled = YES;
     _exerciseLabel.text = [_routine.workoutPlanRoutine.exercise.name uppercaseString];
     if([_routine.setTrack.sets count] > 0){
@@ -395,7 +377,7 @@
         }
         _weightLabel.text = [NSString stringWithFormat:@"%ld lbs", (long)set.weight];
     }
-
+    self.setView.delegate = self;
     //_maxLabel.text =  [NSString stringWithFormat:@"Max: %dlbs", _routine.workoutPlanRoutine.max];
 
 

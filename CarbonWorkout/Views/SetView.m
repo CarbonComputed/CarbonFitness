@@ -7,218 +7,162 @@
 //
 
 #import "SetView.h"
-
 #import "Set.h"
 
 @implementation SetView
-- (id)initWithFrame:(CGRect)frame setArray:(NSMutableArray*)sets
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        _sets = sets;
-        _setButtons = [NSMutableArray new];
-        
-		NSInteger plusy = -5;
-        NSInteger row = 0;
-        NSUInteger buttonsLeft = [_sets count];
-        NSInteger defaultCirclesPerRow = 5;
-        NSInteger buttonsInRow = 0;
-        NSInteger viewWidth = frame.size.width;
-        NSInteger viewHeight = frame.size.height;
-        NSInteger buttonSize = 45;
-        if([_sets count] % 5 == 0){
-            defaultCirclesPerRow = 5;
-        }
-        else if([_sets count] % 5 == 1){
-            defaultCirclesPerRow = 6;
-            buttonSize = 38;
-            
-        }
-        else if([_sets count] % 5 == 2){
-            
-            defaultCirclesPerRow = 7;
-            buttonSize = 34;
-            
-        }
-        else if([_sets count] % 5 == 3){
-            
-            defaultCirclesPerRow = 5;
-            
-        }
-        else if([_sets count] % 5 == 4){
-            
-            defaultCirclesPerRow = 5;
-            
-        }
-        if([_sets count] > 10){
-            buttonSize = 38;
-            defaultCirclesPerRow = 6;
-            
-        }
-        
-        for(int i=0;i<[_sets count];i++){
-            
-            
-            
-            if(buttonsInRow == defaultCirclesPerRow){
-                buttonsInRow = 0;
-                plusy += buttonSize + 5;
-                buttonsLeft -= defaultCirclesPerRow;
-                row += 1;
-                if(row % 2==1 && [_sets count] % 5 != 0){
-                    //defaultCirclesPerRow = 4;
-                }
-                else{
-                    //defaultCirclesPerRow = 5;
-                    
-                }
-               [_delegate setViewResized:buttonSize];
-            }
-            
-            
-            NSUInteger circlesPerRow = MIN(defaultCirclesPerRow, buttonsLeft);
-            
-            CGFloat xmultiplier = (((2*(buttonsInRow%circlesPerRow) + 2) / (CGFloat)(circlesPerRow + 1)))/2;
-            //CGFloat ymultiplier = (((2*(row) + 2) / (CGFloat)(row + 1)))/2;
 
-            NSUInteger x = xmultiplier * viewWidth;
-            NSUInteger y = plusy + ((viewHeight/2) - (buttonSize/2));
-            //int y = (ymultiplier * viewHeight);
-            
-            //NSLog(@"%d,%d,%f",plusy,y,xmultiplier);
-            UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(x-buttonSize/2, y, buttonSize, buttonSize)];
-            setButton.backgroundColor = [UIColor clearColor];
-            setButton.layer.borderColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
-            setButton.layer.borderWidth = 1;
-            setButton.layer.cornerRadius = buttonSize/2;
-            setButton.tag = i;
-            Set* set = [_sets objectAtIndex:i];
-            
-            if(set.reps != -1){
-                [setButton setBackgroundColor:[UIColor colorWithCGColor:setButton.layer.borderColor]];
-                
-                [setButton setTitle: [NSString stringWithFormat:@"%ld", (long)set.reps] forState:UIControlStateNormal];
-            }
-            setButton.userInteractionEnabled = YES;
-            [setButton addTarget:self action:@selector(setButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-            [_setButtons addObject:setButton];
-            [self addSubview:setButton];
-            buttonsInRow++;
-            
-        // Initialization code
-      
-        }
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self layoutSets];
     }
     return self;
 }
 
--(void)setSets:(NSMutableArray *)sets{
-    
-    _sets = sets;
-    _setButtons = nil;
-    _setButtons = [NSMutableArray new];
-    NSArray *viewsToRemove = [self subviews];
-    for (UIView *v in viewsToRemove) {
-        [v removeFromSuperview];
+-(id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self layoutSets];
     }
+    return self;
+}
 
-    CGRect frame = self.frame;
-    NSInteger plusy = -5;
-    NSInteger row = 0;
-    NSUInteger buttonsLeft = [_sets count];
-    NSUInteger defaultCirclesPerRow = 5;
-    NSUInteger buttonsInRow = 0;
-    NSUInteger viewWidth = frame.size.width;
-    NSUInteger viewHeight = frame.size.height;
-    NSUInteger buttonSize = 45;
-    if([_sets count] % 5 == 0){
-        defaultCirclesPerRow = 5;
+-(void)layoutSets {
+    for (UIButton *button in self.setButtons) {
+        [button removeFromSuperview];
     }
-    else if([_sets count] % 5 == 1){
-        defaultCirclesPerRow = 6;
-        buttonSize = 38;
-        
-    }
-    else if([_sets count] % 5 == 2){
-        
-        defaultCirclesPerRow = 7;
-        buttonSize = 34;
-        
-    }
-    else if([_sets count] % 5 == 3){
-        
-        defaultCirclesPerRow = 5;
-        
-    }
-    else if([_sets count] % 5 == 4){
-        
-        defaultCirclesPerRow = 5;
-        
-    }
-    if([_sets count] > 10){
-        buttonSize = 38;
-        defaultCirclesPerRow = 6;
-        
-    }
-    
-    for(int i=0;i<[_sets count];i++){
-        
-        
-        
-        if(buttonsInRow == defaultCirclesPerRow){
-            buttonsInRow = 0;
-            plusy += buttonSize + 5;
-            buttonsLeft -= defaultCirclesPerRow;
-            row += 1;
-            if(row % 2==1 && [_sets count] % 5 != 0){
-                //defaultCirclesPerRow = 4;
-            }
-            else{
-                //defaultCirclesPerRow = 5;
-                
-            }
-            [_delegate setViewResized:buttonSize];
-        }
-        
-        
-        NSUInteger circlesPerRow = MIN(defaultCirclesPerRow, buttonsLeft);
-        
-        CGFloat xmultiplier = (((2*(buttonsInRow%circlesPerRow) + 2) / (CGFloat)(circlesPerRow + 1)))/2;
-        //CGFloat ymultiplier = (((2*(row) + 2) / (CGFloat)(row + 1)))/2;
-        
-        NSUInteger x = xmultiplier * viewWidth;
-        NSUInteger y = plusy + ((viewHeight/2) - (buttonSize/2));
-        //int y = (ymultiplier * viewHeight);
-        
-        //NSLog(@"%d,%d,%f",plusy,y,xmultiplier);
-        UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectMake(x-buttonSize/2, y, buttonSize, buttonSize)];
-        setButton.backgroundColor = [UIColor clearColor];
-        setButton.layer.borderColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
-        setButton.layer.borderWidth = 1;
-        setButton.layer.cornerRadius = buttonSize/2;
-        setButton.tag = i;
-        Set* set = [_sets objectAtIndex:i];
-        
-        if(set.reps != -1){
-            [setButton setBackgroundColor:[UIColor colorWithCGColor:setButton.layer.borderColor]];
-            
-            [setButton setTitle: [NSString stringWithFormat:@"%ld", (long)set.reps] forState:UIControlStateNormal];
-        }
-        setButton.userInteractionEnabled = YES;
-        [setButton addTarget:self action:@selector(setButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [_setButtons addObject:setButton];
+    _setButtons = [NSMutableArray new];
+    for(NSInteger i = 0;i < [self.sets count] ;i++) {
+        UIButton *setButton = [self buttonAtIndex:i];
         [self addSubview:setButton];
-        buttonsInRow++;
+        [self constrainButton:setButton atIndex:i];
+        [_setButtons addObject:setButton];
     }
 }
 
--(void)setButtonPressed:(UIButton *)sender{
-    NSInteger index = sender.tag;
-    UIButton* pressed = [_setButtons objectAtIndex:index];
-    [pressed setBackgroundColor:[UIColor colorWithCGColor:pressed.layer.borderColor]];
-    Set* set = [_sets objectAtIndex:index];
+-(void)constrainButton:(UIButton *)button atIndex:(NSInteger)index {
+    NSInteger buttonDiameter = [self diameterPerButton];
+    NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:button
+                                                                       attribute:NSLayoutAttributeWidth
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:nil
+                                                                       attribute:NSLayoutAttributeNotAnAttribute
+                                                                      multiplier:1.0
+                                                                        constant:buttonDiameter];
+    NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:button
+                                                                        attribute:NSLayoutAttributeHeight
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:nil
+                                                                        attribute:NSLayoutAttributeNotAnAttribute
+                                                                       multiplier:1.0
+                                                                         constant:buttonDiameter];
+    NSInteger row = (index / [self circlesPerRow]);
+    NSInteger indexOfButtonInRow = index % [self circlesPerRow];
+    CGFloat totalCirclesInRow = [self circlesPerRow];
+    CGFloat totalRows = ceil((CGFloat) self.sets.count / (CGFloat) [self circlesPerRow]);
+
+    if (row == totalRows - 1&&
+        self.sets.count % [self circlesPerRow] != 0) {
+        totalCirclesInRow = self.sets.count % [self circlesPerRow];
+        indexOfButtonInRow = totalCirclesInRow - (self.sets.count - index);
+    }
+    CGFloat xmultiplier = (CGFloat) (indexOfButtonInRow + 1) / (totalCirclesInRow + 1) + 0.0001;
+    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:button
+                                                                      attribute:NSLayoutAttributeCenterX
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:self
+                                                                      attribute:NSLayoutAttributeRight
+                                                                     multiplier:xmultiplier
+                                                                       constant:0];
+
     
-    if(set.reps == -1 || set.reps ==0){
+    
+    CGFloat ySpacing = 10;
+    CGFloat constant = (row) * ([self diameterPerButton] + ySpacing);
+
+    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:button
+                                                                     attribute:NSLayoutAttributeTop
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:self
+                                                                     attribute:NSLayoutAttributeTop
+                                                                    multiplier:1.0
+                                                                      constant:constant];
+    [self addConstraints:@[widthConstraint, heightConstraint, leftConstraint, topConstraint]];
+}
+
+-(UIButton *)buttonAtIndex:(NSInteger)index {
+    UIButton *setButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    setButton.translatesAutoresizingMaskIntoConstraints = NO;
+    setButton.backgroundColor = [UIColor clearColor];
+    setButton.layer.borderColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
+    setButton.layer.borderWidth = 1;
+    setButton.layer.cornerRadius = [self diameterPerButton] / 2;
+    Set* set = [self.sets objectAtIndex:index];
+    
+    if(set.reps >= 0){
+        [setButton setBackgroundColor:[UIColor colorWithCGColor:setButton.layer.borderColor]];
+        
+        [setButton setTitle: [NSString stringWithFormat:@"%ld", (long)set.reps] forState:UIControlStateNormal];
+    }
+    setButton.userInteractionEnabled = YES;
+    [setButton addTarget:self action:@selector(setButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    return setButton;
+}
+
+-(NSInteger)diameterPerButton {
+    NSInteger buttonSize = 48;
+    if([self.sets count] % 5 == 1 || [self.sets count] > 10){
+        buttonSize = 38;
+        
+    }
+    else if([self.sets count] % 5 == 2){
+        buttonSize = 34;
+    }
+    return buttonSize;
+}
+
+-(NSInteger)circlesPerRow {
+    NSInteger defaultCirclesPerRow = 6;
+    if([self.sets count] % 5 == 0){
+        defaultCirclesPerRow = 5;
+    }
+    else if([self.sets count] % 5 == 1 || [self.sets count] > 10){
+        defaultCirclesPerRow = 6;
+    }
+    else if([self.sets count] % 5 == 2){
+        defaultCirclesPerRow = 7;
+    }
+    else if([self.sets count] % 5 == 3){
+        defaultCirclesPerRow = 5;
+        
+    }
+    else if([self.sets count] % 5 == 4){
+        defaultCirclesPerRow = 5;
+        
+    }
+    return defaultCirclesPerRow;
+}
+
+-(void)setSets:(NSArray *)sets {
+    _sets = sets;
+    [self layoutSets];
+    CGFloat totalRows = ceil((CGFloat) self.sets.count / (CGFloat) [self circlesPerRow]);
+    CGFloat constant = (totalRows-1) * ([self diameterPerButton] + 10);
+    if (totalRows > 1) {
+        constant -= [self diameterPerButton] - 10;
+    }
+    [self.delegate setViewResized:constant];
+    [self setNeedsLayout];
+    [self layoutSubviews];
+}
+
+-(void)setButtonPressed:(UIButton *)sender{
+    UIButton* pressed = sender;
+    NSInteger index = [self.setButtons indexOfObject:sender];
+    [pressed setBackgroundColor:[UIColor colorWithCGColor:pressed.layer.borderColor]];
+    Set* set = [self.sets objectAtIndex:index];
+    
+    if(set.reps == -1 || set.reps == 0){
         set.reps = set.max_reps;
     }
     else{

@@ -14,6 +14,4 @@
 @property (weak, nonatomic) IBOutlet UITextField *startingWeightField;
 @property (weak, nonatomic) IBOutlet UITextField *endingWeightField;
 
-
-+ (id)customView;
 @end

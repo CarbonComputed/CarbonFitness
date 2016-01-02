@@ -17,6 +17,7 @@ CGFloat animatedDistance;
 @interface EditRoutinesViewController ()
 
 @property BOOL viewDidLoadCalled;
+@property (weak, nonatomic) IBOutlet AdvancedSetView *advancedSetView;
 
 @end
 
@@ -87,45 +88,36 @@ CGFloat animatedDistance;
     [_repsField setDelegate:self];
     [_weightField setDelegate:self];
     
-    [_advancedView.startingRepField setDelegate:self];
-    [_advancedView.startingWeightField setDelegate:self];
-    [_advancedView.endingRepField setDelegate:self];
-    [_advancedView.endingWeightField setDelegate:self];
+    [_advancedSetView.startingRepField setDelegate:self];
+    [_advancedSetView.startingWeightField setDelegate:self];
+    [_advancedSetView.endingRepField setDelegate:self];
+    [_advancedSetView.endingWeightField setDelegate:self];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(startingRepChanged:)
                                                  name:UITextFieldTextDidChangeNotification
-                                               object:_advancedView.startingRepField];
+                                               object:_advancedSetView.startingRepField];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(startingWeightChanged:)
                                                  name:UITextFieldTextDidChangeNotification
-                                               object:_advancedView.startingWeightField];
+                                               object:_advancedSetView.startingWeightField];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(endingRepChanged:)
                                                  name:UITextFieldTextDidChangeNotification
-                                               object:_advancedView.endingRepField];
+                                               object:_advancedSetView.endingRepField];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(endingWeightChanged:)
                                                  name:UITextFieldTextDidChangeNotification
-                                               object:_advancedView.endingWeightField];
+                                               object:_advancedSetView.endingWeightField];
 
     
-    
-    AdvancedSetView *customView = [AdvancedSetView customView];
-    _advancedView = customView;
-  
-    
-    customView.frame = _reps_weightView.frame;
-    customView.hidden = true;
-    [_containerView addSubview:customView];
+    self.advancedSetView.hidden = NO;
     [self updateTextBoxes];
 
     
     // Do any additional setup after loading the view.
 }
-
-
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string  {
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
@@ -142,22 +134,22 @@ CGFloat animatedDistance;
         [_segmentedControl selectSegmentWithIndex:j];
     }
     if(_currentRoutine.incrementType > 0){
-        _advancedView.hidden = false;
+        _advancedSetView.hidden = false;
     }
     else{
-        _advancedView.hidden = true;
+        _advancedSetView.hidden = true;
     }
     _currentRoutine.sets = MAX(_currentRoutine.sets, _currentRoutine.incrementType + 1);
     [_incrementControl setSelectedSegmentIndex:_currentRoutine.incrementType];
 
-    _maxLabel.text = [NSString stringWithFormat:@"MAX: %ld",_currentRoutine.max];
+//    _maxLabel.text = [NSString stringWithFormat:@"MAX: %ld",_currentRoutine.max];
     _setsField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.sets];
     _repsField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.startingReps];
     _weightField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.startingWeight];
-    _advancedView.startingRepField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.startingReps];
-    _advancedView.startingWeightField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.startingWeight];
-    _advancedView.endingRepField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.endingReps];
-    _advancedView.endingWeightField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.endingWeight];
+    _advancedSetView.startingRepField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.startingReps];
+    _advancedSetView.startingWeightField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.startingWeight];
+    _advancedSetView.endingRepField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.endingReps];
+    _advancedSetView.endingWeightField.text = [NSString stringWithFormat:@"%ld",_currentRoutine.endingWeight];
 }
 
 - (void)didReceiveMemoryWarning
@@ -179,7 +171,7 @@ CGFloat animatedDistance;
         if ([view isKindOfClass:[UITextField class]])
             [view resignFirstResponder];
     }
-    for (UIView* view in _advancedView.subviews) {
+    for (UIView* view in _advancedSetView.subviews) {
         if ([view isKindOfClass:[UITextField class]])
             [view resignFirstResponder];
     }
@@ -259,19 +251,19 @@ CGFloat animatedDistance;
 }
 
 - (IBAction)startingRepChanged:(id)sender {
-    _currentRoutine.startingReps = [_advancedView.startingRepField.text intValue];
+    _currentRoutine.startingReps = [_advancedSetView.startingRepField.text intValue];
 }
 
 - (IBAction)startingWeightChanged:(id)sender {
-    _currentRoutine.startingWeight = [_advancedView.startingWeightField.text intValue];
+    _currentRoutine.startingWeight = [_advancedSetView.startingWeightField.text intValue];
 }
 
 - (IBAction)endingRepChanged:(id)sender {
-    _currentRoutine.endingReps = [_advancedView.endingRepField.text intValue];
+    _currentRoutine.endingReps = [_advancedSetView.endingRepField.text intValue];
 }
 
 - (IBAction)endingWeightChanged:(id)sender {
-    _currentRoutine.endingWeight = [_advancedView.endingWeightField.text intValue];
+    _currentRoutine.endingWeight = [_advancedSetView.endingWeightField.text intValue];
 }
 
 

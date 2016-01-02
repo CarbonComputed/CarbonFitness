@@ -11,15 +11,12 @@
 @protocol SetViewDelegate
 -(void)setViewResized:(NSUInteger)buttonSize;
 -(void)setButtonPressed:(UIButton *)sender;
-
 @end
 
-
 @interface SetView : UIView
-@property NSMutableArray* setButtons;
-@property (nonatomic) NSMutableArray* sets;
-@property id<SetViewDelegate> delegate;
 
-- (id)initWithFrame:(CGRect)frame setArray:(NSMutableArray*)sets;
+@property NSMutableArray *setButtons;
+@property (nonatomic) NSArray *sets;
+@property id<SetViewDelegate> delegate;
 
 @end

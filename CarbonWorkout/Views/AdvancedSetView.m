@@ -10,25 +10,6 @@
 
 @implementation AdvancedSetView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-+ (id)customView
-{
-    AdvancedSetView *customView = [[[NSBundle mainBundle] loadNibNamed:@"AdvancedSetView" owner:nil options:nil] lastObject];
-    
-    // make sure customView is not nil or the wrong class!
-    if ([customView isKindOfClass:[AdvancedSetView class]])
-        return customView;
-    else
-        return nil;
-}
 - (IBAction)startingRepIncButton:(id)sender {
     int current = [_startingRepField.text intValue];
     _startingRepField.text = [NSString stringWithFormat:@"%d",current+1];
